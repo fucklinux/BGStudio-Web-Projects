@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>设置</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+      
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+
+  </head>
+  <script>function enable_listen_scroll(){var e=document.createElement("link"),n=(e.id="enable-listen-scroll",e.rel="stylesheet",e.href="data:text/css,body, .content, #app-container { position: static; }  .content { -webkit-overflow-scrolling: auto; }",document.getElementsByTagName("head"));0<n.length&&n[0].appendChild(e)}function show_addon_index(){var e;"huawei"!=mbrowser.getChannelCode()&&(e='        <div class="card">\n            <ul class="table-view">\n\n                <li class="table-view-cell media">\n                    <a  href="javascript:mbrowser.openLocalPage(\'x:addon\',false);" class="navigate-right">\n                        <div class="media-body">\n                            '+mbrowser.getStringResource("web_str_browser_addons")+"\n                        </div>\n                    </a>\n                </li>\n\n            </ul>\n        </div>",document.write(e))}</script>
+
+  <body>
+
+    
+     <header class="bar bar-nav">
+      <h1 class="title"><script>_str("web_str_title_setting")</script>设置</h1>
+    </header>
+
+    
+    <div class="content">
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:custom',false);" class="navigate-right" onclick="location.href='custom.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_set_custom")</script>个性化
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell">
+                    <a href="javascript:mbrowser.openLocalPage('x:gs');" class="navigate-right" onclick="location.href='gesture_setting.html'">
+                        <script>_str("web_str_title_gs_setting")</script>手势设置
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:gens',false);" class="navigate-right" onclick="location.href='general_set.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_set_general")</script>基本设置
+
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:sp',false);" class="navigate-right" onclick="location.href='privacy_set.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_set_security_and_privacy")</script>安全及隐私
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:adb',false);" class="navigate-right" onclick="location.href='adblock_setting.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_setting_adb")</script>广告拦截
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:as',false);" class="navigate-right" onclick="location.href='adv_setting.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_title_adv_setting")</script>高级设置
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:me',false);" class="navigate-right" onclick="location.href='user_center.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_set_user_center")</script>用户中心
+
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <script></script>
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:sc',false);" class="navigate-right" onclick="location.href='myscript.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_browser_scripts")</script>用户脚本
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:help',false);" class="navigate-right" onclick="location.href='https://www.xbext.com/docs/#faq'">
+                        <div class="media-body">
+                            <script>_str("web_str_setting_help")</script>帮助文档
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:about',false);" class="navigate-right" onclick="location.href='about.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_setting_about")</script>关于
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="edit-form">
+            <button onclick="mbrowser.resetToDefualtSettings()" class="btn btn-positive btn-block"><script>_str("web_str_setting_reset")</script>重置为默认设置</button>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+    </div>
+  </body>
+</html>

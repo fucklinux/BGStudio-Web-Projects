@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>高级设置</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+      
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+
+  </head>
+  <script>function updateToggleStatus(){document.querySelector("#support-multi-win").addEventListener("toggle",function(e){mbrowser.supportMultiWin(e.detail.isActive)}),mbrowser.getBooleanPreference("support-multi-win")?document.querySelector("#support-multi-win").classList.add("active"):document.querySelector("#support-multi-win").classList.remove("active"),document.querySelector("#disable-cookies").addEventListener("toggle",function(e){mbrowser.disableCookies(e.detail.isActive)}),mbrowser.getBooleanPreference("accept_cookies")?document.querySelector("#disable-cookies").classList.remove("active"):document.querySelector("#disable-cookies").classList.add("active"),document.querySelector("#disable-javascript").addEventListener("toggle",function(e){mbrowser.disableJavaScript(e.detail.isActive)}),mbrowser.getBooleanPreference("enable_javascript")?document.querySelector("#disable-javascript").classList.remove("active"):document.querySelector("#disable-javascript").classList.add("active"),document.querySelector("#force-user-scalable").addEventListener("toggle",function(e){mbrowser.foreUserScalable(e.detail.isActive)}),mbrowser.getBooleanPreference("force-user-scalable")?document.querySelector("#force-user-scalable").classList.add("active"):document.querySelector("#force-user-scalable").classList.remove("active"),document.querySelector("#auto-wrap-when-scaled").addEventListener("toggle",function(e){mbrowser.autoWrapLineWhenScaled(e.detail.isActive)}),mbrowser.getBooleanPreference("auto-wrap-when-scaled")?document.querySelector("#auto-wrap-when-scaled").classList.add("active"):document.querySelector("#auto-wrap-when-scaled").classList.remove("active"),document.querySelector("#enable-remote-debug").addEventListener("toggle",function(e){mbrowser.enableRemoteDebug(e.detail.isActive)}),mbrowser.getBooleanPreference("enable-remote-debug")?document.querySelector("#enable-remote-debug").classList.add("active"):document.querySelector("#enable-remote-debug").classList.remove("active"),document.querySelector("#support-super-cache").addEventListener("toggle",function(e){mbrowser.supportSuperCache(e.detail.isActive)}),mbrowser.getBooleanPreference("support-super-cache")?document.querySelector("#support-super-cache").classList.add("active"):document.querySelector("#support-super-cache").classList.remove("active"),document.querySelector("#auto-clean-web-cache").addEventListener("toggle",function(e){mbrowser.autoCleanWebCache(e.detail.isActive)}),mbrowser.getBooleanPreference("auto-clean-web-cache")?document.querySelector("#auto-clean-web-cache").classList.add("active"):document.querySelector("#auto-clean-web-cache").classList.remove("active"),document.querySelector("#play-video-with-fullscreen").addEventListener("toggle",function(e){mbrowser.playVideoWithFullscreen(e.detail.isActive)}),mbrowser.getBooleanPreference("play-video-with-fullscreen")?document.querySelector("#play-video-with-fullscreen").classList.add("active"):document.querySelector("#play-video-with-fullscreen").classList.remove("active"),document.querySelector("#auto-sniff-media").addEventListener("toggle",function(e){mbrowser.autoSniffMedia(e.detail.isActive)}),mbrowser.getBooleanPreference("auto-sniff-media")?document.querySelector("#auto-sniff-media").classList.add("active"):document.querySelector("#auto-sniff-media").classList.remove("active"),document.querySelector("#deep-sniff-media").addEventListener("toggle",function(e){mbrowser.deepSniffMedia(e.detail.isActive)}),mbrowser.getBooleanPreference("deep-sniff-media")?document.querySelector("#deep-sniff-media").classList.add("active"):document.querySelector("#deep-sniff-media").classList.remove("active"),document.querySelector("#disable-read-mode").addEventListener("toggle",function(e){mbrowser.disableReadMode(e.detail.isActive)}),mbrowser.getBooleanPreference("disable-read-mode")?document.querySelector("#disable-read-mode").classList.add("active"):document.querySelector("#disable-read-mode").classList.remove("active"),document.querySelector("#support-instant-tran").addEventListener("toggle",function(e){mbrowser.supportInstanTran(e.detail.isActive)}),mbrowser.getBooleanPreference("support-instant-tran")?document.querySelector("#support-instant-tran").classList.add("active"):document.querySelector("#support-instant-tran").classList.remove("active"),document.querySelector("#support-lookup-words").addEventListener("toggle",function(e){mbrowser.supportInstantDictionary(e.detail.isActive)}),mbrowser.getBooleanPreference("support-lookup-words")?document.querySelector("#support-lookup-words").classList.add("active"):document.querySelector("#support-lookup-words").classList.remove("active")}document.addEventListener("DOMContentLoaded",updateToggleStatus,!1)</script>
+  <body>
+
+    
+     <header class="bar bar-nav">
+      <h1 class="title"><script>_str("web_str_title_adv_setting")</script>高级设置</h1>
+    </header>
+
+    
+    <div class="content">
+        <div class="card">
+            <ul class="table-view">
+
+
+
+                <li class="table-view-cell media">
+                    <script>_str("web_str_setting_allow_open_link_in_new_win")</script>允许页面弹窗
+                    <div id="support-multi-win" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                </li>
+                <li class="table-view-cell">
+                    <script>_str("web_str_setting_disable_cookies")</script>禁用Cookies
+                    <div id="disable-cookies" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                </li>
+
+                <li class="table-view-cell">
+                    <script>_str("web_str_setting_disable_js")</script>禁用JS
+                    <div id="disable-javascript" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                </li>
+
+                <li class="table-view-cell">
+                    <script>_str("web_str_force_user_scalable")</script>强制页面缩放
+                    <div id="force-user-scalable" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                    <p> <script>_str("web_str_force_user_scalable_desc")</script>移动页面强制支持双指缩放</p>
+                </li>
+
+                <li class="table-view-cell">
+                    <script>_str("web_str_wrap_line_when_scaled")</script>自动折行
+                    <div id="auto-wrap-when-scaled" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                    <p> <script>_str("web_str_wrap_line_when_scaled_desc")</script>页面进行缩放的时候自动折行</p>
+                </li>
+
+                
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a class="navigate-right" href="javascript:mbrowser.openLocalPage('x:ua');" onclick="location.href='custom_ua_string.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_add_custom_ua")</script>添加自定义UA字符串
+
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a class="navigate-right" class="navigate-right" href="javascript:mbrowser.openLocalPage('x:se');" onclick="location.href='custom_search.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_add_custom_search")</script>添加自定义搜索引擎
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell">
+                    <a>
+                        <script>_str("web_str_setting_support_super_cache")</script>打开超级缓存
+                        <div id="support-super-cache" class="toggle">
+                            <div class="toggle-handle"></div>
+                        </div>
+                        <p> <script>_str("web_str_setting_support_super_cache_desc")</script>页面前进后退时不重新加载页面</p>
+                    </a>
+                </li>
+                <li class="table-view-cell">
+                    <a>
+                        <script>_str("web_str_auto_clean_cache")</script>自动清理页面缓存
+                        <div id="auto-clean-web-cache" class="toggle">
+                            <div class="toggle-handle"></div>
+                        </div>
+                        <p> <script>_str("web_str_auto_clean_cache_desc")</script>定期清理页面缓存，减少空间占用，提升运行速度</p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell">
+                    <script>_str("web_str_setting_disable_read_mode")</script>禁用阅读模式
+                    <div id="disable-read-mode" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                </li>
+                <li class="table-view-cell">
+                    <script>_str("web_str_setting_play_with_fullscreen")</script>播放视频自动全屏
+                    <div id="play-video-with-fullscreen" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                </li>
+                <li class="table-view-cell">
+                    <script>_str("web_str_setting_auto_sniffer_media")</script>自动嗅探媒体资源
+                    <div id="auto-sniff-media" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                </li>
+
+                <li class="table-view-cell">
+                    <script>_str("web_str_setting_deep_sniffer_media")</script>深度嗅探媒体资源
+                    <div id="deep-sniff-media" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                    <p> <script>_str("web_str_setting_deep_sniffer_media_desc")</script>如无法成功嗅探媒体资源页面请尝试开启这个选项</p>
+                </li>
+
+
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell">
+                    <script>_str("web_str_support_instant_tran")</script>支持即时翻译
+                    <div id="support-instant-tran" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                    <p> <script>_str("web_str_support_instant_tran_desc")</script>长按选择页面中的单词显示即时翻译结果</p>
+                </li>
+                <li class="table-view-cell">
+                    <a href="javascript:mbrowser.chooseSecondLanguage();">
+                        <div class="media-body">
+                            <script>_str("web_str_local_lan_tran_to")</script>本地语言翻译为...
+                        </div>
+                        <p> <script>_str("web_str_local_lan_tran_to_desc")</script>把本地语言翻译为你选择的语言</p>
+                    </a>
+                </li>
+                <li class="table-view-cell">
+                    <script>_str("web_str_support_lookup_words")</script>支持即时词典
+                    <div id="support-lookup-words" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                    <p> <script>_str("web_str_support_lookup_words_desc")</script>你可以在搜索框快速查词</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell">
+                    <a>
+                        <script>_str("web_str_enable_chrome_remote_debug")</script>开启Chrome远程调试
+                        <div id="enable-remote-debug" class="toggle">
+                            <div class="toggle-handle"></div>
+                        </div>
+                        <p> <script>_str("web_str_enable_chrome_remote_debug_desc")</script>在Chrome地址栏中输入"chrome://inspect"，通过Chrome浏览器远程调试浏览器网页</p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+
+    </div>
+  </body>
+</html>

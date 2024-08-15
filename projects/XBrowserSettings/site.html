@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Site Configuration</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+    <link href="mbrowser.css" rel="stylesheet">
+
+    
+    <script src="js/ratchet.js"></script>
+    <script src="mbrowser.js"></script>
+
+</head>
+
+
+<script>function updateSelectButtonText(){var e=document.querySelector("#ua-name"),t=getQueryString("host");e&&(e.innerHTML=mbrowser.getUATitleByHost(t))}function showDomainRulesItem(){var e="<a href=\"javascript:mbrowser.openLocalPage('x:block-rule?filter="+getQueryString("host")+'\');" class="navigate-right">'+mbrowser.getStringResource("web_str_domain_rules")+"<p>"+mbrowser.getStringResource("web_str_domain_rules_desc")+"</p></a>";document.write(e)}function showChooseUAItems(){var e=getQueryString("host"),e=" <a  href=\"javascript:mbrowser.selectDomainUA('"+e+'\');" class="navigate-right">\n'+mbrowser.getStringResource("web_str_site_ua")+'<p id="ua-name">'+mbrowser.getUATitleByHost(e)+"</p></a>";document.write(e)}function resetSiteSettings(){var e=getQueryString("host");mbrowser.resetSiteSettings(e)}</script>
+
+<body>
+
+
+<header class="bar bar-nav">
+
+    <h1 id="element" class="title">
+    <script>var host=getQueryString("host"),title=mbrowser.getStringResource("pop_menu_site_conf")+"("+host+")";document.write(title)</script>
+    </h1>
+</header>
+
+
+<div class="content">
+
+    <div class="card">
+        <ul class="table-view">
+
+            <li class="table-view-cell">
+                <script>showDomainRulesItem()</script>
+
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+
+            <li class="table-view-cell">
+                <script>_str("web_str_disable_domain_adb")</script>
+                <div id="disable-domain-adb" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_disable_domain_adb_desc")</script>
+                </p>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+
+            <li class="table-view-cell">
+                <script>_str("web_str_domain_smart_adb")</script>
+                <div id="enable-domain-smart-adb" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_domain_smart_adb_desc")</script>
+                </p>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+
+            <li class="table-view-cell">
+                <script>showChooseUAItems()</script>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+
+            <li class="table-view-cell">
+                <script>_str("web_str_view_in_desktop_mode")</script>
+                <div id="site-view-in-desktop-mode" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <script>_str("web_str_disallow_call_app")</script>
+                <div id="site-disable-call-app" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_disallow_call_app_desc")</script>
+                </p>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_disallow_js")</script>
+                <div id="site-disable-js" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_disallow_js_desc")</script>
+                </p>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_site_cookies")</script>
+                <div id="site-disable-cookies" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_site_cookies_desc")</script>
+                </p>
+            </li>
+            <li class="table-view-cell">
+                <script>_str("web_str_site_disable_auto_fill")</script>
+                <div id="site-disable-auto-fill" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_site_disable_auto_fill_desc")</script>
+                </p>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_site_user_script")</script>
+                <div id="site-disable-user-script" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_site_user_script_desc")</script>
+                </p>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_site_log_his")</script>
+                <div id="site-do-not-log-his" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_site_log_his_desc")</script>
+                </p>
+            </li>
+
+
+            <li class="table-view-cell">
+                <script>_str("web_str_disable_location_acquisition")</script>
+                <div id="site-disable-location-ac" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_disable_location_acquisition_desc")</script>
+                </p>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_allow_bg_play")</script>
+                <div id="site-allow-background-play" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_allow_bg_play_desc")</script>
+                </p>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_disable_write_to_clipboard")</script>
+                <div id="site-disable-write-to-cb" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_disable_write_to_clipboard_desc")</script>
+                </p>
+            </li>
+
+
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <a href="javascript:resetSiteSettings();">
+                    <div class="media-body">
+                        <script>_str("web_str_reset_site_setting")</script>
+                    </div>
+                    <p><script>_str("web_str_reset_site_setting_desc")</script></p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<script type="text/javascript">document.querySelector("#disable-domain-adb").addEventListener("toggle",function(e){mbrowser.disableADBOnDomain(host,e.detail.isActive),e.detail.isActive&&(document.querySelector("#enable-domain-smart-adb").classList.remove("active"),mbrowser.enableDomainSmartAdb(host,!1))}),mbrowser.isDisableADBOnDomain(host)?document.querySelector("#disable-domain-adb").classList.add("active"):document.querySelector("#disable-domain-adb").classList.remove("active"),document.querySelector("#enable-domain-smart-adb").addEventListener("toggle",function(e){mbrowser.enableDomainSmartAdb(host,e.detail.isActive),e.detail.isActive&&(document.querySelector("#disable-domain-adb").classList.remove("active"),mbrowser.disableADBOnDomain(host,!1))}),mbrowser.isEnableDomainSmartAdb(host)?document.querySelector("#enable-domain-smart-adb").classList.add("active"):document.querySelector("#enable-domain-smart-adb").classList.remove("active"),document.querySelector("#site-view-in-desktop-mode").addEventListener("toggle",function(e){mbrowser.enableViewInDesktop(host,e.detail.isActive)}),mbrowser.viewInDesktopMode(host)?document.querySelector("#site-view-in-desktop-mode").classList.add("active"):document.querySelector("#site-view-in-desktop-mode").classList.remove("active"),document.querySelector("#site-disable-call-app").addEventListener("toggle",function(e){mbrowser.allowCallApp(host,!e.detail.isActive)}),mbrowser.isAllowCallApp(host)?document.querySelector("#site-disable-call-app").classList.remove("active"):document.querySelector("#site-disable-call-app").classList.add("active"),document.querySelector("#site-disable-js").addEventListener("toggle",function(e){mbrowser.allowJsOnDomin(host,!e.detail.isActive)}),mbrowser.isAllowJsOnDomain(host)?document.querySelector("#site-disable-js").classList.remove("active"):document.querySelector("#site-disable-js").classList.add("active"),document.querySelector("#site-disable-cookies").addEventListener("toggle",function(e){mbrowser.allowCookiesOnDomain(host,!e.detail.isActive)}),mbrowser.isAllowCookiesOnDomain(host)?document.querySelector("#site-disable-cookies").classList.remove("active"):document.querySelector("#site-disable-cookies").classList.add("active"),document.querySelector("#site-disable-auto-fill").addEventListener("toggle",function(e){mbrowser.allowAutoFillOnDomain(host,!e.detail.isActive)}),mbrowser.isAllowAutoFillOnDomain(host)?document.querySelector("#site-disable-auto-fill").classList.remove("active"):document.querySelector("#site-disable-auto-fill").classList.add("active"),document.querySelector("#site-disable-user-script").addEventListener("toggle",function(e){mbrowser.allowUserScriptOnDomain(host,!e.detail.isActive)}),mbrowser.isAllowUserScriptOnDomain(host)?document.querySelector("#site-disable-user-script").classList.remove("active"):document.querySelector("#site-disable-user-script").classList.add("active"),document.querySelector("#site-do-not-log-his").addEventListener("toggle",function(e){mbrowser.logHisOnDomain(host,!e.detail.isActive)}),mbrowser.isLogHisOnDomain(host)?document.querySelector("#site-do-not-log-his").classList.remove("active"):document.querySelector("#site-do-not-log-his").classList.add("active"),document.querySelector("#site-disable-location-ac").addEventListener("toggle",function(e){mbrowser.allowRequstLocation(host,!e.detail.isActive)}),mbrowser.isAllowRequestLocation(host)?document.querySelector("#site-disable-location-ac").classList.remove("active"):document.querySelector("#site-disable-location-ac").classList.add("active"),document.querySelector("#site-allow-background-play").addEventListener("toggle",function(e){mbrowser.setBackgroundPlay(host,e.detail.isActive)}),mbrowser.allowBackgroundPlay(host)?document.querySelector("#site-allow-background-play").classList.add("active"):document.querySelector("#site-allow-background-play").classList.remove("active"),document.querySelector("#site-disable-write-to-cb").addEventListener("toggle",function(e){mbrowser.disableClipboard(host,e.detail.isActive),e.detail.isActive?mbrowser.regPendingMethod(host,"disableClipboard()"):mbrowser.regPendingMethod(host,"enableClipboard()")}),mbrowser.isDisabledClipboard(host)?document.querySelector("#site-disable-write-to-cb").classList.add("active"):document.querySelector("#site-disable-write-to-cb").classList.remove("active")</script>
+
+</body>
+</html>

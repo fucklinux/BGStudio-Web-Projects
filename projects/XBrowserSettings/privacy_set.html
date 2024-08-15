@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>安全及隐私</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+    <link href="mbrowser.css" rel="stylesheet">
+
+    
+    <script src="js/ratchet.js"></script>
+    <script src="mbrowser.js"></script>
+    <script src="js/H5lock.js"></script>
+
+</head>
+
+<script>var g_current_action,g_current_opt_val;function updateToggleStatus(){document.querySelector("#clean-web-cache-on-exit").addEventListener("toggle",function(e){mbrowser.cleanWebCacheOnExit(e.detail.isActive)}),mbrowser.getBooleanPreference("clean-web-cache-on-exit")?document.querySelector("#clean-web-cache-on-exit").classList.add("active"):document.querySelector("#clean-web-cache-on-exit").classList.remove("active"),document.querySelector("#do-not-show-search-his").addEventListener("toggle",function(e){mbrowser.doNotShowSearchHistory(e.detail.isActive)}),mbrowser.getBooleanPreference("do-not-show-search-his")?document.querySelector("#do-not-show-search-his").classList.add("active"):document.querySelector("#do-not-show-search-his").classList.remove("active"),document.querySelector("#do-not-show-browser-his").addEventListener("toggle",function(e){mbrowser.doNotShowBrowserHistory(e.detail.isActive)}),mbrowser.getBooleanPreference("do-not-show-browser-his")?document.querySelector("#do-not-show-browser-his").classList.add("active"):document.querySelector("#do-not-show-browser-his").classList.remove("active"),document.querySelector("#do-not-show-browser-bookmarks").addEventListener("toggle",function(e){mbrowser.doNotShowBrowserBookmarks(e.detail.isActive)}),mbrowser.getBooleanPreference("do-not-show-browser-bookmarks")?document.querySelector("#do-not-show-browser-bookmarks").classList.add("active"):document.querySelector("#do-not-show-browser-bookmarks").classList.remove("active"),document.querySelector("#do-not-show-clipboard-content").addEventListener("toggle",function(e){mbrowser.doNotShowClipboardContent(e.detail.isActive)}),mbrowser.getBooleanPreference("do-not-show-clipboard-content")?document.querySelector("#do-not-show-clipboard-content").classList.add("active"):document.querySelector("#do-not-show-clipboard-content").classList.remove("active"),document.querySelector("#support-cookies-in-priv").addEventListener("toggle",function(e){mbrowser.supportCookiesInPriv(e.detail.isActive)}),mbrowser.getBooleanPreference("support-cookies-in-priv")?document.querySelector("#support-cookies-in-priv").classList.add("active"):document.querySelector("#support-cookies-in-priv").classList.remove("active"),document.querySelector("#disable-call-app").addEventListener("toggle",function(e){mbrowser.disableCallApp(e.detail.isActive)}),mbrowser.getBooleanPreference("enable_call_app")?document.querySelector("#disable-call-app").classList.remove("active"):document.querySelector("#disable-call-app").classList.add("active"),document.querySelector("#disable-third-cookies").addEventListener("toggle",function(e){mbrowser.disableThirdCookies(e.detail.isActive)}),mbrowser.getBooleanPreference("disable-third-cookies")?document.querySelector("#disable-third-cookies").classList.add("active"):document.querySelector("#disable-third-cookies").classList.remove("active"),document.querySelector("#enable-dnt").addEventListener("toggle",function(e){mbrowser.enableDNT(e.detail.isActive)}),mbrowser.getBooleanPreference("enable-dnt")?document.querySelector("#enable-dnt").classList.add("active"):document.querySelector("#enable-dnt").classList.remove("active"),document.querySelector("#save-user-password").addEventListener("toggle",function(e){mbrowser.autoSavePasswd(e.detail.isActive)}),mbrowser.getBooleanPreference("save-user-password")?document.querySelector("#save-user-password").classList.add("active"):document.querySelector("#save-user-password").classList.remove("active"),document.querySelector("#unlock-to-view-his").addEventListener("toggle",function(e){g_current_action="update-opt-unlock-to-view-his",g_current_opt_val=e.detail.isActive,mbrowser.hasUnlocked()?mbrowser.unlockToViewHis(e.detail.isActive):(obj_h5_lock._str_pls_unlock=mbrowser.getStringResource("web_str_pls_unlock"),document.getElementById("title").innerHTML=mbrowser.getStringResource("web_str_pls_unlock"),open_lock_panel())}),mbrowser.getBooleanPreference("unlock-to-view-his")?document.querySelector("#unlock-to-view-his").classList.add("active"):document.querySelector("#unlock-to-view-his").classList.remove("active"),document.querySelector("#enable_geolocation").addEventListener("toggle",function(e){mbrowser.allowAccessLocation(e.detail.isActive)}),mbrowser.getBooleanPreference("enable_geolocation")?document.querySelector("#enable_geolocation").classList.add("active"):document.querySelector("#enable_geolocation").classList.remove("active"),document.querySelector("#ignore_security_warnings").addEventListener("toggle",function(e){mbrowser.ignoreHttpsSecurityWarning(e.detail.isActive)}),mbrowser.getBooleanPreference("show_security_warnings")?document.querySelector("#ignore_security_warnings").classList.remove("active"):document.querySelector("#ignore_security_warnings").classList.add("active"),document.querySelector("#dont-upload-user-exp-data").addEventListener("toggle",function(e){mbrowser.doNotUploadUXData(e.detail.isActive)}),mbrowser.getBooleanPreference("dont-upload-user-exp-data")?document.querySelector("#dont-upload-user-exp-data").classList.add("active"):document.querySelector("#dont-upload-user-exp-data").classList.remove("active")}function showAllowAccessLocationIfNeed(){document.write('<li class="table-view-cell">'),document.write(mbrowser.getStringResource("web_str_adv_set_allow_access_location")),document.write('<div id="enable_geolocation" class="toggle">'),document.write('<div class="toggle-handle"></div>'),document.write("</div>"),document.write("</li>")}function native_call_update_download_dir(){var e=document.querySelector("#text-download-dir");e&&(e.innerHTML=mbrowser.getDownloadDir())}function showDisplayHotwordInSearchBarOption(){mbrowser.supportHotWords()&&(document.write('<li class="table-view-cell">'),_str("web_str_disable_search_bar_hotwrod"),document.write('<div id="disable-search-bar-hotword" class="toggle">'),document.write('<div class="toggle-handle"></div>'),document.write("</div>"),document.write("</li>"),document.querySelector("#disable-search-bar-hotword").addEventListener("toggle",function(e){mbrowser.disableSearchBarHotWord(e.detail.isActive)}),mbrowser.getBooleanPreference("disable-search-bar-hotword")?document.querySelector("#disable-search-bar-hotword").classList.add("active"):document.querySelector("#disable-search-bar-hotword").classList.remove("active"))}function open_passwd_manger(){open_dialog("#h5-lock-panel"),new H5lock({chooseType:3}).init()}function reset_unlock_gesture(){g_current_action="reset-unlock-gesture",obj_h5_lock._str_pls_unlock=mbrowser.getStringResource("web_str_unlock_for_new"),document.getElementById("title").innerHTML=mbrowser.getStringResource("web_str_unlock_for_new"),open_lock_panel()}document.addEventListener("DOMContentLoaded",updateToggleStatus,!1)</script>
+
+<body>
+
+
+<header class="bar bar-nav">
+    <h1 id="element" class="title"><script>_str("web_str_set_security_and_privacy")</script>安全及隐私</h1>
+</header>
+
+
+<div class="content">
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <script>_str("web_str_do_not_show_search_his")</script>不显示搜索历史
+                <div id="do-not-show-search-his" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("do_not_get_sugession_from_his")</script>不要从历史记录获取网址建议
+                <div id="do-not-show-browser-his" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("do_not_get_sugession_from_bookmark")</script>不要从用户书签获取网址建议
+                <div id="do-not-show-browser-bookmarks" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_do_not_show_clipboard_content")</script>网址建议栏不显示剪贴板内容
+                <div id="do-not-show-clipboard-content" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="card">
+        <ul class="table-view">
+
+            <li class="table-view-cell media">
+                <a href="javascript:mbrowser.cleanData();">
+                    <div class="media-body">
+                        <script>_str("web_str_clean_data")</script>清理隐私数据
+                    </div>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <script>_str("web_str_exit_clean_web_cache")</script>退出时自动清除隐私数据
+                <div id="clean-web-cache-on-exit" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_desc_exit_clean_web_cache")</script>历史、Cookies、搜索记录、页面缓存、表单数据等
+                </p>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <script>_str("web_str_setting_support_cookies_in_priv")</script>隐私模式不禁用Cookies
+                <div id="support-cookies-in-priv" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_disable_third_cookies")</script>禁止第三方Cookies
+                <div id="disable-third-cookies" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_enable_dnt")</script>开启DNT
+                <div id="enable-dnt" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_enable_dnt_desc")</script>告诉网站不要追踪我
+                </p>
+            </li>
+            <li class="table-view-cell">
+                <script>_str("web_str_dont_show_ssl_warning")</script>忽略https连接安全警告
+                <div id="ignore_security_warnings" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_dont_show_ssl_warning_desc")</script>忽略https安全警告允许继续浏览存在安全风险的站点
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell media">
+                <a href="javascript:reset_unlock_gesture()" class="navigate-right">
+                    <div class="media-body">
+                        <script>_str("web_str_set_unlock_gesture")</script>设定解锁手势
+                    </div>
+                    <p>
+                        <script>_str("web_str_set_unlock_gesture_desc")</script>一些敏感内容需要通过解锁手势才能查看
+                    </p>
+                </a>
+
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <script>_str("web_str_unlock_to_view_his")</script>查看历史记录需解锁
+                <div id="unlock-to-view-his" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <script>_str("web_str_save_user_pass")</script>自动保存/填充用户密码
+                <div id="save-user-password" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell media">
+                <a href="javascript:mbrowser.openLocalPage('x:hosts?type=6',false);" class="navigate-right" onclick="location.href='hosts.html?type=6'">
+                    <div class="media-body">
+                        <script>_str("web_str_manage_site_pass")</script>站点密码管理
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <script>_str("web_str_disallow_call_app")</script>禁止页面启动外部应用
+                <div id="disable-call-app" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+    
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <script>_str("web_str_show_allow_access_location_if_need")</script>允许网页获取手机位置信息
+                <div id="show_allow_access_location_if_need" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+
+            <li class="table-view-cell">
+                <script>_str("web_str_dont_upload_ux_data")</script>不要收集用户体验数据
+                <div id="dont-upload-user-exp-data" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_dont_upload_ux_data_desc")</script>收集用户体验数据有助于帮助我们改善产品体验
+                </p>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<div id="dlg-lock-panel" class="modal">
+    <header class="bar bar-nav">
+        <a id="updatePassword" class="btn pull-left"><script>_str("btn_text_reset")</script></a>
+        <a id="close-h5-lock-panel" class="icon icon-close pull-right" href="javascript:close_lock_panel()"></a>
+        <h1 id="title" class="title"><script>_str("web_str_set_unlock_gesture")</script>首次使用设定解锁图案</h1>
+
+    </header>
+    <div id="lock-panel" class="content" style="background-color:#305066">
+        <script>var obj_h5_lock=new H5lock({chooseType:3,panelId:"lock-panel",_str_set_unlock_pattern_for_first:mbrowser.getStringResource("web_str_set_unlock_pattern_for_first"),_str_passwd_saved:mbrowser.getStringResource("web_str_passwd_saved"),_str_input_not_match:mbrowser.getStringResource("web_str_input_not_match"),_str_unlocked:mbrowser.getStringResource("web_str_unlocked"),_str_unlock_failed:mbrowser.getStringResource("web_str_unlock_failed"),_str_input_again:mbrowser.getStringResource("web_str_input_again"),_str_pls_unlock:mbrowser.getStringResource("web_str_unlock_for_new"),_str_draw_unlock_pattern:mbrowser.getStringResource("web_str_draw_unlock_pattern")}),locker=(obj_h5_lock.init(),document.querySelector("#lock-panel"));locker.addEventListener("locker:unlocked",function(){console.log(">>>>action:"+g_current_action),"reset-unlock-gesture"==g_current_action?setTimeout(function(){obj_h5_lock.updatePassword()},500):"update-opt-unlock-to-view-his"==g_current_action&&(close_lock_panel(),mbrowser.unlockToViewHis(g_current_opt_val),g_current_opt_val?document.querySelector("#unlock-to-view-his").classList.add("active"):document.querySelector("#unlock-to-view-his").classList.remove("active"))}),locker.addEventListener("locker:passwdchanged",function(){mbrowser.showToast(mbrowser.getStringResource("web_str_passwd_saved")),setTimeout(function(){close_lock_panel()},500)})</script>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>手势设置</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+    <link href="mbrowser.css" rel="stylesheet">
+
+    
+    <script src="js/ratchet.js"></script>
+    <script src="mbrowser.js"></script>
+    <script src="js/gesture_setting.js"></script>
+
+
+</head>
+
+<body>
+
+<header class="bar bar-nav">
+    <h1 class="title"><script>_str("web_str_title_gs_setting")</script>手势设置</h1>
+</header>
+
+<script>function updateGestureAction(e){var t=document.getElementById(e);t&&(t.innerHTML="("+mbrowser.getGestureActionDesc(e)+")")}function gesture_bind_action_desc(e){document.write("("+mbrowser.getGestureActionDesc(e)+")")}function update_bf_gesture_name(){var e=document.getElementById("bf-gesture-style");e&&(e.innerHTML="("+mbrowser.getBfGestureName()+")")}</script>
+
+<div class="content">
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <a href="javascript:mbrowser.changeGestureAction('long_press_back_btn');">
+                    <div class="media-body">
+                        <script>_str("web_str_gs_long_press_back")</script>长按"后退"按钮
+                    </div>
+                    <p id="long_press_back_btn"><script>gesture_bind_action_desc("long_press_back_btn")</script>(什么也不做)</p>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <a href="javascript:mbrowser.changeGestureAction('long_press_forward_btn');">
+                    <div class="media-body">
+                        <script>_str("web_str_gs_long_press_forward")</script>长按"前进"按钮
+                    </div>
+                    <p id="long_press_forward_btn"><script>gesture_bind_action_desc("long_press_forward_btn")</script>(什么也不做)</p>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <a href="javascript:mbrowser.changeGestureAction('long_press_home');">
+                    <div class="media-body">
+                        <script>_str("web_str_gs_long_press_home")</script>长按"主页"按钮
+                    </div>
+                    <p id="long_press_home"><script>gesture_bind_action_desc("long_press_home")</script>(快速搜索)</p>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <a href="javascript:mbrowser.changeGestureAction('long_press_multi_tab');">
+                    <div class="media-body">
+                        <script>_str("web_str_gs_long_press_tabs")</script>长按"多标签"按钮
+                    </div>
+                    <p id="long_press_multi_tab"><script>gesture_bind_action_desc("long_press_multi_tab")</script>(新建标签)</p>
+
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <a href="javascript:mbrowser.changeGestureAction('long_press_menu');">
+                    <div class="media-body">
+                        <script>_str("web_str_gs_long_press_menu")</script>长按"菜单"按钮
+                    </div>
+                    <p id="long_press_menu"><script>gesture_bind_action_desc("long_press_menu")</script>(刷新页面)</p>
+                </a>
+            </li>
+
+            <li class="table-view-cell">
+                <a href="javascript:mbrowser.changeGestureAction('double_click_blank');">
+                    <div class="media-body">
+                        <script>_str("web_str_gs_double_click_blank")</script>双击页面空白
+                    </div>
+                    <p id="double_click_blank"><script>gesture_bind_action_desc("double_click_blank")</script>(什么也不做)</p>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <script>_str("web_str_quick_touch_gesture")</script>快捷触屏手势
+                <div id="support-quick-gesture" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p><script>_str("web_str_quick_touch_gesture_desc")</script>绘制形状"c"关闭当前页面;形状"ɔ"撤销刚才关闭的页面;形状"n"新建一个标签</p>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+
+                <a href="javascript:mbrowser.changeBackForwardGesutre();">
+                    <div class="media-body">
+                        <script>_str("web_str_bf_gesture_set")</script>前进后退手势设定
+                    </div>
+                    <p id="bf-gesture-style"><script>document.write(mbrowser.getBfGestureName())</script>(屏幕边缘滑动)</p>
+                </a>
+
+            </li>
+            <li class="table-view-cell">
+                <script>_str("web_str_setting_support_switch_tab_gesture")</script>支持底部工具栏滑动切换标签
+                <div id="support-switch-tab-gesture" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+            <li class="table-view-cell">
+                <script>_str("web_str_setting_disable_pull_to_refresh_gesture")</script>禁用下拉刷新手势
+                <div id="disable-pull-to-refresh-gesture" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <script>_str("web_str_setting_support_touch_page_down")</script>支持触屏翻页
+                <div id="support-touch-page-down" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p> <script>_str("web_str_setting_support_touch_page_down_desc")</script>点击屏幕上方空白处上翻，屏幕空白处下方下翻</p>
+            </li>
+            <li class="table-view-cell">
+                <script>_str("web_str_setting_support_volume_page_down")</script>支持音量按钮翻页
+                <div id="support-volume-page-down" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p> <script>_str("web_str_setting_support_volume_page_down_desc")</script>音量上下键翻页，长按可以跳转至页面顶部或者底部</p>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

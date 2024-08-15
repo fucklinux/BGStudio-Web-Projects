@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>干支加密</title>
+    <style>
+        html {
+            background: #FFF3E0;
+        }
+
+        .title {
+            color: #E65100;
+            text-align: left;
+            font-size: 24px;
+            opacity: 0;
+            animation: .5s cubic-bezier(0.77, 0, 0.175, 1) .3s forwards slidein;
+        }
+
+        textarea {
+            width: 90%;
+            height: 128px;
+            outline: none;
+            border-style: none none solid none;
+            border-width: 2px;
+            border-radius: 8px 8px 0 0;
+            margin-top: 16px;
+            padding: 16px;
+            background: rgba(0, 0, 0, .1);
+            transition: .2s;
+            border-color: #999;
+            opacity: 0;
+            animation: .5s cubic-bezier(0.77, 0, 0.175, 1) .4s forwards slidein;
+        }
+
+        textarea:hover {
+            border-color: #000;
+        }
+
+        textarea:focus {
+            border-color: #E65100;
+        }
+
+        .radios input,
+        .radios label,
+        .radios {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .radios {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: .5s cubic-bezier(0.77, 0, 0.175, 1) .5s forwards slidein;
+            margin-top: 16px;
+        }
+
+        #result {
+            word-break: break-word;
+            white-space: pre-line;
+            background: rgba(0, 0, 0, .1);
+            border-radius: 8px;
+            padding: 8px;
+            opacity: 0;
+            animation: .5s cubic-bezier(0.77, 0, 0.175, 1) .7s forwards slidein;
+        }
+
+        .result-area {
+            border-radius: 8px;
+            transition: .2s;
+        }
+
+        .result-area:active {
+            background: rgba(0, 0, 0, .2);
+            transform: scale(.9, 1);
+        }
+
+        @keyframes slidein {
+            from {
+                opacity: 0;
+                transform: translateY(32px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        input {
+            display: none !important;
+        }
+
+        input+label {
+            font-size: 16px;
+            transition: .2s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        label[for="radio_0"]::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 36px;
+            height: 100%;
+            background: #E65100;
+            border-radius: 4px;
+            transition: .2s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: -1;
+            transform: scale(1.5, 1.1) translateX(43.5px);
+        }
+
+        input:checked+label {
+            color: #fff;
+        }
+
+        input:checked+label[for="radio_0"]::before {
+            transform: scale(1.5, 1.1) translateX(-1.5px);
+        }
+
+        .author {
+            opacity: 0;
+            animation: .5s cubic-bezier(0.77, 0, 0.175, 1) .8s forwards slidein;
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .container {
+            margin-top: 16px;
+            margin-left: 5%;
+            width: 90%;
+        }
+
+        @media(min-width:720px) {
+            .container {
+                margin-left: 10%;
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div style="text-align: center;">
+            <div class="title">干支加密</div>
+            <textarea id="text" placeholder="要处理的文本"></textarea>
+            <br>
+            <div class="radios">
+                <input type="radio" name="state" id="radio_0" checked>
+                <label for="radio_0">加密</label>
+                <input type="radio" name="state" id="radio_1">
+                <label for="radio_1" style="margin-left: 32px;">解密</label>
+            </div>
+            <p style="text-align: left;opacity: 0;animation: .5s cubic-bezier(0.77, 0, 0.175, 1) .6s forwards slidein;">处理结果（点按以复制）：</p>
+        </div>
+        <div class="result-area">
+            <div id="result"></div>
+        </div>
+        <div class="author">Made by Burger Studio.</div>
+    </div>
+    <script>
+        //设置默认模式
+        state = 0;
+        //设置要替换的字符串
+        replaceString_0 = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "&", "#", "x", ";"];
+        replaceString_1 = ["甲戌", "乙亥", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸", "子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉"];
+        //函数：将文本转换为 Unicode 编码
+        function convertToUnicode(text) {
+            let unicode = "";
+            for (let i = 0; i < text.length; i++) {
+                unicode += "&#x" + text[i].charCodeAt(0).toString(16) + ";";
+            }
+            return unicode;
+        }
+        //函数：处理字符串
+        function processUnicode(text, output) {
+            if (text == "") {
+                output.innerHTML = "";
+            } else {
+                if (state == 0) {
+                    var originalString = convertToUnicode(text);
+                    replaceString_0.forEach(function(item, index) {
+                        originalString = originalString.replaceAll(item, replaceString_1[index]);
+                    });
+                } else {
+                    var originalString = text;
+                    replaceString_1.forEach(function(item, index) {
+                        originalString = originalString.replaceAll(item, replaceString_0[index]);
+                    });
+                }
+                //将结果显示在网页中
+                output.innerHTML = originalString;
+            }
+        }
+        //函数：复制文本
+        function copyHandle(content) {
+            let copy = (e) => {
+                e.preventDefault()
+                e.clipboardData.setData('text/plain', content)
+                document.removeEventListener('copy', copy)
+            }
+            document.addEventListener('copy', copy)
+            document.execCommand("Copy");
+        }
+        //事件：处理结果被点击
+        document.querySelector("#result").addEventListener("click", function() {
+            if (this.innerText == "") {
+                alert("复制了个寂寞");
+            } else {
+                copyHandle(this.innerText);
+                alert("已复制到剪贴板");
+            }
+        });
+        //实时加密/解密
+        document.querySelector("#text").addEventListener("input", function() {
+            processUnicode(this.value, document.querySelector("#result"));
+        });
+        document.querySelector("#radio_0").onclick = function() {
+            state = 0;
+            processUnicode(document.querySelector("#text").value, document.querySelector("#result"));
+        };
+        document.querySelector("#radio_1").onclick = function() {
+            state = 1;
+            processUnicode(document.querySelector("#text").value, document.querySelector("#result"));
+        };
+    </script>
+</body>
+
+</html>

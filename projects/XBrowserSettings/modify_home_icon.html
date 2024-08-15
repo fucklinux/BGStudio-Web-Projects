@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>修改主页图标</title>
+      
+      <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+      
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      
+
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+
+  </head>
+
+  <script>function updateItem(t){var e,i;t&&(e=t.getAttribute("url"),i=t.getAttribute("title"),mbrowser.iconIsModify(e)?t.innerHTML="<div>"+i+"</div><button onclick=\"mbrowser.revertIcon('"+e+'\')" class="btn btn-positive pull-right">'+mbrowser.getStringResource("web_str_btn_revert")+"</button>":t.innerHTML="<div>"+i+"</div><button onclick=\"mbrowser.modifyQaIcon('"+e+'\')" class="btn btn-positive pull-right">'+mbrowser.getStringResource("web_str_btn_modify")+"</button>")}function native_call_update_item(t){console.log(">>>> native_call_update_item :"+t),updateItem(document.querySelector("#"+t))}function loadQaItems(){var t=document.querySelector("#qa-list");if(t){var e=JSON.parse(mbrowser.getQAWithJson());for(i=0;i<e.length;i++)item=document.createElement("li"),item.setAttribute("class","table-view-cell"),item.setAttribute("id",e[i].id),item.setAttribute("url",e[i].url),item.setAttribute("title",e[i].title),updateItem(item),t.appendChild(item)}}</script>
+
+  <body>
+    <header class="bar bar-nav">
+      <h1 class="title"><script>_str("web_str_modify_home_icon")</script>修改主页图标</h1>
+    </header>
+
+    
+    <div class="content" id="main-content">
+      <ul id="qa-list" class="table-view">
+
+
+      </ul>
+
+     <script>loadQaItems()</script>
+    </div>
+  </body>
+</html>

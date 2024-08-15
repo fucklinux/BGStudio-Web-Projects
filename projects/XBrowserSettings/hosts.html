@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>站点密码管理</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+      
+
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+      <script src="js/slip.js"></script>
+      <script src="js/H5lock.js"></script>
+
+  </head>
+  <style></style>
+
+  <script>var g_current_host,g_current_action;function updateSelectButtonText(){var e=document.querySelector("#ua-select-btn");e&&(e.innerHTML=mbrowser.getUATitleByUaId(mbrowser.getLastSelectUAId()))}function show_button(){6==parseInt(getQueryString("type"))?document.write('<a onclick="mbrowser.removeHosts(6)" id="btn-add-host" class="btn pull-right">'+mbrowser.getStringResource("web_str_btn_clean")+"</a>"):document.write('<a href="#new-host-dlg" id="btn-add-host" class="btn pull-right">'+mbrowser.getStringResource("web_str_btn_text_add")+"</a>")}function do_action(e){if("edit-auto-fill"==e)open_dialog("#edit-auto-fill");else if("copy-auto-fill"==e){var t,r=JSON.parse(mbrowser.loadAutoFillFormData(g_current_host)),n="#### "+g_current_host+" ####\n";for(t in r)n+=t+"\t:\t "+r[t]+"\n";mbrowser.copyToClipboard(n)}}function check_gesture_passwd(){open_dialog("#dlg-lock-panel"),mbrowser.lockScroll(!0)}function close_lock_panel(){close_dialog("#dlg-lock-panel"),mbrowser.lockScroll(!1)}function nav_call_edit_auto_fill(e){g_current_host=e,gen_auto_fill_form(),g_current_action="edit-auto-fill",mbrowser.hasUnlocked()?do_action("edit-auto-fill"):check_gesture_passwd()}function nav_call_copy_auto_fill(e){g_current_action="copy-auto-fill",g_current_host=e,mbrowser.hasUnlocked()?do_action("copy-auto-fill"):check_gesture_passwd()}function gen_auto_fill_form(){var e=document.querySelector("#input-group");if(e){var t,r=JSON.parse(mbrowser.loadAutoFillFormData(g_current_host)),n=(console.log(r),"");for(t in r){var o=r[t];n+="<div class='fill-row'><p>"+gen_input_name_by_key(t)+":</p><input id='"+t+"' value='"+o+"' type='text' class='x-auto-fill-input'></div>\n"}e.innerHTML=n}}function gen_input_name_by_key(e){var t=e.toLowerCase();return 0<=t.indexOf("usr")||0<=t.indexOf("user")||0<=t.indexOf("name")||0<=t.indexOf("login")||0<=t.indexOf("用户")||0<=t.indexOf("member")||0<=t.indexOf("identifier")?mbrowser.getStringResource("web_str_input_user"):0<=t.indexOf("mail")||0<=t.indexOf("邮件")||0<=t.indexOf("email")?mbrowser.getStringResource("web_str_input_mail"):0<=t.indexOf("phone")||0<=t.indexOf("mobile")||0<=t.indexOf("手机")?mbrowser.getStringResource("web_str_input_phone"):0<=t.indexOf("nick")||0<=t.indexOf("昵称")?mbrowser.getStringResource("web_str_input_nick"):0<=t.indexOf("pwd")||0<=t.indexOf("pass")||0<=t.indexOf("密码")?mbrowser.getStringResource("web_str_input_pwd"):0<=t.indexOf("num")||0<=t.indexOf("credit")||0<=t.indexOf("卡号")?mbrowser.getStringResource("web_str_input_card_num"):0<=t.indexOf("addr")||0<=t.indexOf("地址")||0<=t.indexOf("street")?mbrowser.getStringResource("web_str_input_addr"):e}function save_auto_fill(){for(var e=document.querySelectorAll(".x-auto-fill-input"),t={},r=0;r<e.length;r++){var n=e[r],o=n.id,n=n.value;t[o]=n}var i=JSON.stringify(t);mbrowser.syncAutoFillFormData(g_current_host,i),close_dialog("#edit-auto-fill")}</script>
+
+  <body>
+
+    
+     <header class="bar bar-nav">
+
+      <h1 id="element" class="title">
+          <script>var type=parseInt(getQueryString("type"));0==type?_str("web_str_title_auto_proxy_host"):1==type?_str("web_str_title_adb_white_list"):2==type?_str("web_str_individual_ua"):6==type&&_str("web_str_title_pass_manager")</script>站点密码管理
+      </h1>
+      
+      
+         <script>show_button()</script>
+    </header>
+
+    
+    <div class="content">
+      <ul id="host-list" class="table-view my-list">
+
+
+      </ul>
+
+    </div>
+
+    <div id="dlg-lock-panel" class="modal">
+        <header class="bar bar-nav">
+            <a id="updatePassword" class="btn pull-left"><script>_str("btn_text_reset")</script></a>
+            <a id="close-h5-lock-panel" class="icon icon-close pull-right" href="javascript:close_lock_panel()"></a>
+            <h1 id="title" class="title"><script>_str("web_str_pls_unlock")</script></h1>
+
+        </header>
+        <div id="lock-panel" class="content" style="background-color:#305066">
+            <script>var obj=new H5lock({chooseType:3,panelId:"lock-panel",_str_set_unlock_pattern_for_first:mbrowser.getStringResource("web_str_set_unlock_pattern_for_first"),_str_passwd_saved:mbrowser.getStringResource("web_str_passwd_saved"),_str_input_not_match:mbrowser.getStringResource("web_str_input_not_match"),_str_unlocked:mbrowser.getStringResource("web_str_unlocked"),_str_unlock_failed:mbrowser.getStringResource("web_str_unlock_failed"),_str_input_again:mbrowser.getStringResource("web_str_input_again"),_str_pls_unlock:mbrowser.getStringResource("web_str_pls_unlock"),_str_draw_unlock_pattern:mbrowser.getStringResource("web_str_draw_unlock_pattern")}),locker=(obj.init(),document.querySelector("#lock-panel"));locker.addEventListener("locker:unlocked",function(){close_dialog("#dlg-lock-panel"),mbrowser.lockScroll(!1),mbrowser.notifyUnlocked(),console.log(">>> action>>>:"+g_current_action),do_action(g_current_action)})</script>
+        </div>
+
+    </div>
+
+    <div id="edit-auto-fill" class="modal">
+        <header class="bar bar-nav">
+            <a id="close-auto-fill-form" class="icon icon-close pull-right" href="#edit-auto-fill"></a>
+            <h1 class="title">
+                <script>_str("web_str_title_edit_auto_fill")</script></h1>
+        </header>
+        <div class="content">
+            <div class="edit-form">
+                <div id="input-group">
+                    <script>var html='           <p>ddd</p>    <input id="qa-title" type="text" placeholder="Title">\n        <p>ddd</p>     <input id="qa-url" type="text" placeholder="www.google.com">\n       ';document.write(html)</script>
+                </div>
+                <br>
+                <br>
+                <button id="save-auto-fill-form" onclick="save_auto_fill()" class="btn btn-positive btn-block"><script>_str("web_str_save")</script></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="new-host-dlg" class="modal">
+        <header class="bar bar-nav">
+            <a id="close-btn" class="icon icon-close pull-right" href="#new-host-dlg"></a>
+            <h1 class="title">
+            <script>var type=parseInt(getQueryString("type"));2==type?_str("web_str_individual_ua"):_str("web_str_title_add_host")</script></h1>
+        </header>
+
+        <div class="content">
+            <div class="edit-form">
+
+                <script>var lastCheck,selectBtn,type=parseInt(getQueryString("type"));document.write('<input id="host-value" type="text" placeholder="'+mbrowser.getStringResource("web_str_host_place_holder")+'">'),2==type&&(lastCheck=mbrowser.getLastSelectUAId(),selectBtn='       <ul class="table-view">\n                    <li class="table-view-cell">\n                        <a id="ua-select-btn" class="navigate-right" href="javascript:mbrowser.chooseUA();">\n'+mbrowser.getUATitleByUaId(lastCheck)+"                        </a>\n                    </li>\n                </ul>",document.write(selectBtn)),document.write('<button onclick="addHost('+type+')" class="btn btn-positive btn-block">'+mbrowser.getStringResource("web_str_btn_text_add")+"</button>")</script>
+
+                
+                
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">var type=parseInt(getQueryString("type"));function addHost(e){var t,o;document.getElementById("host-value").value?(o=document.getElementById("host-value").value,t=mbrowser.getLastSelectUAId(),mbrowser.addDomain(e,o,t),(o=document.getElementById("new-host-dlg"))&&(console.log("do close mode dialog"),o.classList.remove("active")),document.getElementById("host-value").value="",loadHostList(e)):mbrowser.showToast(mbrowser.getStringResource("toast_host_not_allow_empty"))}loadHostList(type)</script>
+
+  </body>
+</html>

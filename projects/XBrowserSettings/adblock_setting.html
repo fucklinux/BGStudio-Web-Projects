@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>广告拦截</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+      
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+      <script src="js/adblock_setting.js"></script>
+
+<style>.report{border-bottom:0}.rpt-title{display:block;width:100%;padding:0;margin:0 -10px;font-size:17px;font-weight:500;line-height:44px;color:#000;text-align:center;background-color:#fafafa;white-space:nowrap}.hint{height:40px;text-align:center;font-size:15px;color:#aaa;padding:15px 5px 15px 5px}</style>
+
+
+      <script>function native_call_update_rules(e){var t=document.querySelector("#number-of-rules");t&&(t.innerHTML=e)}function showAboutAdblockIfNeed(){mbrowser.inChina()&&(document.write('<div class="card">'),document.write('<ul class="table-view">'),document.write('<li class="table-view-cell media">'),document.write("<a  href='https://www.xbext.com/docs/about-adblock/' class=\"navigate-right\">"),document.write('<div class="media-body">'),document.write("关于广告拦截"),document.write("</div>"),document.write(" </a>"),document.write("</li>"),document.write("</ul>"),document.write("</div>"))}function nav_call_refresh_auto_update_text(){var e=mbrowser.getIntPreference("ad_rule_update_circle"),t=mbrowser.getStringResource("web_str_setting_auto_update_rule"),e=(0==e?t+="<span class='select-hint'>("+mbrowser.getStringResource("str_never_auto_update")+")</span>":1==e?t+="<span class='select-hint'>("+mbrowser.getStringResource("str_update_once_a_day")+")</span>":2==e?t+="<span class='select-hint'>("+mbrowser.getStringResource("str_update_every_three_day")+")</span>":3==e?t+="<span class='select-hint'>("+mbrowser.getStringResource("str_update_every_five_day")+")</span>":4==e&&(t+="<span class='select-hint'>("+mbrowser.getStringResource("str_update_weekly")+")</span>"),document.querySelector("#auto-update-circle"));e&&(e.innerHTML=t)}</script>
+
+  </head>
+  <body>
+
+    
+     <header class="bar bar-nav">
+
+      <h1 class="title"><script>_str("web_str_setting_adb")</script>广告拦截</h1>
+     <a onclick='location.href="https://www.xbext.com/docs/#ad_block";mbrowser.openLocalPage("x:rh")' class="btn pull-left"><script>_str("btn_text_help")</script>帮助</a>
+    </header>
+
+
+
+    
+
+
+
+    <div class="content">
+        <div class="hint">
+            <script>_str("web_str_adb_total_rules")</script>规则条数: 27779
+            <span id="number-of-rules"><script>document.write(mbrowser.getTotalRules())</script></span>
+
+        </div>
+        
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell media">
+                    <a href="javascript:showAboutAdblockIfNeed();" onclick="location.href='https://www.xbext.com/docs/about-adblock.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_show_about_adblock_if_need")</script>关于广告拦截
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell">
+                    <a href="javascript:mbrowser.openLocalPage('x:adb-log');" class="navigate-right" onclick="location.href='adb_log.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_adb_log")</script>拦截日志
+
+                        </div>
+                        <p>
+                            <script>_str("web_str_adb_log_desc")</script>查看规则命中日志
+                        </p>
+                        <span class="badge"><script>document.write(mbrowser.getTotalBlockAds(0))</script>114514</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell">
+                    <a href="javascript:mbrowser.openLocalPage('x:rf');" class="navigate-right" onclick="location.href='rf.html'">
+
+                        <div class="media-body">
+                            <script>_str("web_str_rule_files")</script>规则文件
+                        </div>
+                        <p><script>_str("web_str_rule_files_desc")</script>管理及查看我的规则文件</p>
+                        
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell">
+                    <a href="javascript:mbrowser.openLocalPage('x:block-rule?filter=fav');" class="navigate-right" onclick="location.href='user_ad_rule.html?filter=fav'">
+                        <div class="media-body">
+                            <script>_str("web_str_custom_rule")</script>自定义规则
+                        </div>
+                        <p><script>_str("web_str_custom_rule_desc")</script>自定义规则列表，添加自定义规则</p>
+
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:hosts?type=1');" class="navigate-right" onclick="location.href='hosts.html?type=1'">
+                        <div class="media-body">
+                            <script>_str("web_str_adb_white_list")</script>白名单
+                        </div>
+                        <p>
+                            <script>_str("web_str_adb_white_list_desc")</script>添加你不希望拦截网站的域名
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell">
+                    <script>_str("web_str_adb_support_adblock")</script>开启广告拦截
+                    <div id="active-ad-block" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                </li>
+
+                <li class="table-view-cell">
+                    <script>_str("web_str_setting_show_ad_block_toast")</script>显示拦截提示消息
+                    <div id="show-ad-block-toast" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                </li>
+
+                <li class="table-view-cell">
+                    <script>_str("web_str_adb_enable_smart_adb")</script>启用强力拦截(实验功能)
+                    <div id="enable-smart-adb" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                    <p>
+                        <script>_str("web_str_adb_enable_smart_adb_desc")</script>使用更加智能的拦截算法性能更好，但存在误杀和兼容性问题.
+                    </p>
+                </li>
+                <li class="table-view-cell">
+                    <script>_str("web_str_adb_block_pop_window")</script>拦截页面弹窗
+                    <div id="block-pop-window" class="toggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                    <p>
+                        <script>_str("web_str_adb_block_pop_window_desc")</script>阻止页面主动弹出窗口和点击广告链接后的弹出窗口
+                    </p>
+                </li>
+
+                <li class="table-view-cell media">
+                    <a class="navigate-right" href="javascript:mbrowser.setAutoUpdateCycle();">
+                        <div id="auto-update-circle" class="media-body">
+                            <script>nav_call_refresh_auto_update_text()</script>自动更新规则(不自动更新)
+                        </div>
+                    </a>
+                </li>
+                
+
+            </ul>
+        </div>
+        <script></script>
+
+    </div>
+  </body>
+</html>

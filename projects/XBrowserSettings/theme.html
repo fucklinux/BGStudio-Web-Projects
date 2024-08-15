@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>主题</title>
+
+      
+      <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+      
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      
+
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+
+  </head>
+
+  <script>function createApplyButton(e){return e.active?"<button  disabled onclick=\"mbrowser.applyTheme('"+e.theme_id+'\');" class="btn btn-positive pull-right">'+mbrowser.getStringResource("btn_text_apply")+"</button>":"<button  onclick=\"mbrowser.applyTheme('"+e.theme_id+'\');" class="btn btn-positive pull-right">'+mbrowser.getStringResource("btn_text_apply")+"</button>"}function loadThemes(){var e=document.querySelector("#main-content"),t=(e.innerHTML="",JSON.parse(mbrowser.getThemeListWithJson())),n=document.createElement("ul");for(n.setAttribute("class","table-view"),e.appendChild(n),i=0;i<t.length;i++){var r,l=document.createElement("li");l.setAttribute("class","table-view-cell"),r=""+t[i].title+(t[i].active?'<span class="icon icon-check"></span>':"")+"\n<p>"+t[i].intro+"</p>\n"+createApplyButton(t[i]),l.innerHTML=r,n.appendChild(l)}}</script>
+
+  <body>
+    
+    <header class="bar bar-nav">
+      <h1 class="title"><script>_str("web_str_title_theme")</script>主题</h1>
+    </header>
+
+    
+    <div class="content" id="main-content">
+     <script>loadThemes()</script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>关于</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+      
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+
+      <script src="mbrowser.js"></script>
+
+  </head>
+  <script>function showDonateIfNeed(){mbrowser.isGooglePlayChannel()||(document.write('<div class="card">'),document.write('<ul class="table-view">'),document.write('<li class="table-view-cell media">'),document.write('<a  href="javascript:mbrowser.openLocalPage(\'x:donate\');">'),document.write('<div class="media-body">'),document.write(mbrowser.getStringResource("web_str_donation_me")),document.write("</div>"),document.write(" </a>"),document.write("</li>"),document.write("</ul>"),document.write("</div>"))}function showThanksIfNeed(){document.write('<li class="table-view-cell media">'),document.write('<a  href="javascript:mbrowser.openUrl(\'x:thk\',0,false);">'),document.write('<div class="media-body">'),document.write(mbrowser.getStringResource("web_str_thanks")),document.write("</div>"),document.write("</a>"),document.write("</li>")}function showHomepage(){document.write('<li class="table-view-cell media">');var e="https://www.xbext.com";mbrowser.inChina()||(e="https://en.xbext.com"),document.write('<a  href="'+e+'">'),document.write('<span class="media-object pull-left icon icon-home"></span>'),document.write('<div class="media-body">'),document.write(mbrowser.getStringResource("web_str_xb_home")),document.write("</div>"),document.write("</a>"),document.write("</li>")}function showCardUpdate(){mbrowser.isGooglePlayChannel()||(document.write('<li class="table-view-cell media">'),document.write('<a onclick="javascript:mbrowser.checkUpdate();">'),document.write('<span class="media-object pull-left icon icon-download"></span>'),document.write('<div class="media-body">'),document.write(mbrowser.getStringResource("web_str_check_update")),document.write("</div>"),document.write("</a>"),document.write("</li>"))}</script>
+  <body>
+
+    
+     <header class="bar bar-nav">
+      <h1 class="title"><script>_str("web_str_setting_about")</script>关于</h1>
+    </header>
+
+    
+
+    <div class="content">
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.showAboutDialog();">
+                        <span class="media-object pull-left icon icon-person"></span>
+                        <div class="media-body">
+                            <script>_str("web_str_setting_about")</script>关于
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+                
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openMarket();">
+                        <span class="media-object pull-left icon icon-star-filled"></span>
+                        <div class="media-body">
+                            <script>_str("web_str_setting_give_me_five")</script>鼓励一下开发者
+                        </div>
+                    </a>
+                </li>
+                
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.sharePage();">
+                        <span class="media-object pull-left icon icon-share"></span>
+                        <div class="media-body">
+                            <script>_str("web_str_setting_share_to_friend")</script>分享给朋友
+                        </div>
+                    </a>
+                </li>
+
+                <li class="table-view-cell media">
+                    <a href="https://t.me/xbfans" class="navigate-right">
+                        <span class="media-object pull-left iconfont icon-telegram"></span>
+                        <div class="media-body">
+                            <script>_str("web_str_telegram")</script>Telegram
+                        </div>
+                    </a>
+                </li>
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:hp',false);" class="navigate-right" onclick="location.href='https://www.xbext.com/'">
+                        <span class="media-object pull-left icon icon-home"></span>
+                        <div class="media-body">
+                            <script>_str("web_str_xb_home")</script>主页
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="table-view-cell media">
+                    <a href="javascript:showCardUpdate();">
+                        <span class="media-object pull-left icon icon-download"></span>
+                        <div class="media-body">
+                            <script>_str("web_str_show_card_update")</script>检查版本更新
+                        </div>
+                    </a>
+                </li>
+
+
+
+            </ul>
+        </div>
+
+
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.isGooglePlayChannel()||"vivo"==mbrowser.getChannelCode()||showDonateIfNeed();" class="navigate-right" onclick="location.href='donation.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_show_donate_if_need")</script>捐助开发者
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:pp',false);" class="navigate-right" onclick="location.href='https://www.xbext.com/docs/privacy-policy.html'">
+                        <div class="media-body">
+                            <script>_str("web_str_privacy_policy")</script>用户隐私协议
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.openLocalPage('x:fb',false);" class="navigate-right" onclick="location.href='https://www.xbext.com/feedback/'">
+                        <div class="media-body">
+                            <script>_str("web_str_feedback")</script>反馈建议和意见
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell media">
+                    <a href="javascript:showThanksIfNeed();" class="navigate-right" onclick="location.href='https://www.xbext.com/thanks/'">
+                        <div class="media-body">
+                            <script>_str("web_str_show_thanks_if_need")</script>致谢
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+  </body>
+</html>

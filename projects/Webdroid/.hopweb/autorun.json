@@ -1,0 +1,6 @@
+{
+    "title": "Webdroid",
+    "message": "仿 Android 交互界面，包括开机动画、启动器、设置及其他一些 UI。\n点击下方按钮开始。",
+    "target": "index.html",
+    "previewability": false
+}

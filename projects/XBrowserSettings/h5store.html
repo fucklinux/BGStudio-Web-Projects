@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>H5Store</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+      
+
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+    <script src="mbrowser.js"></script>
+  </head>
+  <script>function addCustomQuickAccess(){title=document.getElementById("qa-title").value,url=document.getElementById("qa-url").value,mbrowser.addQuickAccess(title,url,0),document.getElementById("qa-title").value="",document.getElementById("qa-url").value=""}function addQuickAccess(e,t,n,s){e.innerHTML==mbrowser.getStringResource("web_str_btn_open")?e.href=n:(mbrowser.addQuickAccess(t,n,s),e.innerHTML=mbrowser.getStringResource("web_str_btn_open"))}function loadCustomForm(){var e='        <div class="edit-form">\n            <input id="qa-title" type="text" placeholder="Title">\n            <input id="qa-url" type="text" placeholder="www.google.com">\n            <button onclick="addCustomQuickAccess()" class="btn btn-positive btn-block">'+mbrowser.getStringResource("web_str_btn_text_add")+"</button>\n        </div>",t=document.querySelector("#main-content");t&&(t.innerHTML=e)}function createAddButton(e){return e.added?'<a href="'+e.url+'" class="btn">'+mbrowser.getStringResource("web_str_btn_open")+"</a>":"<a  onclick=\"addQuickAccess(this,'"+e.title+"','"+e.url+"',"+e.ctr_flag+');" class="btn">'+mbrowser.getStringResource("web_str_btn_text_add")+"</a>"}function loadH5storeItems(e){console.log(mbrowser.getH5storeItems(e));var t=document.querySelector("#main-content");if(t.innerHTML="",t){h5lists=JSON.parse(mbrowser.getH5storeItems(e)),console.log(h5lists);var n=document.createElement("ul");for(n.setAttribute("class","table-view"),t.appendChild(n),i=0;i<h5lists.length;i++){var s=document.createElement("li"),r=(s.setAttribute("h5-url",h5lists[i].url),s.setAttribute("class","table-view-cell media"),'          <a>\n              <img class="media-object pull-left" src="'+h5lists[i].icon_url+'"/>\n              <div class="media-body">\n                  '+h5lists[i].title+"\n                  <p>"+h5lists[i].intro+"</p>\n              </div>\n          </a>\n"+createAddButton(h5lists[i]));s.innerHTML=r,n.appendChild(s)}}}</script>
+  <body>
+
+  <header class="bar bar-nav">
+
+    
+      
+    
+    <div class="segmented-control">
+        <a class="control-item active" onclick="loadCustomForm()"><script>_str("web_str_h5_cate_custom")</script></a>
+        <a class="control-item" onclick='loadH5storeItems("recommand")'><script>_str("web_str_h5_cate_recommand")</script></a>
+        <a class="control-item" onclick='loadH5storeItems("tools")'><script>_str("web_str_h5_cate_tools")</script></a>
+      
+
+    </div>
+
+  </header>
+
+    
+    <div id="main-content" class="content">
+        <script type="text/javascript">loadCustomForm()</script>
+    </div>
+
+  </body>
+</html>

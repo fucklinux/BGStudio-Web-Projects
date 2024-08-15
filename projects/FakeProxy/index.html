@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="mdui-1.0.1/css/mdui.min.css">
+    <script src="mdui-1.0.1/js/mdui.min.js"></script>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>🐢加速器</title>
+    <style>
+        .mdui-toolbar {
+            background: #DEDEDE;
+        }
+
+        .mdui-theme-layout-dark .mdui-toolbar {
+            background: #212121;
+        }
+
+        body {
+            background: #DEDEDE;
+        }
+
+        .mdui-select {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="mdui-appbar-with-toolbar">
+    <div class="mdui-appbar mdui-appbar-fixed mdui-shadow-0">
+        <div class="mdui-toolbar">
+            <a class="mdui-typo-title">🐢加速器</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '夜间模式'}" onclick="javascript:darkMode();">
+                <i class="mdui-icon material-icons">brightness_medium</i>
+            </a>
+        </div>
+    </div>
+    <div style="padding: 16px;">
+        <div class="mdui-card mdui-center" style="padding: 32px;max-width: 640px;overflow: visible;">
+            <i class="mdui-icon material-icons mdui-center" style="font-size: 96px;opacity: .54;" id="VPNIcon">vpn_key</i>
+            <p style="font-size: 24px;font-weight: bold;" class="mdui-text-center">🐢加速器</p>
+            <select class="mdui-select" mdui-select>
+                <option value="1">节点 1</option>
+                <option value="2">节点 14</option>
+                <option value="3">节点 51</option>
+                <option value="4">节点 4</option>
+                <option value="5" disabled>（维护中）节点 6</option>
+            </select>
+            <br><br>
+            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-black mdui-center" style="width: 128px;" id="connect">连接</button><br>
+            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-black mdui-center" style="width: 128px;" mdui-dialog="{target: '#rec'}">机场推荐</button>
+        </div>
+    </div>
+    <div class="mdui-dialog" id="rec">
+        <div class="mdui-dialog-title">机场推荐</div>
+        <div class="mdui-dialog-content">
+            <div class="mdui-table-fluid">
+                <table class="mdui-table">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>名称</td>
+                            <td>URL</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>1</td>
+                        <td>上海机场</td>
+                        <td>
+                            <div class="mdui-typo"><a href="https://www.shanghaiairport.com">https://www.shanghaiairport.com</a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>首都国际机场</td>
+                        <td>
+                            <div class="mdui-typo"><a href="https://www.bcia.com.cn/">https://www.bcia.com.cn/</a></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>关闭</button>
+        </div>
+    </div>
+    <script>
+        function darkMode() {
+            if (localStorage.getItem("darkMode") == "true") {
+                localStorage.setItem("darkMode", "false");
+                document.body.classList.remove("mdui-theme-layout-dark");
+            } else {
+                localStorage.setItem("darkMode", "true");
+                document.body.classList.add("mdui-theme-layout-dark");
+            }
+        }
+        if (localStorage.getItem("darkMode") == "true") {
+            document.body.classList.add("mdui-theme-layout-dark");
+        }
+        var VPNIcon = document.getElementById("VPNIcon");
+        var connectBtn = document.getElementById("connect");
+        connectBtn.onclick = function() {
+            connect();
+        };
+        connected = 0;
+
+        function connect() {
+            if (connected == 0) {
+                VPNIcon.style.opacity = "1";
+                VPNIcon.classList.add("mdui-text-color-blue-accent");
+                mdui.snackbar({
+                    message: '连接成功，当前延迟：' + random() + 'ms'
+                });
+                connectBtn.innerText = "断开连接";
+                connected = 1;
+            } else {
+                VPNIcon.style.opacity = ".54";
+                VPNIcon.classList.remove("mdui-text-color-blue-accent");
+                mdui.snackbar({
+                    message: '已断开连接'
+                });
+                connectBtn.innerText = "连接";
+                connected = 0;
+            }
+        }
+
+        function random() {
+            return (Math.random() * 3000).toFixed(0);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,324 @@
+<!doctype html>
+<html> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"> 
+		<title>Burger工具站</title> 
+		<link rel="shortcut  icon" href="images/BGS_LOGO_20210919_WHITE.png" type="image/x-icon"> 
+		<link rel="stylesheet" href="mdui/css/mdui.min.css"> 
+		<script src="mdui/js/mdui.min.js"></script> 
+      	<style>
+        .mdui-tooltip{
+        border-radius: 20px;
+        background-color: #EEEEEE;
+        color:black;
+        }
+        @keyframes card{
+        from {transform: scale(0.9);opacity: 0;}
+        to {transform: scale(1);opacity: 1;}
+        }
+        .mdui-card{
+        border-radius: 10px;
+        margin: 16px;
+        padding: 8px;
+        animation-name: card;
+        animation-duration: 0.75s;
+        }
+        @keyframes toleft{
+        from {margin-left: 32px;opacity: 0;}
+        to {margin-left: 0;opacity: 1;}
+        }
+        @keyframes toright{
+        from {margin-right: 32px;opacity: 0;}
+        to {margin-right: 0;opacity: 1;}
+        }
+        .toleft{
+        animation-name: toleft;
+        animation-duration: 0.75s;
+        animation-fill-mode: forwards;
+        animation-delay: 0.25s;
+        margin-left: 32px;
+        opacity: 0;
+        }
+        .toright{
+        animation-name: toright;
+        animation-duration: 0.75s;
+        animation-fill-mode: forwards;
+        animation-delay: 0.25s;
+        margin-right: 32px;
+        opacity: 0;
+        }
+        html{
+        scroll-behavior:smooth;
+        }
+        footer{
+        width: 100%;
+        text-align: center;
+        height: auto;
+        margin-top: 48px;
+        }
+        .opacity{
+        animation-name: opacity;
+        animation-duration: 0.75s;
+        }
+		@keyframes opacity{
+		from  {opacity: 0;}
+		to {opacity: 1;}
+		}
+		.img{
+		animation-name: card;
+		animation-duration: 0.75s;
+		}
+        </style>
+	</head> 
+	<body class="mdui-theme-primary-blue mdui-theme-accent-blue mdui-theme-layout-auto mdui-appbar-with-toolbar">  
+   		<header>
+         	<div class="mdui-appbar mdui-appbar-fixed">
+            	<div class="mdui-toolbar mdui-color-theme-accent">
+               		<a class="mdui-typo-title" onclick="window.scrollTo(0,0)">Burger工具站 历史版本</a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}" onclick="theme()">
+                    	<i class="mdui-icon material-icons">brightness_medium</i>
+                    </button>
+               	</div>
+            </div>
+         </header>
+         <div class="mdui-card mdui-shadow-24">
+         		<div class="mdui-card-header">
+               		<img class="mdui-card-header-avatar" src="images/BGS_LOGO_20210919_BLUE.png">
+                   	<div class="mdui-card-header-title">Burger Studio</div>
+                    <div class="mdui-card-header-subtitle">虚拟稽</div>
+               	</div>
+                <div class="mdui-card-media" style="animation-name: card;animation-duration: 1s;">
+                	<img src="images/BGS_IMAGE_20210919.jpg" style="border-radius: 10px;max-height: 512px;max-width: 384px;margin-left: auto;margin-right: auto;" class="mdui-shadow-6 mdui-img-fluid img">
+                </div>
+                <div class="mdui-card-primary">
+                	<div class="mdui-card-primary-title">Burger Studio 简介</div>
+                </div>
+         		<div class="mdui-card-content">
+               		Burger Studio 于 2020 年创立，起初只是搞一些虚拟机（故中文名为虚拟稽），后来逐渐开始研究其它方面的内容，如 Windows / Linux 系统安装、 Android 刷机等，偶尔会在B站发视频。
+                    <br>在2021年年初，我开始编写 Burger工具站 （原资源站），并不定期地更新。
+                   	<br><br>早期的 Burger Studio 陆续被命名为 Administrator 、 Admin Studios 和 Admin Studio 。
+                </div>
+                <div class="mdui-card-actions mdui-card-actions-stacked">
+                	<a href="https://burgerstudio.github.io/" class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-ripple-blue mdui-text-color-theme-text">访问 Burger工具站 的最新版本</a>
+                   	<a href="https://github.com/burgerstudio/burgerstudio.github.io" class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-ripple-blue mdui-text-color-theme-text">Burger工具站 开源项目</a>
+                </div>
+         </div>
+         <p style="margin: 36px;font-size: 15px;font-weight: bold;" class="mdui-text-color-theme-accent mdui-text-color-theme-text">在这里，您可以浏览 Burger工具站 的全部版本，了解它是怎样更新的。<br><br>点击任意页面的“返回索引页”按钮即可返回此页。</p>
+         <div class="mdui-card mdui-shadow-12">
+         	<div class="mdui-card-primary">
+            	<div class="mdui-card-primary-title">2021-02-09</div>
+               	<div class="mdui-card-primary-subtitle">Admin Studio 资源站</div>
+            </div>
+            <div class="mdui-card-content">这是我的第一个版本，使用MUI主题，界面极其简陋。</div>
+            <div class="mdui-card-actions">
+            	<a class="mdui-btn mdui-btn-icon mdui-float-right" href="BGT-21.2.9/index.html"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            </div>
+         </div>
+         <div class="mdui-card mdui-shadow-12" style="margin-top: 32px;">
+         	<div class="mdui-card-primary">
+            	<div class="mdui-card-primary-title">2021-02-24</div>
+               	<div class="mdui-card-primary-subtitle">Admin Studio 资源站</div>
+            </div>
+            <div class="mdui-card-content">优化了一些界面设计，如按钮大小的调整，元素的居中显示。</div>
+            <div class="mdui-card-actions">
+            	<a class="mdui-btn mdui-btn-icon mdui-float-right" href="BGT-21.2.24/index.html"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            </div>
+         </div>
+         <div class="mdui-card mdui-shadow-12" style="margin-top: 32px;">
+         	<div class="mdui-card-primary">
+            	<div class="mdui-card-primary-title">2021-02-27</div>
+               	<div class="mdui-card-primary-subtitle">Admin Studio 资源站</div>
+            </div>
+            <div class="mdui-card-content">将MUI主题换为Bootstrap。</div>
+            <div class="mdui-card-actions">
+            	<a class="mdui-btn mdui-btn-icon mdui-float-right" href="BGT-21.2.27/index.html"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            </div>
+         </div>
+         <div class="mdui-card mdui-shadow-12" style="margin-top: 32px;">
+         	<div class="mdui-card-primary">
+            	<div class="mdui-card-primary-title">2021-03-14</div>
+               	<div class="mdui-card-primary-subtitle">Burger Studio 资源站</div>
+            </div>
+            <div class="mdui-card-content">从这个版本起， Admin Studio 被重命名为 Burger Studio 。<br><br>将Bootstrap主题与MDUI混搭，界面稍作修改。</div>
+            <div class="mdui-card-actions">
+            	<a class="mdui-btn mdui-btn-icon mdui-float-right" href="BGT-21.3.14/index.html"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            </div>
+         </div>
+         <div class="mdui-card mdui-shadow-12" style="margin-top: 32px;">
+         	<div class="mdui-card-primary">
+            	<div class="mdui-card-primary-title">2021-03-26</div>
+               	<div class="mdui-card-primary-subtitle">Burger Studio 资源站</div>
+            </div>
+            <div class="mdui-card-content">
+            在这之后，我开始逐条写更新说明。
+            <br><br>-为一些按钮添加了图标
+			<br>-更改一些页面的标题
+			<br>-去除MDUI以外的前端框架，优化外观
+			<br>-“应用程序”页面使用Tab选项卡
+         	</div>
+            <div class="mdui-card-actions">
+            	<a class="mdui-btn mdui-btn-icon mdui-float-right" href="BGT-21.3.26/index.html"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            </div>
+         </div>
+         <div class="mdui-card mdui-shadow-12" style="margin-top: 32px;">
+         	<div class="mdui-card-primary">
+            	<div class="mdui-card-primary-title">2021-04-04</div>
+               	<div class="mdui-card-primary-subtitle">Burger Studio 资源站</div>
+            </div>
+            <div class="mdui-card-content">
+            MDUI的风格越来越浓了。
+            <br><br>-背景颜色更换为白色
+			<br>-页面顶部增加工具栏
+			<br>-增加抽屉式导航栏
+			<br>-优化居中显示规则
+			<br>-增加客户端获取渠道
+         	</div>
+            <div class="mdui-card-actions">
+            	<a class="mdui-btn mdui-btn-icon mdui-float-right" href="BGT-21.4.4/index.html"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            </div>
+         </div>
+         <div class="mdui-card mdui-shadow-12" style="margin-top: 32px;">
+         	<div class="mdui-card-primary">
+            	<div class="mdui-card-primary-title">2021-04-21</div>
+               	<div class="mdui-card-primary-subtitle">Burger Studio 资源站</div>
+            </div>
+            <div class="mdui-card-content">
+            客户端变化：
+            <br>-解决了部分网页无法显示的问题
+			<br>-在屏幕上方显示加载进度条
+			<br>-应用内可下载文件
+         	<br>网页端变化：
+			<br>-加入手动切换亮/暗色主题功能
+         	</div>
+            <div class="mdui-card-actions">
+            	<a class="mdui-btn mdui-btn-icon mdui-float-right" href="BGT-21.4.21/index.html"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            </div>
+         </div>
+         <div class="mdui-card mdui-shadow-12" style="margin-top: 32px;">
+         	<div class="mdui-card-primary">
+            	<div class="mdui-card-primary-title">2021-06-11</div>
+               	<div class="mdui-card-primary-subtitle">Burger Studio 资源站</div>
+            </div>
+            <div class="mdui-card-content">
+            -页面采用卡片式布局和动画效果
+			<br>-页面底部加入页脚
+			<br>-为较长的页面加入返回顶部按钮
+			<br>-为某些元素添加圆角
+			<br>-优化主题显示规则
+         	</div>
+            <div class="mdui-card-actions">
+            	<a class="mdui-btn mdui-btn-icon mdui-float-right" href="BGT-21.6.11/index.html"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            </div>
+         </div>
+         <div class="mdui-card mdui-shadow-12" style="margin-top: 32px;">
+         	<div class="mdui-card-primary">
+            	<div class="mdui-card-primary-title">2021-07-03</div>
+               	<div class="mdui-card-primary-subtitle">Burger Studio 资源站</div>
+            </div>
+            <div class="mdui-card-content">
+            -新增“JS工具”页面，集成小工具
+			<br>-优化深色主题的表现
+			<br>-22:00 - 06:00 自动切换为深色主题
+			<br>-更新 极品电音 列表
+			<br>-新增 绘图/剪辑工具合集
+			<br>-优化页面平滑滚动规则
+         	</div>
+            <div class="mdui-card-actions">
+            	<a class="mdui-btn mdui-btn-icon mdui-float-right" href="BGT-21.7.3/index.html"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            </div>
+         </div>
+         <div class="mdui-card mdui-shadow-12" style="margin-top: 32px;">
+         	<div class="mdui-card-primary">
+            	<div class="mdui-card-primary-title">2021-09-10</div>
+               	<div class="mdui-card-primary-subtitle">Burger Studio 资源站</div>
+            </div>
+            <div class="mdui-card-content">
+            从这时起“Burger Studio 资源站”更名为“Burger工具站”，并在部分页面打开时自动展示“最近更新”对话框。
+			<br><br>-优化动画效果，解决部分卡顿问题
+         	</div>
+            <div class="mdui-card-actions">
+            	<a class="mdui-btn mdui-btn-icon mdui-float-right" href="BGT-21.9.10/index.html"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            </div>
+         </div>
+         <div class="mdui-card mdui-shadow-12" style="margin-top: 32px;">
+         	<div class="mdui-card-primary">
+            	<div class="mdui-card-primary-title">最新版本</div>
+               	<div class="mdui-card-primary-subtitle">Burger工具站</div>
+            </div>
+            <div class="mdui-card-content">
+            前往 GitHub 访问我的最新版本。
+         	</div>
+            <div class="mdui-card-actions">
+            	<a class="mdui-btn mdui-btn-icon mdui-float-right" href="https://burgerstudio.github.io/"><i class="mdui-icon material-icons">arrow_forward</i></a>
+               	<a class="mdui-btn mdui-btn-icon mdui-float-right" href="https://github.com/burgerstudio/burgerstudio.github.io" mdui-tooltip="{content: '开源项目'}"><i class="mdui-icon material-icons">code</i></a>
+            </div>
+         </div>
+         <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide" id="fab" onclick="window.scrollTo(0,0);">
+        <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <script>
+            var pageHeight =10;
+            window.onscroll =function () {
+                var backTop = document.documentElement.scrollTop || 
+                document.body.scrollTop;
+                if(backTop>pageHeight){
+                    show()
+                }else{
+                    hide()
+                }
+            }
+    </script>
+    <script>
+    	var fab = document.getElementById('fab');
+    	function show(){
+    	fab.classList.remove('mdui-fab-hide');
+		}
+    	function hide(){
+    	fab.classList.add('mdui-fab-hide');
+		}
+    </script>
+    <footer class="mdui-color-theme-accent">
+    	<br>
+       	<a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
+        <i class="mdui-icon material-icons">email</i>
+        </a>
+        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
+        <img src="BGT-21.7.3/images/Wechat-logo.png" class="mdui-img-fluid">
+        </button>
+        <div class="mdui-menu" id="wechat" style="border-radius: 10px;">
+        <img src="images/WeChat.png" class="mdui-img-fluid">
+        </div>
+        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
+        <img src="BGT-21.7.3/images/QQ-logo.png" style="width:32px;height:32px;">
+        </button>
+        <div class="mdui-dialog" id="qq" style="width:180px;height:336px;border-radius: 10px;">
+        <img src="BGT-21.7.3/images/QQ.jpg" style="width:180px;height:336px;">
+        </div>
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
+        <i class="mdui-icon material-icons">send</i>
+        </a>
+        <br><br>
+        <div class="mdui-typo">
+        <p><label>主题：<a href="https://www.mdui.org/" class="mdui-color-yellow">MDUI</a></label></p>
+        </div>
+       	<p style="font-size: 15px;font-weight: bold;">2021 - Burger Studio</p>
+        <br><br>
+    </footer>
+	</body>
+   	<script>
+      	if (localStorage.getItem('darkTheme') == 'true' || new Date().getHours() >= 22 || new Date().getHours() < 6){
+    		document.body.classList.add('mdui-theme-layout-dark');
+		}
+    	function theme(){
+    		if (localStorage.getItem('darkTheme') == 'true'){
+    			document.body.classList.remove('mdui-theme-layout-dark');
+             	localStorage.removeItem('darkTheme');
+			}else{
+    			document.body.classList.add('mdui-theme-layout-dark');
+             	localStorage.setItem('darkTheme','true');
+			}
+		}
+    </script>
+</html>

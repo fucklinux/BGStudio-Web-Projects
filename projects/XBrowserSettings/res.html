@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Resource List</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+    <link href="mbrowser.css" rel="stylesheet">
+    
+    <script src="js/ratchet.js"></script>
+    <script src="mbrowser.js"></script>
+
+</head>
+
+<body>
+
+<script>function res_title(e){"img"==e?_str("web_str_image_res"):"css"==e?_str("web_str_css_res"):"js"==e?_str("web_str_js_res"):"media"==e?_str("web_str_media_res"):"other"==e?_str("web_str_other_res"):_str("web_str_all_res")}function show_filter(e){document.write('<a href="x:res?host='+host+"&type="+e+'">'),res_title(e),getQueryString("type")==e&&document.write('<span class="icon icon-check"></span>'),document.write("</a>")}</script>
+
+
+<header class="bar bar-nav">
+
+    <a href="#popover">
+        <h1 class="title"><script>var type=(type=getQueryString("type"))||"all";res_title(type)</script>
+            <span class="icon icon-caret"></span>
+        </h1>
+    </a>
+    
+    
+</header>
+
+
+<div class="content">
+
+    <ul id="res-list" class="table-view my-list">
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+    </ul>
+
+</div>
+
+
+<script type="text/javascript">var type=getQueryString("type"),host=getQueryString("host");loadResourceList(host,type)</script>
+
+
+<div id="popover" class="popover">
+
+    <ul class="table-view">
+        <li class="table-view-cell">
+            <script>show_filter("all")</script>
+        </li>
+        <li class="table-view-cell">
+            <script>show_filter("img")</script>
+        </li>
+        <li class="table-view-cell">
+            <script>show_filter("css")</script>
+        </li>
+        <li class="table-view-cell">
+            <script>show_filter("js")</script>
+        </li>
+        <li class="table-view-cell">
+            <script>show_filter("media")</script>
+        </li>
+        <li class="table-view-cell">
+            <script>show_filter("other")</script>
+        </li>
+    </ul>
+</div>
+
+
+</body>
+</html>

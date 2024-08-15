@@ -1,0 +1,28 @@
+    html {
+      background-color: #000000;
+    }
+
+    body {
+        background-color: #000000
+    }
+    .container {
+
+    }
+
+    .top__controls span {
+         margin-top: 3px;
+         margin-left: 10px;
+         position:absolute;
+         white-space:nowrap;
+         width: 70%;
+         overflow:hidden;
+         text-overflow:ellipsis;
+    }
+
+    .right
+    {
+        margin-right: 5px;
+        right: 0;
+        position:absolute;
+        color: white;
+    }

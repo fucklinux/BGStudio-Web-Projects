@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>我的脚本</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+    <link href="mbrowser.css" rel="stylesheet">
+    
+    <script src="js/ratchet.js"></script>
+    <script src="mbrowser.js"></script>
+
+</head>
+
+<style>pre{color:#777;font-size:14px;line-height:1.3em;white-space:pre-wrap;word-wrap:break-word}.bar-tab,.bar.bar-footer,.bar.bar-footer-secondary,.bar.bar-footer-secondary-tab,.table-view{border-top:0}</style>
+<script>function updateScriptStatus(e,t){var i=document.querySelector("#"+e);!i||(i=i.querySelector("span"))&&(console.log("find by id :"+e),i.style=0==t?"text-decoration: line-through":"")}function deleteUserScriptItem(e){e=document.querySelector("#"+e);e&&e.parentElement.removeChild(e)}function native_call_notify_add_new(e,t,i,r,c,l){var n=document.querySelector("#"+e);n||(n=createScriptItem(e,t,i,r,c,l),(e=document.querySelector("li"))?e.parentElement.insertBefore(n,e):(t=document.querySelector("#script-list"))&&t.appendChild(n))}function createScriptItem(e,t,i,r,c,l){var n=document.createElement("li");return n.setAttribute("id",e),n.setAttribute("class","table-view-cell media my-cell"),i=i||"http://placehold.it/24x24/",n.innerHTML=0==l?"<a href='x:sf?script_id="+t+'\'><img width=24 height=24 class="media-object pull-left" src="'+i+'"><div class="media-body"><span style="text-decoration: line-through">'+r+"</span><p><pre>"+c+"</pre></p></div></a><span onclick=\"mbrowser.showScriptContextMenu('"+t+"',"+l+')" class="x-more-btn pull-right pull-top icon icon-more-vertical"></span>':"<a href='x:sf?script_id="+t+'\'><img width=24 height=24 class="media-object pull-left" src="'+i+'"><div class="media-body"><span>'+r+'</span><p style="word-wrap: break-word;"><pre>'+c+"</pre></p></div></a><span onclick=\"mbrowser.showScriptContextMenu('"+t+"',"+l+')" class="x-more-btn pull-right pull-top icon icon-more-vertical"></span>',n}function loadScriptList(){var e=document.querySelector("#script-list");if(e){var t=JSON.parse(mbrowser.getUserScriptListByJson());for(i=0;i<t.length;i++){var r=createScriptItem(t[i].id,t[i].script_id,t[i].icon_url,t[i].title,t[i].script_desc,t[i].status);e.appendChild(r)}}}</script>
+
+
+<body>
+
+
+
+
+<header class="bar bar-nav">
+    <h1 class="title"><script>_str("web_str_title_myscript")</script>我的脚本</h1>
+    <a onclick='location.href="https://www.xbext.com/docs/#user_script";mbrowser.openLocalPage("x:sh")' class="btn pull-left"><script>_str("btn_text_help")</script>帮助</a>
+    <button onclick="mbrowser.showAddScriptMenu()" class="btn pull-right"><script>_str("web_str_title_newscript")</script>添加脚本</button>
+</header>
+
+
+<div class="content">
+
+    <ul id="script-list" class="table-view my-list">
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+    </ul>
+
+</div>
+
+<script type="text/javascript">loadScriptList()</script>
+
+</body>
+</html>

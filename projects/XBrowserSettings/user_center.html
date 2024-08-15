@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>用户中心</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+      
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+
+  </head>
+  <script>function showLoginOrProfile(){mbrowser.hasLogin()?(document.write('<li class="table-view-cell">'),document.write('<a  href="javascript:mbrowser.openLoginOrProfile()" class="navigate-right">'),document.write('<div class="media-body">'),document.write(mbrowser.getStringResource("web_str_user_profile")),document.write("</div>")):(document.write('<li class="table-view-cell">'),document.write('<a  href="javascript:mbrowser.openLoginOrProfile()" class="navigate-right">'),document.write('<div class="media-body">'),document.write(mbrowser.getStringResource("web_str_sign_in_up")),document.write("</div>"),document.write("<p>"+mbrowser.getStringResource("web_str_sign_in_up_desc")+"</p>")),document.write("</a>"),document.write("</li>")}function do_destroy_account(){window.confirm(mbrowser.getStringResource("web_str_destroy_account_confirm"))&&(window.location=mbrowser.getServiceUrl("destroy_account"))}</script>
+  <body>
+
+    
+     <header class="bar bar-nav">
+      <h1 class="title"><script>_str("web_str_set_user_center")</script>用户中心</h1>
+    </header>
+
+    
+    <div class="content">
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.backupUserData();">
+                        <div class="media-body">
+                            <script>_str("web_str_backup_user_data")</script>备份用户数据
+                        </div>
+                        <p><script>_str("web_str_backup_user_data_desc")</script>备份用户数据并生成一个还原文件</p>
+                    </a>
+                </li>
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.restroeUserData(false);">
+                        <div class="media-body">
+                            <script>_str("web_str_restore_user_data")</script>恢复用户数据
+                        </div>
+                        <p><script>_str("web_str_restore_user_data_desc")</script>备份用户数据并生成一个还原文件</p>
+                    </a>
+                </li>
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.restroeUserData(true);">
+                        <div class="media-body">
+                            <script>_str("web_str_one_key_recovery")</script>一键恢复
+                        </div>
+                        <p><script>_str("web_str_one_key_recovery_desc")</script>尝试从先前的备份快速恢复用户数据</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="card">
+            <ul class="table-view">
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.importBookmarkFromHtml();">
+                        <div class="media-body">
+                            <script>_str("web_str_import_bm")</script>从HTML文件导入书签
+                        </div>
+                    </a>
+                </li>
+
+                <li class="table-view-cell media">
+                    <a href="javascript:mbrowser.exportBookmarkToHtml();">
+                        <div class="media-body">
+                            <script>_str("web_str_export_bm")</script>导出书签至HTML文件
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        
+        <div class="card" onclick="location.href='https://www.xbext.com/user/login?locale=zh&device_id=&token='">
+            <ul class="table-view">
+
+                <li class="table-view-cell">
+                    <a href="javascript:mbrowser.openLocalPage('x:rf');" class="navigate-right">
+
+                        <div class="media-body">
+                            <script>_str("web_str_show_login_or_profile")</script>登录/注册
+                        </div>
+                        <p><script>_str("web_str_show_login_or_profile_desc")</script>登录注册用于多个设备之间的同步</p>
+                        
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <br>
+
+        <div class="edit-form">
+            <button id="sync-btn-push" onclick="location.href='https://www.xbext.com/user/login?locale=zh&device_id=&token=';mbrowser.push()" class="btn btn-positive btn-block"><script>_str("web_str_push_user_data")</script>同步至云端</button>
+            <button id="sync-btn-pull" onclick="location.href='https://www.xbext.com/user/login?locale=zh&device_id=&token=';mbrowser.pull()" class="btn btn-positive btn-block"><script>_str("web_str_pull_user_data")</script>从云端同步</button>
+
+            <script>var destroy=getQueryString("destroy");mbrowser.hasLogin()&&"true"==destroy&&document.write('<button onclick="do_destroy_account();"  class="btn btn-negative btn-block">'+mbrowser.getStringResource("web_str_destroy_account")+"</button>")</script>
+        </div>
+
+    </div>
+  </body>
+</html>

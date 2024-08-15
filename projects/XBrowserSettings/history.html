@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>历史记录</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+      
+
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      
+      <script src="mbrowser.js"></script>
+      <script src="js/H5lock.js"></script>
+
+  </head>
+
+
+  <body>
+
+    
+     <header class="bar bar-nav">
+
+      <h1 id="element" class="title"><script>_str("web_str_title_history")</script></h1>
+      
+         <a href="javascript:mbrowser.removeAllHistories();" id="btn-clean-his" class="btn pull-right"><script>_str("web_str_clean_history")</script></a>
+
+         <div class="bar bar-standard bar-header-secondary">
+             <input id="mysearch" type="search" placeholder="Search" oninput="on_search(event)" onporpertychange="on_search(event)">
+         </div>
+    </header>
+
+    
+    <div class="content" style="margin-top:50px">
+        
+            
+        
+
+
+      
+
+          
+           
+          
+      
+        
+                
+        
+
+    </div>
+    <div id="dlg-lock-panel" class="modal">
+        <header class="bar bar-nav">
+            <a id="updatePassword" class="btn pull-left"><script>_str("btn_text_reset")</script></a>
+
+            <h1 id="title" class="title"><script>_str("web_str_pls_unlock")</script></h1>
+
+        </header>
+        <div id="lock-panel" class="content" style="background-color:#305066">
+            <script>var obj=new H5lock({chooseType:3,panelId:"lock-panel",_str_set_unlock_pattern_for_first:mbrowser.getStringResource("web_str_set_unlock_pattern_for_first"),_str_passwd_saved:mbrowser.getStringResource("web_str_passwd_saved"),_str_input_not_match:mbrowser.getStringResource("web_str_input_not_match"),_str_unlocked:mbrowser.getStringResource("web_str_unlocked"),_str_unlock_failed:mbrowser.getStringResource("web_str_unlock_failed"),_str_input_again:mbrowser.getStringResource("web_str_input_again"),_str_pls_unlock:mbrowser.getStringResource("web_str_pls_unlock"),_str_draw_unlock_pattern:mbrowser.getStringResource("web_str_draw_unlock_pattern")}),locker=(obj.init(),document.querySelector("#lock-panel"));locker.addEventListener("locker:unlocked",function(){close_lock_panel(),mbrowser.notifyUnlocked()}),window.addEventListener("load",function(){mbrowser.getBooleanPreference("unlock-to-view-his")&&!mbrowser.hasUnlocked()&&open_lock_panel()})</script>
+        </div>
+    </div>
+
+    <script type="text/javascript">var count=mbrowser.getCountHistories(),offset=0,page_size=50,page_count=1,keyword="";function on_search(e){keyword=e.target.value,console.log("do search with key:"+keyword),loadHistories(keyword,page_size,0)}page_size<count&&enable_listen_scroll(),window.addEventListener("scroll",function(){var e=window.scrollY,o=window.innerHeight;document.body.scrollHeight-2<=e+o&&(offset=page_size*page_count)<count&&(loadHistories(keyword,page_size,offset),page_count++)}),loadHistories(keyword,page_size,offset)</script>
+
+  </body>
+</html>

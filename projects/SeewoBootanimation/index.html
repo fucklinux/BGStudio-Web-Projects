@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>希沃开机动画</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">希沃开机动画</h1>
+    <img src="seewo/part1/00075.png" style="width: 100%;background: black;" id="1" onclick="javascript:requestFullScreen(document.getElementById('1'));">
+    <h4 style="text-align: center;">Made by Burger Studio.</h4>
+    <script>
+        console.log("显示第一屏");
+        window.setTimeout(function() {
+            window.setInterval("if (loop == 'false'){boot();}", 83.33);
+        }, 5000)
+        window.setInterval("if (loop == 'true'){looop();}", 83.33);
+        i = 1;
+        n = 1;
+        loop = "false";
+
+        function boot() {
+            if (i == 1) {
+                console.log("开始播放动画");
+            }
+            if (i < 54) {
+                if (i < 10) {
+                    i = "0000" + Number(i);
+                } else if (i < 100) {
+                    i = "000" + Number(i);
+                }
+                document.getElementById('1').src = "seewo/part0/" + i + ".png";
+                console.log("第 " + i + " 帧图像");
+                i = Number(i) + 1;
+            } else {
+                loop = "true";
+                console.log("开始循环");
+                console.log("第 " + n + " 次循环");
+            }
+        }
+
+        function looop() {
+            if (i < 90) {
+                if (i < 100) {
+                    i = "000" + Number(i);
+                }
+                document.getElementById('1').src = "seewo/part1/" + i + ".png";
+                console.log("第 " + i + " 帧图像");
+                i = Number(i) + 1;
+                if (i == 90) {
+                    i = 54;
+                    n += 1;
+                    console.log("第 " + n + " 次循环");
+                }
+            }
+        }
+        qp = 0;
+        // 全屏显示源码来自：https://www.php.cn/article/397034.html
+        function requestFullScreen(element) {
+            if (qp == 0) {
+                // 判断各种浏览器，找到正确的方法
+                var requestMethod = element.requestFullScreen || //W3C
+                    element.webkitRequestFullScreen || //Chrome等
+                    element.mozRequestFullScreen || //FireFox
+                    element.msRequestFullScreen; //IE11
+                if (requestMethod) {
+                    requestMethod.call(element);
+                } else if (typeof window.ActiveXObject !== "undefined") { //for Internet Explorer
+                    var wscript = new ActiveXObject("WScript.Shell");
+                    if (wscript !== null) {
+                        wscript.SendKeys("{F11}");
+                    }
+                }
+                qp = 1;
+            } else if (qp == 1) {
+                exitFull();
+                qp = 0;
+            }
+        }
+
+        function exitFull() {
+            // 判断各种浏览器，找到正确的方法
+            var exitMethod = document.exitFullscreen || //W3C
+                document.mozCancelFullScreen || //Chrome等
+                document.webkitExitFullscreen || //FireFox
+                document.webkitExitFullscreen; //IE11
+            if (exitMethod) {
+                exitMethod.call(document);
+            } else if (typeof window.ActiveXObject !== "undefined") { //for Internet Explorer
+                var wscript = new ActiveXObject("WScript.Shell");
+                if (wscript !== null) {
+                    wscript.SendKeys("{F11}");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

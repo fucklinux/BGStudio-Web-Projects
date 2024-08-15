@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>规则文件</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+      
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+
+  </head>
+  <script>function showContextMenu(e){mbrowser.showRuleFileContextMenu(e);e=window.event;e&&e.stopPropagation()}function native_call_active_rule_file(e,t){var r=document.querySelector("#"+e);!r||(r=r.querySelector(".rf-name"))&&(console.log(" found :"+e+" "+t),t?(console.log("call active_rule_file:"+e+" "+t),r.classList.remove("mark-del")):(console.log("call active_rule_file:"+e+" "+t),r.classList.add("mark-del")))}function native_call_show_import_url_dlg(){var e=document.querySelector("#import-from-url");e&&e.classList.add("active")}function close_import_url_dlg(){var e=document.querySelector("#import-from-url");e&&e.classList.remove("active")}function import_rule_from_url(){var e=document.getElementById("import-url").value;e.startsWith("http")?(mbrowser.importAdRuleFromUrl(e),close_import_url_dlg()):mbrowser.showToast(mbrowser.getStringResource("toast_invalid_url"))}function rule_file_title(e){return e.active?"<span class='rf-name'>"+e.title+"</span>":"<span class='rf-name mark-del'>"+e.title+"</span>"}function show_rule_files(){console.log(">>>>>>>>>>>>>>>>>> call show_rule_files >>>>>>>>>>>>>>>>>>>");var e=document.querySelector("#ad-rule-files");if(e){e.innerHTML="";for(var t=mbrowser.getRuleFiles(),r=(console.log("json:"+t),JSON.parse(t)),l=0;l<r.length;l++){var o=document.createElement("li"),s=(o.id=r[l].id,o.setAttribute("rf",r[l].file_name),o.setAttribute("class","table-view-cell li my-cell"),o.onclick=function(){mbrowser.openFile(this.getAttribute("rf"))},r[l].size+"  "+mbrowser.getStringResource("web_str_update_at")+" "+r[l].update_at);-1==r[l].status&&(s=mbrowser.getStringResource("web_str_status_wait_import")),5==r[l].status&&(s=mbrowser.getStringResource("web_str_status_wait_update")),o.innerHTML='<div  class="media-body"><div class="item-title">'+rule_file_title(r[l])+'</div><p class="dl-status">'+s+"</p><span onclick=\"showContextMenu('"+r[l].source_url+'\')" class="x-more-btn pull-right icon icon-more-vertical"></span></div>',e.appendChild(o)}}}</script>
+
+  <body>
+
+    
+     <header class="bar bar-nav">
+       <h1 class="title"><script>_str("web_str_rule_files")</script>规则文件</h1>
+       <a href="javascript:mbrowser.showImportRuleFileMenu()" class="btn pull-right"><script>_str("web_str_btn_import")</script>导入</a>
+    </header>
+
+    
+    <div class="content">
+      <script>checkTips(110)</script>
+      <ul id="ad-rule-files" class="table-view my-list">
+
+
+        
+          
+            
+              
+            
+            
+
+            
+          
+        
+
+
+
+
+
+      </ul>
+    </div>
+  <script>show_rule_files()</script>
+
+
+
+    <div id="import-from-url" class="modal">
+        <header class="bar bar-nav">
+            <a class="icon icon-close pull-right" href="#import-from-url"></a>
+            <h1 class="title"><script>_str("web_str_rule_files")</script></h1>
+        </header>
+
+        <div class="content">
+            <div class="edit-form">
+                <script>document.write('<input id="import-url" type="text" placeholder="'+mbrowser.getStringResource("web_str_import_rule_from_url_plh")+'">')</script>
+                <button onclick="import_rule_from_url()" class="btn btn-positive btn-block"><script>_str("web_str_btn_import")</script></button>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

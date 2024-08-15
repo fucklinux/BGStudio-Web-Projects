@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>个性化</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+    <link href="mbrowser.css" rel="stylesheet">
+
+    
+    <script src="js/ratchet.js"></script>
+    <script src="mbrowser.js"></script>
+
+</head>
+
+<script>function showStatusBarOption(){19<=mbrowser.getSdkLevel()&&(document.write('<li class="table-view-cell media">'),document.write('<a  href="javascript:mbrowser.changeStatusBarStyle();">'),document.write('<div class="media-body">'),_str("web_str_immersion_seting"),document.write("</div>"),document.write("</a>"),document.write("</li>"))}function native_call_update_btn(e){var t=0==e?document.querySelector("#set-home-bg"):document.querySelector("#set-home-page");t&&(t.innerHTML=getButtonText(e))}function setOrCleanHomeBg(){mbrowser.hasHomeBg()?mbrowser.cleanHomeBg():mbrowser.setHomeBg()}function getButtonText(e){return 0==e?mbrowser.hasHomeBg()?mbrowser.getStringResource("web_str_btn_clean"):mbrowser.getStringResource("web_str_btn_set"):1==e?mbrowser.hasCustomHomePage()?mbrowser.getStringResource("web_str_btn_revert"):mbrowser.getStringResource("web_str_btn_set"):void 0}function setOrCleanHomePage(){mbrowser.hasCustomHomePage()?mbrowser.revertDefaultHomePage():mbrowser.setHomePage()}</script>
+
+<body>
+
+
+<header class="bar bar-nav">
+    <h1 id="element" class="title"><script>_str("web_str_set_home_page")</script>个性化</h1>
+</header>
+
+
+<div class="content">
+
+    <div class="card">
+        <ul class="table-view">
+
+            <li class="table-view-cell media">
+                <script>_str("web_str_home_bg")</script>主页背景 <button id="set-home-bg" onclick="setOrCleanHomeBg()" class="btn btn-positive pull-right"><script>document.write(getButtonText(0))</script>设置</button>
+            </li>
+
+            <li class="table-view-cell">
+                <a href="javascript:mbrowser.openLocalPage('x:hi');" class="navigate-right" onclick="location.href='modify_home_icon.html'">
+                    <script>_str("web_str_modify_home_icon")</script>修改主页图标
+                </a>
+            </li>
+
+            <li class="table-view-cell media">
+                <a href="javascript:mbrowser.adjustHomeIconAlpah();">
+                    <div class="media-body">
+                        <script>_str("web_str_qa_alpha")</script>主页图标透明度
+                    </div>
+                </a>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_hide_add_qa_btn")</script>隐藏快速访问加号图标
+                <div id="hide-add-qa-btn" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+
+            <li class="table-view-cell media">
+                <script>_str("web_str_change_home_page")</script>修改默认主页<button id="set-home-page" onclick="setOrCleanHomePage()" class="btn btn-positive pull-right"><script>document.write(getButtonText(1))</script>设置</button>
+                <p><script>_str("web_str_change_home_page_desc")</script>你可以设置本地网页或一个网址作为你的主页</p>
+            </li>
+
+        </ul>
+    </div>
+    <div class="card">
+        <ul class="table-view">
+
+            <li class="table-view-cell media">
+                <a href="javascript:mbrowser.selectThemeStyle();">
+                    <div class="media-body">
+                        <script>_str("web_str_theme_style")</script>主题风格
+                    </div>
+                </a>
+            </li>
+            <li class="table-view-cell media">
+                <a href="javascript:mbrowser.openLocalPage('x:theme',false);" class="navigate-right" onclick="location.href='theme.html'">
+                    <div class="media-body">
+                        <script>_str("menu_theme")</script>主题
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell media">
+                <a href="javascript:mbrowser.openLocalPage('x:mc');" class="navigate-right" onclick="location.href='menu_conf.html'">
+                    <div class="media-body">
+                        <script>_str("web_str_menu_conf")</script>菜单设置
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+
+            <li class="table-view-cell media">
+                <a href="javascript:mbrowser.changeToolbarStyle();">
+                    <div class="media-body">
+                        <script>_str("web_str_setting_toolbar_sytle")</script>工具栏样式
+                    </div>
+                </a>
+            </li>
+
+            <li class="table-view-cell media">
+                <a href="javascript:showStatusBarOption();">
+                    <div class="media-body">
+                        <script>_str("web_str_show_status_bar_option")</script>沉浸设置
+                    </div>
+                </a>
+            </li>
+            
+            <li class="table-view-cell media">
+                <a href="javascript:mbrowser.changeBrowserLayout();">
+                    <div class="media-body">
+                        <script>_str("web_str_setting_browser_layout_style")</script>浏览器布局方式
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+
+
+
+</div>
+
+<script type="text/javascript">document.querySelector("#hide-add-qa-btn").addEventListener("toggle",function(e){mbrowser.hideAdQaBtn(e.detail.isActive)}),mbrowser.getBooleanPreference("hide-add-qa-btn")?document.querySelector("#hide-add-qa-btn").classList.add("active"):document.querySelector("#hide-add-qa-btn").classList.remove("active")</script>
+
+</body>
+</html>

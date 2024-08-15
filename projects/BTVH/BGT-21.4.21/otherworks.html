@@ -1,0 +1,124 @@
+<!doctype html>
+<html> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="icon" href="images/BGS_LOGO_20210305_2.png" type="image/x-icon"> 
+        <link rel="stylesheet" href="mdui/css/mdui.min.css">
+        <script src="mdui/js/mdui.min.js"></script>
+    </head> 
+    <body class="mdui-theme-layout-auto"> 
+        <title>其它作品</title> 
+        <div class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-blue-accent">
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#drawer', swipe: true}">
+        <i class="mdui-icon material-icons">menu</i>
+        </a>
+        <a class="mdui-typo-headline">其它作品</a>
+        <div class="mdui-toolbar-spacer"></div>
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" href="index.html" mdui-tooltip="{content: '返回首页'}">
+        <i class="mdui-icon material-icons">home</i>
+        </a>
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取客户端'}">
+        <i class="mdui-icon material-icons">cloud_download</i>
+        </a>
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '亮/暗色主题'}">
+        <i class="mdui-icon material-icons">brightness_medium</i>
+        </a>
+<script>
+    if(localStorage.darkTheme)
+        document.body.classList.add("mdui-theme-layout-dark");
+    document.getElementById("switch-theme").addEventListener(
+        "click",
+        () => document.body.classList.toggle("mdui-theme-layout-dark") ?
+            (localStorage.darkTheme = true) :
+            (delete localStorage.darkTheme)
+    );
+</script>
+        </div>
+        </div>
+        <div class="mdui-dialog" id="update">
+        <div class="mdui-dialog-title">下载/更新客户端</div>
+        <div class="mdui-dialog-content">
+        更新时间：2021-04-21
+        <br>新版变化：
+        <br>-解决了部分网页无法显示的问题
+        <br>-在屏幕上方显示加载进度条
+        <br>-应用内可下载文件
+        <br>-加入手动切换亮/暗色主题功能
+        <br><br>此版本使用新的打包方式，对于某些较高版本的Android可能会出现以下问题：
+        <br>-进行文本操作时应用无响应
+        <br>-无法正常浏览网页
+        <br><br>如果它无法兼容你的设备，请下载兼容版本（仍使用旧的打包方式，不包含前三项更新）
+        <br><br>
+        <div class="mdui-text-color-red-accent">
+        注：新版本的签名发生改变，安装前请卸载旧版本以防止冲突。
+        </div></div>
+        <div class="mdui-dialog-actions mdui-dialog-actions-stacked">
+        <a href="https://cloud.qingstore.cn/s/V505cn"><button class="mdui-btn mdui-ripple mdui-text-color-blue">获取最新版本</button></a>
+        <button class="mdui-btn mdui-ripple mdui-text-color-blue" mdui-dialog-close>关闭</button>
+        </div>
+        </div>
+        <div class="mdui-drawer" id="drawer">
+        <img class="mdui-img-fluid" src="images/BGS_JPEG_20210305.jpg"/>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+        <a href="index.html">
+        <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+        <div class="mdui-list-item-content">首页</div>
+        </li>
+        </a>
+        <a href="sysimg.html">
+        <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">storage</i>
+        <div class="mdui-list-item-content">系统镜像</div>
+        </li>
+        </a>
+        <a href="apps.html">
+        <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">apps</i>
+        <div class="mdui-list-item-content">应用程序</div>
+        </li>
+        </a>
+        <a href="websites.html">
+        <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">public</i>
+        <div class="mdui-list-item-content">实用站点</div>
+        </li>
+        </a>
+        <li class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">attach_file</i>
+        <div class="mdui-list-item-content">其它作品</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        <a href="settings.html">
+        <li class="mdui-list-item mdui-ripple">仿原生安卓设置</li>
+        </a>
+        <a href="music.html">
+        <li class="mdui-list-item mdui-ripple">极品电音</li>
+        </a>
+        <a href="files/AdminOS 2021.pptx">
+        <li class="mdui-list-item mdui-ripple">AdminOS 2021</li>
+        </a>
+        </ul>
+        </li>
+        <a href="about.html">
+        <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">info</i>
+        <div class="mdui-list-item-content">关于我们</div>
+        </li>
+        </a>
+        </div>
+        </ul>
+        </div>
+        <br><br><br><br>
+            <ul class="mdui-list" style="color:#006BFF;">
+            <a href="settings.html"><h3 class="mdui-ripple mdui-list-item">仿原生安卓设置</h3></a> 
+            <a href="music.html"><h3 class="mdui-ripple mdui-list-item">极品电音</h3></a> 
+            <a href="files/AdminOS 2021.pptx"><h3 class="mdui-ripple mdui-list-item">AdminOS 2021</h3></a> 
+            </ul>
+            <div class="mdui-typo"><a href="../index.html" style="position: fixed;left: 0;bottom: 0;background-color: #448AFF;color: white;height: 32px;width: 96px;text-align: center;padding: 4px 4px;font-size: 16px;" class="mdui-ripple mdui-ripple-white">返回索引页</a></div>
+    </body>
+</html>

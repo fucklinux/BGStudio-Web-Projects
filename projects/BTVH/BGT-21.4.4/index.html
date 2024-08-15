@@ -1,0 +1,100 @@
+<!doctype html>
+<html> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="icon" href="images/BGS_LOGO_20210305_2.png" type="image/x-icon"> 
+        <link rel="stylesheet" href="mdui/css/mdui.min.css">
+        <script src="mdui/js/mdui.min.js"></script>
+    </head> 
+    <body> 
+        <title>Burger Studio 资源站</title> 
+        <div class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-blue-accent">
+        <a class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons" mdui-drawer="{target: '#drawer', swipe: true}">menu</i></a>
+        <a class="mdui-typo-headline">Burger Studio 资源站</a>
+        <div class="mdui-toolbar-spacer"></div>
+        <a class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#update'}"><i class="mdui-icon material-icons">cloud_download</i></a>
+        </div>
+        </div>
+        <div class="mdui-dialog" id="update">
+        <div class="mdui-dialog-title">下载/更新客户端</div>
+        <div class="mdui-dialog-content">更新时间：2021-04-04<br>更新说明：<br>-背景颜色更换为白色<br>-页面顶部增加工具栏<br>-增加抽屉式导航栏<br>-优化居中显示规则<br>-增加客户端获取渠道</div>
+        <div class="mdui-dialog-actions mdui-dialog-actions-stacked">
+        <a href="https://cloud.qingstore.cn/s/V505cn"><button class="mdui-btn mdui-ripple mdui-text-color-blue">获取最新版本</button></a>
+        <button class="mdui-btn mdui-ripple mdui-text-color-blue" mdui-dialog-close>关闭</button>
+        </div>
+        </div>
+        <div class="mdui-drawer" id="drawer">
+        <ul class="mdui-list">
+        <a href="index.html">
+        <li class="mdui-list-item mdui-ripple mdui-list-item-active">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+        <div class="mdui-list-item-content">主页</div>
+        </li>
+        </a>
+        <a href="sysimg.html">
+        <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">folder</i>
+        <div class="mdui-list-item-content">系统镜像</div>
+        </li>
+        </a>
+        <a href="apps.html">
+        <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">apps</i>
+        <div class="mdui-list-item-content">应用程序</div>
+        </li>
+        </a>
+        <a href="websites.html">
+        <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">public</i>
+        <div class="mdui-list-item-content">实用站点</div>
+        </li>
+        </a>
+        <a href="otherworks.html">
+        <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">attach_file</i>
+        <div class="mdui-list-item-content">其它作品</div>
+        </li>
+        </a>
+        <a href="about.html">
+        <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">info</i>
+        <div class="mdui-list-item-content">关于我们</div>
+        </li>
+        </a>
+        </div>
+        </ul>
+        </div>
+        <br><br><br><br>
+        <div class="mdui-text-center"> 
+            <img src="images/BGS_HEADER_20210403.jpg" style="height:80px;width:320px;"  class="mdui-shadow-8"> 
+            <br><br>
+            <h3 style="color:#0081FF;">欢迎访问 Burger Studio 资源站<br>本站开发者：Burger Studio<br>开发工具：EasyWeb IDE<br>前端框架：MDUI</h3> 
+            <div class="mdui-divider"></div><br> 
+            <a href="sysimg.html" class="mdui-btn mdui-ripple mdui-btn-raised mdui-ripple-white mdui-color-blue-accent" style="height:40px;width:140px;font-size:20px;color:#FFFFFF;">
+            <i class="mdui-icon material-icons">folder</i>
+            <label>系统镜像</label>
+            </a> 
+            <a href="apps.html" class="mdui-btn mdui-ripple mdui-btn-raised mdui-ripple-white mdui-color-blue-accent" style="height:40px;width:140px;font-size:20px;">
+            <i class="mdui-icon material-icons">apps</i>
+            <label>应用程序</label>
+            </a> 
+            <br><br> 
+            <a href="websites.html" style="height:40px;width:140px;font-size:20px;" class="mdui-btn mdui-ripple mdui-btn-raised mdui-ripple-white mdui-color-blue-accent">
+            <i class="mdui-icon material-icons">public</i>
+            <label>实用站点</label>
+            </a> 
+            <a href="otherworks.html" style="height:40px;width:140px;font-size:20px;" class="mdui-btn mdui-ripple mdui-btn-raised mdui-ripple-white mdui-color-blue-accent">
+            <i class="mdui-icon material-icons">attach_file</i>
+            <label>其它作品</label>
+            </a> 
+            <br><br> 
+            <a href="about.html" style="height:40px;width:280px;font-size:20px;" class="mdui-btn mdui-ripple mdui-btn-raised mdui-ripple-white mdui-color-blue-accent">
+            <i class="mdui-icon material-icons">info</i>
+            <label>关于我们</label>
+            </a> 
+        </div> 
+         <div class="mdui-typo"><a href="../index.html" style="position: fixed;left: 0;bottom: 0;background-color: #448AFF;color: white;height: 32px;width: 96px;text-align: center;padding: 4px 4px;font-size: 16px;" class="mdui-ripple mdui-ripple-white">返回索引页</a></div>
+    </body>
+</html>

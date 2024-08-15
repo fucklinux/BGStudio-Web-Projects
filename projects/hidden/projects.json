@@ -1,0 +1,24 @@
+[
+    {
+        "title_zh": "答案库",
+        "title_en": "AnswerRepo",
+        "date": "2021-08-07",
+        "description": "初中时存放答案的页面，现在也用不到了。\n改造一下可以做成资源分享站。",
+        "icon": "favicon.png"
+    },
+    {
+        "title_zh": "Fuck Linux",
+        "title_en": "FuckLinux",
+        "date": "2021-08-25",
+        "description": "一个不存在的操作系统。\n这不是真正的 Linux 系统，只是个写着玩的 Shell 脚本。页面里有介绍和用法。\n（这个想法由好友“你来坑我啊”提出。）",
+        "icon": "images/Fuck_Linux_LOGO_20210825.jpg",
+        "isRounded": true
+    },
+    {
+        "title_zh": "WebCat 共享空间助手",
+        "title_en": "WCTool",
+        "date": "2023-02-04",
+        "description": "WebCat共享空间 接口调用测试。\n当时尝试研究了一下 WebCat共享空间 的一些 API，写了这个作品用来测试。有些功能现已失效。\n注意：WebCat共享空间 是一个分享网页源码的社区，其有会员机制，下载源码需要付费。请勿将本作品用于包括盗取资源在内的任何非法用途，否则后果自负。",
+        "icon": "favicon.png"
+    }
+]

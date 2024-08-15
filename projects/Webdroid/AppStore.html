@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="shortcut icon" href="images/AppStore.png" type="image/x-icon">
+    <link rel="stylesheet" href="mdui-v1.0.1/css/mdui.min.css">
+    <script src="mdui-v1.0.1/js/mdui.min.js"></script>
+    <title>应用商店</title>
+    <style>
+        .mdui-theme-layout-dark .mdui-list-item-avatar {
+            background: #404040 !important;
+        }
+
+        .mdui-list-item:hover .mdui-list-item-avatar {
+            background: #C5CAE9 !important;
+        }
+
+        .mdui-theme-layout-dark .mdui-list-item:hover .mdui-list-item-avatar {
+            background: #505050 !important;
+        }
+
+        .mdui-list-item-avatar,
+        .mdui-list-item-icon {
+            transition: .3s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .mdui-list-item {
+            background: #E8EAF6;
+            border-radius: 16px;
+            margin: 8px;
+        }
+
+        .mdui-list-item:hover {
+            background: #C5CAE9;
+        }
+
+        .mdui-list-item-avatar {
+            background: #E8EAF6 !important;
+        }
+
+        .mdui-theme-layout-dark .mdui-list-item {
+            background: #404040 !important;
+        }
+
+        .mdui-theme-layout-dark .mdui-list-item:hover {
+            background: #505050 !important;
+        }
+
+        .mdui-list-item-icon {
+            background: #C5CAE9;
+            border-radius: 8px;
+            padding: 4px;
+        }
+
+        .mdui-list-item:hover .mdui-list-item-icon {
+            background: #9FA8DA;
+        }
+
+        .mdui-theme-layout-dark .mdui-list-item-icon {
+            background: #505050;
+        }
+
+        .mdui-theme-layout-dark .mdui-list-item:hover .mdui-list-item-icon {
+            background: #606060;
+        }
+    </style>
+</head>
+
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar">
+    <div class="mdui-appbar mdui-appbar-fixed mdui-shadow-1">
+        <div class="mdui-toolbar mdui-color-theme-50">
+            <a class="mdui-typo-title">应用商店</a>
+        </div>
+    </div>
+    <div style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -114514;" class="mdui-valign">
+        <div style="width: 100%;text-align: center;" id="spinner">
+            <div class="mdui-spinner"></div>
+        </div>
+    </div>
+    <ul class="mdui-list mdui-center" style="max-width: 640px;" id="appList"></ul>
+    <script>
+        //接入 API：执行 JavaScript 脚本
+        function postScript(script) {
+            var scriptStr = script.toString();
+            var postData = {
+                "type": "JavaScript",
+                "script": scriptStr
+            };
+            window.parent.postMessage(JSON.stringify(postData), "/");
+        }
+        //接入 API：添加应用
+        function addApp(icon, name, url, color1, color2, textColor) {
+            var postData = {
+                "type": "addApp",
+                "icon": icon,
+                "name": name,
+                "url": url,
+                "color1": color1,
+                "color2": color2,
+                "textColor": textColor
+            };
+            window.parent.postMessage(JSON.stringify(postData), "/");
+        }
+        //获取深色主题设置
+        if (localStorage.getItem("darkTheme") == "true") {
+            document.body.classList.add("mdui-theme-layout-dark");
+            postScript(function() {
+                gebi("statusBar").style.background = "#212121";
+                gebi("statusBar").style.color = "#fff";
+            });
+        } else {
+            postScript(function() {
+                gebi("statusBar").style.background = "#E8EAF6";
+                gebi("statusBar").style.color = "#000";
+            });
+        }
+        //事件：页面加载完成
+        window.onload = function() {
+            var getAppData = new XMLHttpRequest();
+            getAppData.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    appData = JSON.parse(this.responseText);
+                    freshAppList();
+                    document.getElementById("spinner").style.display = "none";
+                }
+            };
+            getAppData.open("GET", localStorage.getItem("appSource"), true);
+            getAppData.send();
+            if (!localStorage.getItem("appSource")) {
+                setSource("default");
+            }
+        };
+        //函数：刷新应用列表
+        function freshAppList() {
+            appData.forEach(function(item, index) {
+                document.getElementById("appList").innerHTML += `<li class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-avatar" style="border-radius: 8px;background: #fff;">
+                        <img src="` + item.icon + `" style="border-radius: 8px;"/>
+                    </div>
+                    <div class="mdui-list-item-content">
+                        <div class="mdui-list-item-title">` + item.name + `</div>
+                        <div class="mdui-list-item-text">` + item.description + `</div>
+                    </div>
+                    <i class="mdui-list-item-icon mdui-icon material-icons" onclick='javascript:addApp("` + item.icon + `", "` + item.name + `", "` + item.url + `", "` + item.color1 + `", "` + item.color2 + `", "` + item.textColor + `");'>add</i>
+                </li>`;
+            });
+        }
+        //以下为实验性功能
+        function test() {
+            return "实验性功能：\n1. 设置应用商店数据源：setSource()";
+        }
+
+        function setSource(source) {
+            if (source == undefined) {
+                return "用法：\n1. 设置为默认源：setSource(\"default\")\n2. 设置为本地源：setSource(\"local\")\n3. 设置为自定义源：setSource(数据源 URL)";
+            } else {
+                if (source == "default") {
+                    localStorage.setItem("appSource", "https://bgdroid.netlify.app/apps.json");
+                } else if (source == "local") {
+                    localStorage.setItem("appSource", "json/apps.json");
+                } else {
+                    localStorage.setItem("appSource", source);
+                }
+                return "设置完成，重新启动应用商店以生效。";
+            }
+        }
+    </script>
+</body>
+
+</html>

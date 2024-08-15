@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=5.0">
+    <title>Burger 的 Web 作品集</title>
+    <link rel="stylesheet" href="../../mdui/mdui.css">
+    <script src="../../mdui/mdui.global.js"></script>
+    <link rel="stylesheet" href="../../material-icons/material-icons.css">
+    <link rel="shortcut icon" href="../../favicon.png" type="image/x-icon">
+    <style>
+        * {
+            font-family: Sans-serif;
+        }
+
+        html,
+        body {
+            scroll-behavior: smooth;
+        }
+
+        #body_content {
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .card {
+            width: 95%;
+            margin-left: 2.5%;
+            margin-top: 16px;
+        }
+
+        a,
+        mdui-top-app-bar-title {
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+            -webkit-user-select: none;
+            -moz-user-focus: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        mdui-avatar {
+            background: rgba(0, 0, 0, 0) !important;
+        }
+
+        :root {
+            --margin-1-auto: 8px;
+            --margin-2-auto: 16px;
+            --margin-3-auto: 4px;
+            --padding-auto: 32px 0;
+            --size-auto: 96px;
+        }
+
+        @media(min-width:640px) {
+            .card {
+                width: 50%;
+                margin-left: 25%;
+                margin-top: 32px;
+            }
+
+            :root {
+                --margin-1-auto: 16px;
+                --margin-2-auto: 32px;
+                --margin-3-auto: 8px;
+                --padding-auto: 64px 0;
+                --size-auto: 128px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <mdui-top-app-bar scroll-behavior="elevate">
+        <mdui-top-app-bar-title style="cursor: pointer;" onclick="window.scrollTo(0, 0);">Burger 的 Web
+            作品集</mdui-top-app-bar-title>
+        <div style="flex-grow: 1"></div>
+        <mdui-tooltip content="GitHub" placement="bottom">
+            <mdui-button-icon onclick="openPage('https://github.com/');">
+                <mdui-icon>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 36 36"
+                        enable-background="new 0 0 36 36" xml:space="preserve" style="width: 1.5rem; height: 1.5rem;">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4c-0.2-0.4-0.7-2.1,0.2-4.3c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z">
+                        </path>
+                    </svg>
+                </mdui-icon>
+            </mdui-button-icon>
+        </mdui-tooltip>
+        <mdui-dropdown trigger="hover">
+            <mdui-button-icon id="themeSwitcher" slot="trigger"></mdui-button-icon>
+            <mdui-menu id="themeMenu" selects="single">
+                <mdui-menu-item value="light" onclick="setTheme('light');">浅色主题</mdui-menu-item>
+                <mdui-menu-item value="dark" onclick="setTheme('dark');">深色主题</mdui-menu-item>
+                <mdui-divider></mdui-divider>
+                <mdui-menu-item value="auto" onclick="setTheme('auto');">跟随浏览器</mdui-menu-item>
+            </mdui-menu>
+        </mdui-dropdown>
+    </mdui-top-app-bar>
+    <div id="body_content">
+        <div class="card">
+            <div class="mdui-prose">
+                <div style="text-align: center;">
+                    <img src="../../favicon.png" alt="Burger Studio"
+                        style="width: var(--size-auto);height: var(--size-auto);margin-bottom: 0 !important;">
+                </div>
+                <div style="margin-top: var(--margin-2-auto);">我是 Burger Studio（BGStudio），一位 Web 前端爱好者，自 2021
+                    年初开始做一些小作品。<br>这个站点收集了我的主要作品，留作纪念。<br>整理于 2024 年 8 月 14 日。
+                </div>
+                <br>
+                <mdui-button full-width icon="download" onclick="openPage('https://www.123pan.com/s/eSpzVv-vrBU3');">下载我的作品</mdui-button>
+                <br>
+                <mdui-card style="width: 100%;">
+                    <mdui-list id="project_list">
+                        <div style="text-align: center;margin: 16px 0;">
+                            <mdui-circular-progress></mdui-circular-progress>
+                            <div style="margin-top: 4px;">正在载入作品列表......</div>
+                        </div>
+                    </mdui-list>
+                </mdui-card>
+            </div>
+        </div>
+        <br>
+        <div style="margin-top: 8px;text-align: center;" class="mdui-prose">Theme: <a
+                href="https://www.mdui.org/">MDUI</a>
+        </div>
+        <mdui-dialog id="details" fullscreen>
+            <mdui-top-app-bar slot="header" scroll-target="#details">
+                <mdui-button-icon icon="close"
+                    onclick="document.querySelector('#details').open = false;"></mdui-button-icon>
+                <mdui-top-app-bar-title>作品详细信息</mdui-top-app-bar-title>
+                <div style="flex-grow: 1"></div>
+                <mdui-tooltip content="分享" placement="left">
+                    <mdui-button-icon icon="share" onclick="shareProject();"></mdui-button-icon>
+                </mdui-tooltip>
+            </mdui-top-app-bar>
+            <div class="card">
+                <div class="mdui-prose" style="text-align: center;padding: var(--padding-auto);">
+                    <img alt="作品图标"
+                        style="width: var(--size-auto);height: var(--size-auto);margin-bottom: 0 !important;border-radius: 8px;"
+                        id="details_icon">
+                    <h2 style="margin-top: var(--margin-1-auto) !important;margin-bottom: 0 !important;"
+                        id="details_title_zh"></h2>
+                    <h5 style="opacity: 0.5 !important;margin: 0 !important;" id="details_title_en"></h5>
+                    <h4 style="margin-top: var(--margin-1-auto) !important;"><i class="material-icons"
+                            style="display: inline-block;vertical-align: middle;">date_range</i>
+                        <div style="display: inline-block;vertical-align: middle;margin-left: 4px;" id="details_date">
+                        </div>
+                    </h4>
+                    <mdui-button full-width icon="open_in_new" onclick="openProject();">查看此作品</mdui-button>
+                    <h4
+                        style="text-align: left;margin-top: var(--margin-2-auto) !important;margin-bottom: var(--margin-3-auto) !important;">
+                        简介：</h4>
+                    <div style="text-align: left;font-size: 16px;" id="details_description"></div>
+                </div>
+            </div>
+        </mdui-dialog>
+        <mdui-snackbar closeable id="copied">已复制到剪贴板。</mdui-snackbar>
+    </div>
+    <script>
+        // 载入主题
+        function loadTheme() {
+            if (localStorage.getItem("theme") == "dark") {
+                document.documentElement.classList.add("mdui-theme-dark");
+                document.documentElement.classList.remove("mdui-theme-auto");
+                document.getElementById("themeSwitcher").icon = "dark_mode";
+            } else if (localStorage.getItem("theme") == "light") {
+                document.documentElement.classList.remove("mdui-theme-dark");
+                document.documentElement.classList.remove("mdui-theme-auto");
+                document.getElementById("themeSwitcher").icon = "light_mode";
+            } else {
+                document.documentElement.classList.remove("mdui-theme-dark");
+                document.documentElement.classList.add("mdui-theme-auto");
+                localStorage.setItem("theme", "auto");
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.getElementById("themeSwitcher").icon = "dark_mode";
+                } else {
+                    document.getElementById("themeSwitcher").icon = "light_mode";
+                }
+            }
+            document.getElementById("themeMenu").value = localStorage.getItem("theme");
+        }
+        // 页面加载完成时执行
+        window.addEventListener("load", function () {
+            // 显示页面
+            document.querySelector("#body_content").style.opacity = 1;
+            // 载入主题
+            loadTheme();
+            // 监听浏览器主题变化
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener("change", function () {
+                loadTheme();
+            });
+            // 载入作品列表
+            getProjectsJSON();
+        });
+        // 页面跳转
+        function openPage(URL, isNewTab = false) {
+            if (isNewTab) {
+                window.open(URL);
+            } else {
+                document.querySelector("#body_content").style.opacity = 0;
+                window.setTimeout(function () {
+                    location.href = URL;
+                }, 300);
+            }
+        }
+        // 切换主题
+        function setTheme(value) {
+            window.setTimeout(function () {
+                localStorage.setItem("theme", value);
+                loadTheme();
+            }, 0);
+        }
+        // 获取作品列表 JSON
+        function getProjectsJSON() {
+            var getJSON = new XMLHttpRequest();
+            getJSON.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    projects = JSON.parse(this.responseText);
+                    // 载入作品列表
+                    loadProjects();
+                    // 自动打开分享的作品
+                    var urlParams = new URLSearchParams(window.location.search);
+                    var id = urlParams.get("id");
+                    if (id != null) {
+                        viewing = id;
+                        viewDetails();
+                    }
+                }
+            };
+            getJSON.open("GET", "projects.json", true);
+            getJSON.send();
+        }
+        // 将得到的 JSON 载入作品列表元素
+        function loadProjects() {
+            var html = "";
+            projects.forEach(function (item, index) {
+                html += `<mdui-list-item headline="` + item.title_zh + `" description="` + item.date + `"
+    onclick="viewing = `+ index + `;viewDetails();">
+    <mdui-avatar slot="icon" src="`+ getUrl(index, true) + item.icon + `" style="border-radius: ` + (item.isRounded ? 6 : 0) + `px !important;"></mdui-avatar>
+</mdui-list-item>`;
+            });
+            document.querySelector("#project_list").innerHTML = html;
+        }
+        // 获取 URL
+        function getUrl(index, includeProject = false) {
+            var URL = location.href;
+            // 找到最后一个“/”的位置
+            var lastSlashIndex = URL.lastIndexOf('/');
+            if (lastSlashIndex !== -1) {
+                // 如果找到了“/”，则截取字符串直到“/”和其之前的内容
+                var originURL = URL.slice(0, lastSlashIndex + 1);
+            } else {
+                // 如果没有找到“/”，则返回原始字符串
+                var originURL = URL;
+            }
+            // 判断是否包括作品路径
+            if (includeProject) {
+                return originURL + projects[index].title_en + "/";
+            } else {
+                return originURL;
+            }
+        }
+        // 查看作品详情
+        function viewDetails() {
+            document.querySelector("#details_title_zh").innerText = projects[viewing].title_zh;
+            document.querySelector("#details_title_en").innerText = projects[viewing].title_en;
+            document.querySelector("#details_date").innerText = projects[viewing].date;
+            document.querySelector("#details_description").innerText = projects[viewing].description;
+            document.querySelector("#details_icon").src = getUrl(viewing, true) + projects[viewing].icon;
+            document.querySelector('#details').open = true;
+        }
+        // 查看作品
+        function openProject() {
+            openPage(getUrl(viewing, true) + "index.html", true);
+        }
+        // 分享作品
+        function shareProject() {
+            copyHandle("分享 Burger Studio 的作品「" + projects[viewing].title_zh + "」：" + getUrl() + "index.html?id=" + viewing);
+        }
+        // 复制文本
+        function copyHandle(content) {
+            let copy = (e) => {
+                e.preventDefault()
+                e.clipboardData.setData('text/plain', content)
+                document.removeEventListener('copy', copy)
+            }
+            document.addEventListener('copy', copy)
+            document.execCommand("Copy");
+            document.getElementById("copied").open = true;
+        }
+    </script>
+</body>
+
+</html>

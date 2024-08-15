@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>捐助开发者</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+    <link href="mbrowser.css" rel="stylesheet">
+
+    
+    <script src="js/ratchet.js"></script>
+    <script src="mbrowser.js"></script>
+
+    <script>function copy_payapl_id(){mbrowser.copyToClipboard("chengkai.me@gmail.com")}function copy_airpay_id(){mbrowser.copyToClipboard("chengkai.me@gmail.com")}function copy_biticon_id(){mbrowser.copyToClipboard("3Mt1ufAPZ6traJWCuzJ5vLBQyv3AyMWE41")}function show_donation_weichat(){document.write('<div class="card"><ul class="table-view"><li class="table-view-cell">微信<p>使用微信捐助只需下面两个步骤</p></li><li class="table-view-cell"><button onclick=\'mbrowser.downloadPayQrcode(0)\' class="btn btn-positive pull-right">保存</button><p>第一步:保存作者的收款二维码图片到相册</p></li><li class="table-view-cell"><button onclick=\'mbrowser.openPayQrCode(0)\' class="btn btn-positive pull-right">扫码</button><p>第二步:打开微信扫一扫,选择从相册选取二维码.(扫码界面右下角) </p></li></url></div>')}function show_donation_airpay(){document.write('<div class="card"><ul class="table-view"><li class="table-view-cell">支付宝<p>使用支付宝捐助同样需要两个步骤</p></li><li class="table-view-cell"><button onclick=\'mbrowser.downloadPayQrcode(1)\' class="btn btn-positive pull-right">保存</button><p>第一步:保存作者的收款二维码图片到相册</p></li><li class="table-view-cell"><button onclick=\'mbrowser.openPayQrCode(1)\' class="btn btn-positive pull-right">扫码</button><p>第二步:打开支付宝扫一扫,选择从相册选取二维码.(扫码界面右下角) </p></li></url></div>')}function show_donation_paypal(){var l='<div class="card"><ul class="table-view"><li class="table-view-cell">Paypal<p>'+mbrowser.getStringResource("web_str_send_paypal")+'</p></li><li class="table-view-cell"><button onclick=\'copy_payapl_id()\' class="btn btn-positive pull-right">'+mbrowser.getStringResource("btn_text_copy")+"</button><p>chengkai.me@gmail.com</p></li></url></div>";document.write(l)}</script>
+
+
+</head>
+
+<style type="text/css">.donate{margin:5px}</style>
+<body>
+
+<header class="bar bar-nav">
+    <h1 class="title"><script>_str("web_str_donation_me")</script>捐助开发者</h1>
+    
+</header>
+
+<div class="content">
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <p>
+                    <script>_str("web_str_donation_declare")</script>我是独立开发者，目前全职维护X浏览器，如果你喜欢X可以通过下面的方式捐助我以支持X浏览器的持续完善和开发。
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <script>mbrowser.inChina()?(show_donation_weichat(),show_donation_airpay()):show_donation_paypal()</script>
+
+
+</div>
+</body>
+</html>

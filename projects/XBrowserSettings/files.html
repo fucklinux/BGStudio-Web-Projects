@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>File List</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+      
+      <link href="css/ratchet.css" rel="stylesheet">
+
+    <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+      <script src="js/slip.js"></script>
+  </head>
+  <script>function native_call_add_file_node(e,t,i,a,l,s){var r=document.querySelector("#file-list");r&&(item=document.createElement("li"),item.setAttribute("id",e),item.setAttribute("data-title",l),item.setAttribute("data-url",t),item.setAttribute("data-type",i),item.setAttribute("class","table-view-cell-ex"),item.innerHTML=1==i?'<a href="x:sd?path='+path+"/"+l+"&sort="+sort+'" class="navigate-right"> <span class="media-object pull-left x-icon iconfont icon-dir"></span><div class="x-icon">'+l+"</div></a>":"<a href=\"javascript:mbrowser.openFile('"+t+'\');" > <span class="item-icon pull-left x-icon iconfont '+fileType2font(a)+'"></span><div class="media-body">'+l+"<p>"+s+"</p></div></a>",r.appendChild(item))}function native_call_update_file_node(e,t,i,a,l){for(var s=document.querySelectorAll("li"),r=0;r<s.length;r++){var n=s[r];if(n.getAttribute("data-url")==e){n.innerHTML=1==t?'<a href="x:sd?path='+path+"/"+a+"&sort="+sort+'" class="navigate-right"> <span class="media-object pull-left x-icon iconfont icon-dir"></span><div class="x-icon">'+a+"</div></a>":"<a href=\"javascript:mbrowser.openFile('"+e+'\');" > <span class="item-icon pull-left x-icon iconfont '+fileType2font(i)+'"></span><div class="media-body">'+a+"<p>"+l+"</p></div></a>";break}}}function loadFileList(e,t){var a=document.querySelector("#file-list");if(a){var l,s=JSON.parse(mbrowser.getFileList(e,t));for(i=0;i<s.length;i++)item=document.createElement("li"),item.setAttribute("id",s[i].id),item.setAttribute("data-title",s[i].file_name),item.setAttribute("data-url",s[i].full_name),1==s[i].file_type?(l='<a href="x:sd?path='+e+"/"+s[i].file_name+"&sort="+t+'" class="navigate-right"> <span class="media-object pull-left x-icon iconfont icon-dir"></span><div class="x-icon">'+s[i].file_name+"</div></a>",item.setAttribute("data-type","1"),item.setAttribute("class","table-view-cell-ex"),item.innerHTML=l):(item.setAttribute("data-type","0"),item.setAttribute("class","table-view-cell-ex"),item.innerHTML="<a href=\"javascript:mbrowser.openFile('"+s[i].full_name+'\');" > <span class="item-icon pull-left x-icon iconfont '+fileType2font(s[i].file_type)+' "></span><div class="media-body">'+s[i].file_name+"<p>"+s[i].file_info+"</p></div></a>"),a.appendChild(item)}mbrowser.setConfigValue("file_order",t)}function writeCurrentTitle(){var e=getQueryString("sort");"date"==e?_str("web_str_order_by_date"):"name"==e?_str("web_str_order_by_name"):"size"==e?_str("web_str_order_by_size"):_str("web_str_order_default")}</script>
+  <body>
+
+    
+    <header class="bar bar-nav">
+      <a href="#popover">
+        <h1 class="title"><script>writeCurrentTitle()</script>
+          <span class="icon icon-caret"></span>
+        </h1>
+      </a>
+
+      <a href="javascript:mbrowser.newDir(currentPath)" id="btn-clean-bm" class="btn pull-right"><script>_str("pop_menu_new_file_dir")</script></a>
+    </header>
+
+    
+    <div class="content">
+    <script></script>
+    <ul id="file-list" class="table-view">
+
+    </ul>
+
+
+    <script type="text/javascript">var path=getQueryString("path"),sort=getQueryString("sort");currentPath=path=null==path?"/":path,loadFileList(path,sort)</script>
+        
+    </div>
+    <div id="popover" class="popover">
+
+      <ul class="table-view">
+        <li class="table-view-cell">
+          <script>document.write('<a href="x:sd?path='+path+'&sort=default">'),_str("web_str_order_default"),"default"==sort&&document.write('<span class="icon icon-check"></span>'),document.write("</a>")</script>
+         </li>
+        <li class="table-view-cell">
+          <script>document.write('<a href="x:sd?path='+path+'&sort=date">'),_str("web_str_order_by_date"),"date"==sort&&document.write('<span class="icon icon-check"></span>'),document.write("</a>")</script>
+        </li>
+        <li class="table-view-cell">
+          <script>document.write('<a href="x:sd?path='+path+'&sort=name">'),_str("web_str_order_by_name"),"name"==sort&&document.write('<span class="icon icon-check"></span>'),document.write("</a>")</script>
+        </li>
+        <li class="table-view-cell">
+          <script>document.write('<a href="x:sd?path='+path+'&sort=size">'),_str("web_str_order_by_size"),"size"==getQueryString("sort")&&document.write('<span class="icon icon-check"></span>'),document.write("</a>")</script>
+        </li>
+      </ul>
+    </div>
+    <script>enable_listen_scroll()</script>
+  </body>
+</html>

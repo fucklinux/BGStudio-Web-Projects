@@ -1,0 +1,265 @@
+<html>
+ <head></head>
+ <body>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+  <title>网络日志</title>
+  <style>* {padding:0;margin:0;box-sizing:border-box;}html{height:100%;-webkit-tap-highlight-color:rgba(0, 0, 0, 0.1);-webkit-focus-ring-color: rgba(0, 0, 0, 0); /*-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;*/}body{min-height:100%;max-width:100%; width: 600px;margin: auto;text-align: center;}body{background: transparent;}.box {margin: 12px 0; text-align: left; vertical-align:middle;position:relative;display: block;padding-top:10px; padding-bottom:10px; padding-left:10px; padding-right:10px;}.box a {width: 100%;height: 100%;position: absolute;left: 0;top: 0;}span, .url, .box {word-break: break-all;}.block{opacity:0.5;}.tag{background:#cd8282;padding:0 8px;margin:0 4px;color:white;font-size:12px;}.res{background:#5c91cb;}.title {color: #2b2b2b;font-size: 15px; padding: 4px 0px;}.url {line-height: 1.2em; max-height: 4.8em;font-size: 15px;color: #1b1b1b; white-space: normal; word-wrap: break-word; overflow: auto;text-overflow: ellipsis;-o-text-overflow: ellipsis;-ms-text-overflow: ellipsis;}.hint {line-height: 1.8em; color: #2b2b2b;font-size: 15px; white-space: normal; word-wrap: break-word; overflow: auto;text-overflow: ellipsis;-o-text-overflow: ellipsis;-ms-text-overflow: ellipsis; padding: 50px 5px; text-align: center; margin: auto;}#filter-box{padding:10px}#filter{border: 1px solid rgba(0, 0, 0, 0.1);border-radius:2px;-webkit-appearance:none;-moz-appearance:none;appearance:none;background:transparent;padding:5px;width:100%;font-size: 15px;color: #1b1b1b;}</style>
+  <div class="frosted-glass" id="gesture-indicator"></div>
+  <div id="content">
+   <div class="hint">
+    所有拦截规则存储在 /storage/emulated/0/Android/data/mark.via/files/filters/custom.txt<br>你可以手动编辑它来修改规则，或长按下列任一条目来选择是否拦截。
+   </div>
+   <div id="filter-box">
+    <select id="filter" onchange="filterChange()"><option value="">All</option><option value=".js">JS</option><option value=".css">CSS</option><option value=".ico|.png|.jpg|.gif|.jpeg|.webp|.svg">Image</option><option value="block">Blocked</option><option value="~.js|.css|.ico|.png|.jpg|.gif|.jpeg|.webp|.svg|block">Other</option></select>
+   </div>
+   <div class="box">
+    <a href="https://metrics-drcn.dt.hicloud.com/webv1?action_name=&amp;idsite=AppGalleryDistWapFrontService&amp;rec=1&amp;r=886244&amp;h=9&amp;m=58&amp;s=50&amp;url=https%3A%2F%2Fappgallery.huawei.com%2F%23%2Fapp%2FC106588347&amp;_id=3c0b794e5b6d4ea98eedfd52b84a46ed&amp;_idts=1671415130098&amp;_idvc=1&amp;_idn=9cc0e64ad87b451aa12655b6d7b03212&amp;urlref=&amp;_refts=0&amp;_viewts=0&amp;scd=24&amp;vpr=360%20X%20780&amp;cvar=&amp;pdf=1&amp;qt=0&amp;data=%7B%22type%22%3A%22customEvent%22%2C%22vf%22%3A%223c0b794e5b6d4ea98eedfd52b84a46ed%22%2C%22rt%22%3A1671415130105%2C%22ut%22%3A1%2C%22cxx%22%3A%22%22%2C%22idsite%22%3A%22AppGalleryDistWapFrontService%22%2C%22suid%22%3A%22%22%2C%22cvar%22%3A%22%22%2C%22idts%22%3A1671415130098%2C%22idvc%22%3A%221%22%2C%22idn%22%3A%229cc0e64ad87b451aa12655b6d7b03212%22%2C%22refts%22%3A0%2C%22viewts%22%3A0%2C%22hsv%22%3A%222.1.5.304%22%2C%22data%22%3A%7B%22url%22%3A%22https%3A%2F%2Fappgallery.huawei.com%2F%23%2Fapp%2FC106588347%22%2C%22title%22%3A%22%22%2C%22at%22%3A1671415128391%2C%22rf%22%3A%22%22%2C%22en%22%3A%22page_exposure%22%2C%22el%22%3A%22appdetailpage%22%2C%22cd%22%3A%7B%22eventName%22%3A%22page_exposure%22%2C%22eventLabel%22%3A%22appdetailpage%22%2C%22eventTime%22%3A1671415129590%2C%22pageOriginUrl%22%3A%22https%253A%252F%252Fappgallery.huawei.com%252F%2523%252Fapp%252FC106588347%22%2C%22ver%22%3A%221.0%22%2C%22appId%22%3A%22C106588347%22%2C%22pkgName%22%3A%22com.visnalize.win7simu%22%2C%22referrer%22%3A%22PhoneWebAG%22%2C%22callType%22%3A%22DEFAULT%22%2C%22channelId%22%3A%22unKnow%22%2C%22browserType%22%3A%221%22%2C%22detailId%22%3A%22app%257CC106588347%22%7D%7D%7D" title="https://metrics-drcn.dt.hicloud.com/webv1?action_name=&amp;idsite=AppGalleryDistWapFrontService&amp;rec=1&amp;r=886244&amp;h=9&amp;m=58&amp;s=50&amp;url=https%3A%2F%2Fappgallery.huawei.com%2F%23%2Fapp%2FC106588347&amp;_id=3c0b794e5b6d4ea98eedfd52b84a46ed&amp;_idts=1671415130098&amp;_idvc=1&amp;_idn=9cc0e64ad87b451aa12655b6d7b03212&amp;urlref=&amp;_refts=0&amp;_viewts=0&amp;scd=24&amp;vpr=360%20X%20780&amp;cvar=&amp;pdf=1&amp;qt=0&amp;data=%7B%22type%22%3A%22customEvent%22%2C%22vf%22%3A%223c0b794e5b6d4ea98eedfd52b84a46ed%22%2C%22rt%22%3A1671415130105%2C%22ut%22%3A1%2C%22cxx%22%3A%22%22%2C%22idsite%22%3A%22AppGalleryDistWapFrontService%22%2C%22suid%22%3A%22%22%2C%22cvar%22%3A%22%22%2C%22idts%22%3A1671415130098%2C%22idvc%22%3A%221%22%2C%22idn%22%3A%229cc0e64ad87b451aa12655b6d7b03212%22%2C%22refts%22%3A0%2C%22viewts%22%3A0%2C%22hsv%22%3A%222.1.5.304%22%2C%22data%22%3A%7B%22url%22%3A%22https%3A%2F%2Fappgallery.huawei.com%2F%23%2Fapp%2FC106588347%22%2C%22title%22%3A%22%22%2C%22at%22%3A1671415128391%2C%22rf%22%3A%22%22%2C%22en%22%3A%22page_exposure%22%2C%22el%22%3A%22appdetailpage%22%2C%22cd%22%3A%7B%22eventName%22%3A%22page_exposure%22%2C%22eventLabel%22%3A%22appdetailpage%22%2C%22eventTime%22%3A1671415129590%2C%22pageOriginUrl%22%3A%22https%253A%252F%252Fappgallery.huawei.com%252F%2523%252Fapp%252FC106588347%22%2C%22ver%22%3A%221.0%22%2C%22appId%22%3A%22C106588347%22%2C%22pkgName%22%3A%22com.visnalize.win7simu%22%2C%22referrer%22%3A%22PhoneWebAG%22%2C%22callType%22%3A%22DEFAULT%22%2C%22channelId%22%3A%22unKnow%22%2C%22browserType%22%3A%221%22%2C%22detailId%22%3A%22app%257CC106588347%22%7D%7D%7D"></a>
+    <p class="title">09:58:50<font class="tag">load</font></p>
+    <p class="url">https://metrics-drcn.dt.hicloud.com/webv1?action_name=&amp;idsite=AppGalleryDistWapFrontService&amp;rec=1&amp;r=886244&amp;h=9&amp;m=58&amp;s=50&amp;url=https%3A%2F%2Fappgallery.huawei.com%2F%23%2Fapp%2FC106588347&amp;_id=3c0b794e5b6d4ea98eedfd52b84a46ed&amp;_idts=1671415130098&amp;_idvc=1&amp;_idn=9cc0e64ad87b451aa12655b6d7b03212&amp;urlref=&amp;_refts=0&amp;_viewts=0&amp;scd=24&amp;vpr=360%20X%20780&amp;cvar=&amp;pdf=1&amp;qt=0&amp;data=%7B%22type%22%3A%22customEvent%22%2C%22vf%22%3A%223c0b794e5b6d4ea98eedfd52b84a46ed%22%2C%22rt%22%3A1671415130105%2C%22ut%22%3A1%2C%22cxx%22%3A%22%22%2C%22idsite%22%3A%22AppGalleryDistWapFrontService%22%2C%22suid%22%3A%22%22%2C%22cvar%22%3A%22%22%2C%22idts%22%3A1671415130098%2C%22idvc%22%3A%221%22%2C%22idn%22%3A%229cc0e64ad87b451aa12655b6d7b03212%22%2C%22refts%22%3A0%2C%22viewts%22%3A0%2C%22hsv%22%3A%222.1.5.304%22%2C%22data%22%3A%7B%22url%22%3A%22https%3A%2F%2Fappgallery.huawei.com%2F%23%2Fapp%2FC106588347%22%2C%22title%22%3A%22%22%2C%22at%22%3A1671415128391%2C%22rf%22%3A%22%22%2C%22en%22%3A%22page_exposure%22%2C%22el%22%3A%22appdetailpage%22%2C%22cd%22%3A%7B%22eventName%22%3A%22page_exposure%22%2C%22eventLabel%22%3A%22appdetailpage%22%2C%22eventTime%22%3A1671415129590%2C%22pageOriginUrl%22%3A%22https%253A%252F%252Fappgallery.huawei.com%252F%2523%252Fapp%252FC106588347%22%2C%22ver%22%3A%221.0%22%2C%22appId%22%3A%22C106588347%22%2C%22pkgName%22%3A%22com.visnalize.win7simu%22%2C%22referrer%22%3A%22PhoneWebAG%22%2C%22callType%22%3A%22DEFAULT%22%2C%22channelId%22%3A%22unKnow%22%2C%22browserType%22%3A%221%22%2C%22detailId%22%3A%22app%257CC106588347%22%7D%7D%7D</p>
+   </div>
+   <div class="box">
+    <a href="https://appgallery.huawei.com/static/agweb/img/ic_navigation_appmarket.png" title="https://appgallery.huawei.com/static/agweb/img/ic_navigation_appmarket.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appgallery.huawei.com/static/agweb/img/ic_navigation_appmarket.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/0c958d9c23cb40c48b24752713e355d3.png" title="https://appimg.dbankcdn.com/application/icon144/0c958d9c23cb40c48b24752713e355d3.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/0c958d9c23cb40c48b24752713e355d3.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/ca3fde34c86348b3ad01078230be7eba.png" title="https://appimg.dbankcdn.com/application/icon144/ca3fde34c86348b3ad01078230be7eba.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/ca3fde34c86348b3ad01078230be7eba.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/4f23510130c94121bbaa40af47e04ca5.png" title="https://appimg.dbankcdn.com/application/icon144/4f23510130c94121bbaa40af47e04ca5.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/4f23510130c94121bbaa40af47e04ca5.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/4c6142159bed4f788b9f9e5470544b28_2.png" title="https://appimg.dbankcdn.com/application/icon144/4c6142159bed4f788b9f9e5470544b28_2.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/4c6142159bed4f788b9f9e5470544b28_2.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/17fce1ff067e46298221c8cf8edee288.png" title="https://appimg.dbankcdn.com/application/icon144/17fce1ff067e46298221c8cf8edee288.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/17fce1ff067e46298221c8cf8edee288.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/appmaterial/icon144/64/8782ae83d19146109dbd76b62841b789.png" title="https://appimg.dbankcdn.com/application/appmaterial/icon144/64/8782ae83d19146109dbd76b62841b789.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/appmaterial/icon144/64/8782ae83d19146109dbd76b62841b789.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/1da4f637c292496b8c8a09c7570b9a3e_1.png" title="https://appimg.dbankcdn.com/application/icon144/1da4f637c292496b8c8a09c7570b9a3e_1.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/1da4f637c292496b8c8a09c7570b9a3e_1.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/e3045d7077d844fba2adef0625c62946.png" title="https://appimg.dbankcdn.com/application/icon144/e3045d7077d844fba2adef0625c62946.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/e3045d7077d844fba2adef0625c62946.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/430ea37736964b739b10a50ffc8e9506.png" title="https://appimg.dbankcdn.com/application/icon144/430ea37736964b739b10a50ffc8e9506.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/430ea37736964b739b10a50ffc8e9506.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/7971d30504cb4106982c5a4e3064861a.png" title="https://appimg.dbankcdn.com/application/icon144/7971d30504cb4106982c5a4e3064861a.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/7971d30504cb4106982c5a4e3064861a.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/faa240cac018465baa9d88d66dfab900.png" title="https://appimg.dbankcdn.com/application/icon144/faa240cac018465baa9d88d66dfab900.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/faa240cac018465baa9d88d66dfab900.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/b8975e2a01894fe4bf477769ac1a6ac7.png" title="https://appimg.dbankcdn.com/application/icon144/b8975e2a01894fe4bf477769ac1a6ac7.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/b8975e2a01894fe4bf477769ac1a6ac7.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/49192df9371e43b8913697d930d71fb3.png" title="https://appimg.dbankcdn.com/application/icon144/49192df9371e43b8913697d930d71fb3.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/49192df9371e43b8913697d930d71fb3.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/358aa0ec63af407c8a4ef765dd95d033.png" title="https://appimg.dbankcdn.com/application/icon144/358aa0ec63af407c8a4ef765dd95d033.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/358aa0ec63af407c8a4ef765dd95d033.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/7bb6bd284a96480bb3f657146f236a90.png" title="https://appimg.dbankcdn.com/application/icon144/7bb6bd284a96480bb3f657146f236a90.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/7bb6bd284a96480bb3f657146f236a90.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/c7fc312665854a61aea084e3d7254fb9.png" title="https://appimg.dbankcdn.com/application/icon144/c7fc312665854a61aea084e3d7254fb9.png"></a>
+    <p class="title">09:58:50<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/c7fc312665854a61aea084e3d7254fb9.png</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/screenshut8/65/4d740d5e53e844a99eba17d0434f567a.jpg" title="https://appimg.dbankcdn.com/application/screenshut8/65/4d740d5e53e844a99eba17d0434f567a.jpg"></a>
+    <p class="title">09:58:49<font class="tag">load</font><font class="res tag">.jpg</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/screenshut8/65/4d740d5e53e844a99eba17d0434f567a.jpg</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/screenshut7/65/4d740d5e53e844a99eba17d0434f567a.jpg" title="https://appimg.dbankcdn.com/application/screenshut7/65/4d740d5e53e844a99eba17d0434f567a.jpg"></a>
+    <p class="title">09:58:49<font class="tag">load</font><font class="res tag">.jpg</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/screenshut7/65/4d740d5e53e844a99eba17d0434f567a.jpg</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/screenshut5/65/4d740d5e53e844a99eba17d0434f567a.jpg" title="https://appimg.dbankcdn.com/application/screenshut5/65/4d740d5e53e844a99eba17d0434f567a.jpg"></a>
+    <p class="title">09:58:49<font class="tag">load</font><font class="res tag">.jpg</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/screenshut5/65/4d740d5e53e844a99eba17d0434f567a.jpg</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/screenshut6/65/4d740d5e53e844a99eba17d0434f567a.jpg" title="https://appimg.dbankcdn.com/application/screenshut6/65/4d740d5e53e844a99eba17d0434f567a.jpg"></a>
+    <p class="title">09:58:49<font class="tag">load</font><font class="res tag">.jpg</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/screenshut6/65/4d740d5e53e844a99eba17d0434f567a.jpg</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/screenshut4/65/4d740d5e53e844a99eba17d0434f567a.jpg" title="https://appimg.dbankcdn.com/application/screenshut4/65/4d740d5e53e844a99eba17d0434f567a.jpg"></a>
+    <p class="title">09:58:49<font class="tag">load</font><font class="res tag">.jpg</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/screenshut4/65/4d740d5e53e844a99eba17d0434f567a.jpg</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/screenshut3/65/4d740d5e53e844a99eba17d0434f567a.jpg" title="https://appimg.dbankcdn.com/application/screenshut3/65/4d740d5e53e844a99eba17d0434f567a.jpg"></a>
+    <p class="title">09:58:49<font class="tag">load</font><font class="res tag">.jpg</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/screenshut3/65/4d740d5e53e844a99eba17d0434f567a.jpg</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/screenshut2/65/4d740d5e53e844a99eba17d0434f567a.jpg" title="https://appimg.dbankcdn.com/application/screenshut2/65/4d740d5e53e844a99eba17d0434f567a.jpg"></a>
+    <p class="title">09:58:49<font class="tag">load</font><font class="res tag">.jpg</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/screenshut2/65/4d740d5e53e844a99eba17d0434f567a.jpg</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/screenshut1/65/4d740d5e53e844a99eba17d0434f567a.jpg" title="https://appimg.dbankcdn.com/application/screenshut1/65/4d740d5e53e844a99eba17d0434f567a.jpg"></a>
+    <p class="title">09:58:49<font class="tag">load</font><font class="res tag">.jpg</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/screenshut1/65/4d740d5e53e844a99eba17d0434f567a.jpg</p>
+   </div>
+   <div class="box">
+    <a href="https://appimg.dbankcdn.com/application/icon144/65/4d740d5e53e844a99eba17d0434f567a.png" title="https://appimg.dbankcdn.com/application/icon144/65/4d740d5e53e844a99eba17d0434f567a.png"></a>
+    <p class="title">09:58:49<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appimg.dbankcdn.com/application/icon144/65/4d740d5e53e844a99eba17d0434f567a.png</p>
+   </div>
+   <div class="box">
+    <a href="https://web-drcn.hispace.dbankcloud.cn/webAppLink/getAppDownloadUrl" title="https://web-drcn.hispace.dbankcloud.cn/webAppLink/getAppDownloadUrl"></a>
+    <p class="title">09:58:49<font class="tag">load</font></p>
+    <p class="url">https://web-drcn.hispace.dbankcloud.cn/webAppLink/getAppDownloadUrl</p>
+   </div>
+   <div class="box">
+    <a href="https://appgallery.huawei.com/static/agweb/img/ic_navigation_appmarket.png" title="https://appgallery.huawei.com/static/agweb/img/ic_navigation_appmarket.png"></a>
+    <p class="title">09:58:49<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appgallery.huawei.com/static/agweb/img/ic_navigation_appmarket.png</p>
+   </div>
+   <div class="box">
+    <a href="https://web-drcn.hispace.dbankcloud.cn/webAppLink/getAppDownloadUrl" title="https://web-drcn.hispace.dbankcloud.cn/webAppLink/getAppDownloadUrl"></a>
+    <p class="title">09:58:49<font class="tag">load</font></p>
+    <p class="url">https://web-drcn.hispace.dbankcloud.cn/webAppLink/getAppDownloadUrl</p>
+   </div>
+   <div class="box">
+    <a href="https://web-drcn.hispace.dbankcloud.cn/uowap/index?method=internal.getTabDetail&amp;serviceType=20&amp;reqPageNum=1&amp;maxResults=25&amp;uri=app%7CC106588347&amp;shareTo=&amp;currentUrl=https%253A%252F%252Fappgallery.huawei.com%252F%2523%252Fapp%252FC106588347&amp;accessId=&amp;appid=C106588347&amp;zone=&amp;locale=zh" title="https://web-drcn.hispace.dbankcloud.cn/uowap/index?method=internal.getTabDetail&amp;serviceType=20&amp;reqPageNum=1&amp;maxResults=25&amp;uri=app%7CC106588347&amp;shareTo=&amp;currentUrl=https%253A%252F%252Fappgallery.huawei.com%252F%2523%252Fapp%252FC106588347&amp;accessId=&amp;appid=C106588347&amp;zone=&amp;locale=zh"></a>
+    <p class="title">09:58:49<font class="tag">load</font></p>
+    <p class="url">https://web-drcn.hispace.dbankcloud.cn/uowap/index?method=internal.getTabDetail&amp;serviceType=20&amp;reqPageNum=1&amp;maxResults=25&amp;uri=app%7CC106588347&amp;shareTo=&amp;currentUrl=https%253A%252F%252Fappgallery.huawei.com%252F%2523%252Fapp%252FC106588347&amp;accessId=&amp;appid=C106588347&amp;zone=&amp;locale=zh</p>
+   </div>
+   <div class="box">
+    <a href="https://web-drcn.hispace.dbankcloud.cn/strategy/query" title="https://web-drcn.hispace.dbankcloud.cn/strategy/query"></a>
+    <p class="title">09:58:49<font class="tag">load</font></p>
+    <p class="url">https://web-drcn.hispace.dbankcloud.cn/strategy/query</p>
+   </div>
+   <div class="box">
+    <a href="https://appgallery.huawei.com/static/agweb/img/ic_navigation_appmarket.png" title="https://appgallery.huawei.com/static/agweb/img/ic_navigation_appmarket.png"></a>
+    <p class="title">09:58:49<font class="tag">load</font><font class="res tag">.png</font></p>
+    <p class="url">https://appgallery.huawei.com/static/agweb/img/ic_navigation_appmarket.png</p>
+   </div>
+   <div class="box">
+    <a href="https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/v1/token" title="https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/v1/token"></a>
+    <p class="title">09:58:49<font class="tag">load</font></p>
+    <p class="url">https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/v1/token</p>
+   </div>
+   <div class="box">
+    <a href="https://web-drcn.hispace.dbankcloud.cn/uowap/index?method=internal.getTemplate&amp;serviceType=20&amp;zone=&amp;locale=zh" title="https://web-drcn.hispace.dbankcloud.cn/uowap/index?method=internal.getTemplate&amp;serviceType=20&amp;zone=&amp;locale=zh"></a>
+    <p class="title">09:58:49<font class="tag">load</font></p>
+    <p class="url">https://web-drcn.hispace.dbankcloud.cn/uowap/index?method=internal.getTemplate&amp;serviceType=20&amp;zone=&amp;locale=zh</p>
+   </div>
+   <div class="box">
+    <a href="https://web-drcn.hispace.dbankcloud.cn/strategy/query" title="https://web-drcn.hispace.dbankcloud.cn/strategy/query"></a>
+    <p class="title">09:58:49<font class="tag">load</font></p>
+    <p class="url">https://web-drcn.hispace.dbankcloud.cn/strategy/query</p>
+   </div>
+   <div class="box">
+    <a href="https://web-drcn.hispace.dbankcloud.cn/userauth/loginWithSessionId.action?childForbidden=1&amp;zone=&amp;locale=zh" title="https://web-drcn.hispace.dbankcloud.cn/userauth/loginWithSessionId.action?childForbidden=1&amp;zone=&amp;locale=zh"></a>
+    <p class="title">09:58:49<font class="tag">load</font><font class="res tag">.action</font></p>
+    <p class="url">https://web-drcn.hispace.dbankcloud.cn/userauth/loginWithSessionId.action?childForbidden=1&amp;zone=&amp;locale=zh</p>
+   </div>
+   <div class="box">
+    <a href="https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/v1/token" title="https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/v1/token"></a>
+    <p class="title">09:58:48<font class="tag">load</font></p>
+    <p class="url">https://connect-drcn.dbankcloud.cn/agc/apigw/oauth2/v1/token</p>
+   </div>
+   <div class="box">
+    <a href="https://statres.quickapp.cn/quickapp/js/routerinline.min.js" title="https://statres.quickapp.cn/quickapp/js/routerinline.min.js"></a>
+    <p class="title">09:58:48<font class="tag">load</font><font class="res tag">.js</font></p>
+    <p class="url">https://statres.quickapp.cn/quickapp/js/routerinline.min.js</p>
+   </div>
+   <div class="box">
+    <a href="https://appportal-drcn.dbankcdn.cn/static/agweb/2022101911/js/0.d4449b052b4f040962ab.js" title="https://appportal-drcn.dbankcdn.cn/static/agweb/2022101911/js/0.d4449b052b4f040962ab.js"></a>
+    <p class="title">09:58:48<font class="tag">load</font><font class="res tag">.js</font></p>
+    <p class="url">https://appportal-drcn.dbankcdn.cn/static/agweb/2022101911/js/0.d4449b052b4f040962ab.js</p>
+   </div>
+   <div class="box">
+    <a href="https://appportal-drcn.dbankcdn.cn/static/agweb/2022101911/js/1.64e6373ac2188785d029.js" title="https://appportal-drcn.dbankcdn.cn/static/agweb/2022101911/js/1.64e6373ac2188785d029.js"></a>
+    <p class="title">09:58:48<font class="tag">load</font><font class="res tag">.js</font></p>
+    <p class="url">https://appportal-drcn.dbankcdn.cn/static/agweb/2022101911/js/1.64e6373ac2188785d029.js</p>
+   </div>
+   <div class="box">
+    <a href="https://appportal-drcn.dbankcdn.cn//static/agweb/2022101911/js/app.603e10e48937453b5136.js" title="https://appportal-drcn.dbankcdn.cn//static/agweb/2022101911/js/app.603e10e48937453b5136.js"></a>
+    <p class="title">09:58:47<font class="tag">load</font><font class="res tag">.js</font></p>
+    <p class="url">https://appportal-drcn.dbankcdn.cn//static/agweb/2022101911/js/app.603e10e48937453b5136.js</p>
+   </div>
+   <div class="box">
+    <a href="https://appportal-drcn.dbankcdn.cn//static/agweb/2022101911/js/vendor.426bdc6748cfaccf0992.js" title="https://appportal-drcn.dbankcdn.cn//static/agweb/2022101911/js/vendor.426bdc6748cfaccf0992.js"></a>
+    <p class="title">09:58:47<font class="tag">load</font><font class="res tag">.js</font></p>
+    <p class="url">https://appportal-drcn.dbankcdn.cn//static/agweb/2022101911/js/vendor.426bdc6748cfaccf0992.js</p>
+   </div>
+   <div class="box">
+    <a href="https://appportal-drcn.dbankcdn.cn//static/agweb/2022101911/js/vendor_element-ui.232168877ee73036cdc4.js" title="https://appportal-drcn.dbankcdn.cn//static/agweb/2022101911/js/vendor_element-ui.232168877ee73036cdc4.js"></a>
+    <p class="title">09:58:46<font class="tag">load</font><font class="res tag">.js</font></p>
+    <p class="url">https://appportal-drcn.dbankcdn.cn//static/agweb/2022101911/js/vendor_element-ui.232168877ee73036cdc4.js</p>
+   </div>
+   <div class="box">
+    <a href="https://appgallery1.huawei.com//static/agweb/2022101911/js/manifest.js" title="https://appgallery1.huawei.com//static/agweb/2022101911/js/manifest.js"></a>
+    <p class="title">09:58:45<font class="tag">load</font><font class="res tag">.js</font></p>
+    <p class="url">https://appgallery1.huawei.com//static/agweb/2022101911/js/manifest.js</p>
+   </div>
+   <div class="box">
+    <a href="https://appportal-drcn.dbankcdn.cn//static/agweb/2022101911/css/app.9fab5c22b008d3aad5743dfe58e955aa.css" title="https://appportal-drcn.dbankcdn.cn//static/agweb/2022101911/css/app.9fab5c22b008d3aad5743dfe58e955aa.css"></a>
+    <p class="title">09:58:45<font class="tag">load</font><font class="res tag">.css</font></p>
+    <p class="url">https://appportal-drcn.dbankcdn.cn//static/agweb/2022101911/css/app.9fab5c22b008d3aad5743dfe58e955aa.css</p>
+   </div>
+   <div class="box">
+    <a href="https://appgallery.huawei.com/static/common/eruda/ErudaUtil.js" title="https://appgallery.huawei.com/static/common/eruda/ErudaUtil.js"></a>
+    <p class="title">09:58:45<font class="tag">load</font><font class="res tag">.js</font></p>
+    <p class="url">https://appgallery.huawei.com/static/common/eruda/ErudaUtil.js</p>
+   </div>
+   <div class="box">
+    <a href="https://appgallery.huawei.com/static/agweb/env.js" title="https://appgallery.huawei.com/static/agweb/env.js"></a>
+    <p class="title">09:58:44<font class="tag">load</font><font class="res tag">.js</font></p>
+    <p class="url">https://appgallery.huawei.com/static/agweb/env.js</p>
+   </div>
+   <div class="box">
+    <a href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" title="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap"></a>
+    <p class="title">09:58:44<font class="tag">load</font></p>
+    <p class="url">https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap</p>
+   </div>
+   <script type="text/javascript">function getDomain(a){var b=a.split("/"),c="";return a.indexOf("://")>-0&&b.length>2&&""!=b[2]&&(c=b[2]),c}function boldDomain(){var b,c,d,a=document.getElementsByClassName("url");for(d=a.length-1;d>=0;d--)b=a[d].innerHTML,c=getDomain(b),""!=c&&(a[d].innerHTML=b.replace(c,"<b>"+c+"</b>"))}boldDomain();function filterChange(){var filter=document.getElementById("filter");var filterValue=filter.options[filter.selectedIndex].value;var inverted=filterValue.length>0&&filterValue.charAt(0)=="~";if(inverted){filterValue=filterValue.substring(1)}var rules=filterValue.split("|");var es=document.getElementsByClassName("box");var temp;var show;for(var i=0,size=es.length;i<size;i++){temp=es[i].getElementsByClassName("title")[0].innerHTML;show=rules.length<1;for(var j=0,jsize=rules.length;j<jsize;j++){if(temp.indexOf(rules[j])>=0){show=true;break}}es[i].style.display=inverted!=show?"block":"none"}filter.blur()}</script>
+  </div>
+ </body>
+</html>

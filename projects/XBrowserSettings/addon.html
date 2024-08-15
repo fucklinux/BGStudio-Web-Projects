@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Addon</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      
+      <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+     <script src="js/addon.js"></script>
+
+  </head>
+
+  <body>
+    
+    <header class="bar bar-nav">
+      <div class="segmented-control">
+        <a class="control-item active" onclick="loadAddons(0)"><script>_str("web_str_nav_available_addon")</script></a>
+        <a class="control-item" onclick="loadAddons(1)"><script>_str("web_str_nav_installed_addon")</script></a>
+      </div>
+    </header>
+
+    
+    <div class="content" id="main-content">
+      <script>loadAddons(0)</script>
+    </div>
+  </body>
+</html>

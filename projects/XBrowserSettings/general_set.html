@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>基本设置</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+    <link href="mbrowser.css" rel="stylesheet">
+
+    
+    <script src="js/ratchet.js"></script>
+    <script src="mbrowser.js"></script>
+
+</head>
+
+<script>function updateToggleStatus(){document.querySelector("#keep-screen-on").addEventListener("toggle",function(e){mbrowser.keepScreenOn(e.detail.isActive)}),mbrowser.getBooleanPreference("keep-screen-on")?document.querySelector("#keep-screen-on").classList.add("active"):document.querySelector("#keep-screen-on").classList.remove("active"),document.querySelector("#follow-sys-dark-mode").addEventListener("toggle",function(e){mbrowser.makeFollowSysDarkMode(e.detail.isActive)}),mbrowser.getBooleanPreference("follow-sys-dark-mode")?document.querySelector("#follow-sys-dark-mode").classList.add("active"):document.querySelector("#follow-sys-dark-mode").classList.remove("active"),document.querySelector("#disable-search-suggestion").addEventListener("toggle",function(e){mbrowser.disableSearchSuggestion(e.detail.isActive)}),mbrowser.getBooleanPreference("disable-search-suggestion")?document.querySelector("#disable-search-suggestion").classList.add("active"):document.querySelector("#disable-search-suggestion").classList.remove("active"),document.querySelector("#force-open-in-bg").addEventListener("toggle",function(e){mbrowser.forceOpenInBg(e.detail.isActive)}),mbrowser.getBooleanPreference("force-open-in-bg")?document.querySelector("#force-open-in-bg").classList.add("active"):document.querySelector("#force-open-in-bg").classList.remove("active"),document.querySelector("#force-open-in-new-tab").addEventListener("toggle",function(e){mbrowser.forceOpenInNewTab(e.detail.isActive)}),mbrowser.getBooleanPreference("force-open-in-new-tab")?document.querySelector("#force-open-in-new-tab").classList.add("active"):document.querySelector("#force-open-in-new-tab").classList.remove("active"),document.querySelector("#open-search-in-new-tab").addEventListener("toggle",function(e){mbrowser.showSearchResOnNewTab(e.detail.isActive)}),mbrowser.getBooleanPreference("open-search-in-new-tab")?document.querySelector("#open-search-in-new-tab").classList.add("active"):document.querySelector("#open-search-in-new-tab").classList.remove("active"),document.querySelector("#confirm-when-close-tabs").addEventListener("toggle",function(e){mbrowser.confirmWhenCloseTabs(e.detail.isActive)}),mbrowser.getBooleanPreference("confirm-when-close-tabs")?document.querySelector("#confirm-when-close-tabs").classList.add("active"):document.querySelector("#confirm-when-close-tabs").classList.remove("active"),document.querySelector("#close-tab-in-order").addEventListener("toggle",function(e){mbrowser.closeTabInOrder(e.detail.isActive)}),mbrowser.getBooleanPreference("close-tab-in-order")?document.querySelector("#close-tab-in-order").classList.add("active"):document.querySelector("#close-tab-in-order").classList.remove("active"),document.querySelector("#confirm-when-close-tabs").addEventListener("toggle",function(e){mbrowser.confirmWhenCloseTabs(e.detail.isActive)}),mbrowser.getBooleanPreference("confirm-when-close-tabs")?document.querySelector("#confirm-when-close-tabs").classList.add("active"):document.querySelector("#confirm-when-close-tabs").classList.remove("active"),document.querySelector("#use-public-download-dir").addEventListener("toggle",function(e){mbrowser.usePublicDownloadDir(e.detail.isActive),(e=document.querySelector("#current-dir"))&&(e.innerHTML=mbrowser.getStringResource("web_str_current_download_dir")+"\n"+mbrowser.getDownloadDir())}),mbrowser.getBooleanPreference("use-public-download-dir")?document.querySelector("#use-public-download-dir").classList.add("active"):document.querySelector("#use-public-download-dir").classList.remove("active"),document.querySelector("#show-confirm-dlg-on-exit").addEventListener("toggle",function(e){mbrowser.showConfirmDlgOnExit(e.detail.isActive)}),mbrowser.getBooleanPreference("show-confirm-dlg-on-exit")?document.querySelector("#show-confirm-dlg-on-exit").classList.add("active"):document.querySelector("#show-confirm-dlg-on-exit").classList.remove("active"),document.querySelector("#set-as-default-browser").addEventListener("toggle",function(e){mbrowser.makeAsDefaultBrowser(e.detail.isActive)}),mbrowser.isDefaultBrowser()?document.querySelector("#set-as-default-browser").classList.add("active"):document.querySelector("#set-as-default-browser").classList.remove("active")}function native_call_update_download_dir(){var e=document.querySelector("#text-download-dir");e&&(e.innerHTML=mbrowser.getDownloadDir())}function nav_call_update_recovery_tabs_text(){var e=mbrowser.getIntPreference("recovery_tab_type"),r=mbrowser.getStringResource("web_str_setting_open_last_tab"),e=(0==e?r+="<span class='select-hint'>("+mbrowser.getStringResource("recover_tabs")+")</span>":1==e?r+="<span class='select-hint'>("+mbrowser.getStringResource("recover_tabs_query")+")</span>":2==e&&(r+="<span class='select-hint'>("+mbrowser.getStringResource("recover_tabs_never")+")</span>"),document.querySelector("#open-unclose-tab"));e&&(e.innerHTML=r)}function showChangeLanguageOption(){var e;25<=mbrowser.getSdkLevel()&&(e='   <div class="card">\n        <ul class="table-view">\n            <li class="table-view-cell media">\n                <a  class="navigate-right" href="javascript:mbrowser.changeLanguage();">\n                    <div class="media-body">\n'+mbrowser.getStringResource("web_str_change_language")+"                    </div>\n                </a>\n            </li>\n        </ul>\n    </div>",document.write(e))}function showSetDownloadDirOption(){var e;mbrowser.canWritePublicDir()&&(e=' <li class="table-view-cell media">\n                <a  href="javascript:mbrowser.setDownloadDir();">\n                    <div class="media-body">\n'+mbrowser.getStringResource("web_str_set_download_dir")+'                   </div>\n                   <p id="text-download-dir">\n'+mbrowser.getDownloadDir()+"                   </p>\n                 </a>\n                 </li>\n",document.write(e))}function restoreDefaultDownloader(){mbrowser.restoreDefaultDownloader();var e=document.querySelector("#current-downloader");e&&(e.innerHTML=mbrowser.getCurrentDownloaderName())}function showDisplayHotwordInSearchBarOption(){mbrowser.supportHotWords()&&(document.write('<li class="table-view-cell">'),_str("web_str_disable_search_bar_hotwrod"),document.write('<div id="disable-search-bar-hotword" class="toggle">'),document.write('<div class="toggle-handle"></div>'),document.write("</div>"),document.write("</li>"),document.querySelector("#disable-search-bar-hotword").addEventListener("toggle",function(e){mbrowser.disableSearchBarHotWord(e.detail.isActive)}),mbrowser.getBooleanPreference("disable-search-bar-hotword")?document.querySelector("#disable-search-bar-hotword").classList.add("active"):document.querySelector("#disable-search-bar-hotword").classList.remove("active"))}function showFlowSystemDarkModeOption(){document.write('<li class="table-view-cell">'),_str("web_str_setting_flow_system_dark_mode"),document.write('<div id="follow-sys-dark-mode" class="toggle">'),document.write('<div class="toggle-handle"></div>'),document.write("</div>"),document.write("</li>")}document.addEventListener("DOMContentLoaded",updateToggleStatus,!1)</script>
+
+<body>
+
+
+<header class="bar bar-nav">
+    <h1 id="element" class="title"><script>_str("web_str_set_general")</script>基本设置</h1>
+</header>
+
+
+<div class="content">
+
+    <div class="card">
+        <ul class="table-view">
+
+            <li class="table-view-cell media">
+                <a href="javascript:mbrowser.chooseScreenRotation();">
+                    <div class="media-body">
+                        <script>_str("web_str_screen_rotation")</script>屏幕旋转
+                    </div>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <script>_str("web_str_setting_keep_screen_on")</script>保持屏幕常亮
+                <div id="keep-screen-on" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+            <li class="table-view-cell media">
+                <a href="javascript:mbrowser.adjustFontSize();">
+                    <div class="media-body">
+                        <script>_str("web_str_adjust_font_size")</script>调整字体大小
+                    </div>
+                </a>
+            </li>
+
+            <li class="table-view-cell media">
+                <a href="javascript:mbrowser.adjustBrightness();">
+                    <div class="media-body">
+                        <script>_str("web_str_adjust_brightness")</script>调整屏幕亮度
+                    </div>
+                </a>
+            </li>
+            
+            <li class="table-view-cell">
+                <script>_str("web_str_show_flow_system_dark_mode_option")</script>跟随系统黑暗模式设定
+                <div id="disable-search-suggestion" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+
+
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell media">
+                <a class="navigate-right" href="javascript:mbrowser.chooseSearchEngine();">
+                    <div class="media-body">
+                        <script>_str("web_str_setting_switch_search")</script>切换搜索引擎
+                    </div>
+                </a>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_setting_disable_search_sug")</script>禁用搜索建议
+                <div id="disable-search-suggestion" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+            
+            <li class="table-view-cell">
+                <script>_str("web_str_show_display_hotword_in_search_bar_option")</script>搜索栏不显示热词
+                <div id="show_display_hotword_in_search_bar_option" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <a class="navigate-right" href="javascript:mbrowser.setRecoveryTabsType();">
+                    <div id="open-unclose-tab" class="media-body">
+                        <script>nav_call_update_recovery_tabs_text()</script>启动恢复上次未关闭标签(开启)
+                    </div>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <script>_str("web_str_setting_force_open_bg")</script>强制在后台打开链接
+                <div id="force-open-in-bg" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+            <li class="table-view-cell">
+                <script>_str("web_str_setting_force_open_in_new_tab")</script>强制在新标签中打开链接
+                <div id="force-open-in-new-tab" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+            <li class="table-view-cell">
+                <script>_str("web_str_setting_show_search_res_on_new_tab")</script>在新标签中打开搜索结果
+                <div id="open-search-in-new-tab" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_confirm_when_close_tabs")</script>关闭所有标签时进行确认
+                <div id="confirm-when-close-tabs" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_close_tab_in_order")</script>返回标签按照打开顺序
+                <div id="close-tab-in-order" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <p>
+                    <script>_str("web_str_close_tab_in_order_desc")</script>关闭当前标签是返回其父标签还是按照标签的打开顺序依次返回
+                </p>
+            </li>
+
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell media">
+                <a href="javascript:mbrowser.chooseScreenRotation();" class="navigate-right">
+                    <div class="media-body">
+                        <script>_str("web_str_show_change_language_option")</script>切换语言
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <script>_str("web_str_use_public_download_dir")</script>下载到手机公共下载目录
+                <div id="use-public-download-dir" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+                <div class="media-body">
+                    <p id="current-dir" style="word-wrap:break-word">
+                        <script>document.write(mbrowser.getStringResource("web_str_current_download_dir")+"\n"+mbrowser.getDownloadDir())</script>当前下载目录:<br>/storage/emulated/0/Download
+                    </p>
+                </div>
+            </li>
+            <li class="table-view-cell media">
+                <script>document.write(mbrowser.getStringResource("web_str_current_downloader"))</script>当前下载器<p id="current-downloader"><script>document.write(mbrowser.getCurrentDownloaderName())</script>默认下载器</p>
+                <button id="set-home-page" onclick="restoreDefaultDownloader()" class="btn btn-positive pull-right"><script>_str("web_str_restore_default")</script>恢复默认</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <script>_str("web_str_setting_show_confirm_on_exit")</script>退出浏览器显示确认对话框
+                <div id="show-confirm-dlg-on-exit" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+            <li class="table-view-cell">
+                <script>_str("web_str_set_as_default_browser")</script>设置为默认浏览器
+                <div id="set-as-default-browser" class="toggle">
+                    <div class="toggle-handle"></div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+
+
+</div>
+
+
+</body>
+</html>

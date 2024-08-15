@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>菜单设置</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+    <link href="mbrowser.css" rel="stylesheet">
+
+    
+
+    <script src="mbrowser.js"></script>
+    <script src="js/slip.js"></script>
+    <script src="js/ratchet.js"></script>
+
+</head>
+<style>.table-view-cell{position:relative;padding:20px 65px 20px 15px;overflow:hidden;border-bottom:1px solid #ddd}.table-view-cell>.instant::after{content:" \2261 "}.table-view-cell>.instant{float:right;display:inline-block padding: 6px 8px 7px;margin-bottom:0;font-size:20px;font-weight:400;line-height:1;color:#333;text-align:center;white-space:nowrap}.table-view-cell>.instant{position:absolute;top:35%;right:15px}</style>
+
+<body>
+
+<script>function loadPage(n){var e=loadMenuConf(n);new Slip(e),e.addEventListener("slip:beforeswipe",function(e){e.preventDefault()}),e.addEventListener("slip:beforereorder",function(e){mbrowser.lockScroll(!0)}),e.addEventListener("slip:reorder",function(e){e.detail.direction;var t=parseInt(e.target.getAttribute("item-order")),r=parseInt(e.detail.dragTarget.getAttribute("item-order"));e.detail.insertBefore?e.target.parentNode.insertBefore(e.target,e.detail.insertBefore):e.target.parentNode.appendChild(e.target),saveMenuConfig(n,this),console.log("confItems len:"+confItems.length+"item-order: src:"+t+"dest:"+r),mbrowser.lockScroll(!1)})}</script>
+
+
+<header class="bar bar-nav">
+
+    <div class="segmented-control">
+        <a class="control-item active" onclick='loadPage("main_menu")'><script>_str("web_str_set_main_menu")</script>主菜单</a>
+        <a class="control-item" onclick='loadPage("tool_menu")'><script>_str("web_str_set_tool_menu")</script>页面工具菜单</a>
+        <a class="control-item" onclick='loadPage("context_menu")'><script>_str("web_str_set_context_menu")</script>长按菜单</a>
+        
+    </div>
+</header>
+
+<div class="content">
+    <script>checkTips(105)</script>
+    <div id="main-content">
+
+        <script>loadPage("main_menu")</script>
+    </div>
+</div>
+
+
+
+</body>
+</html>

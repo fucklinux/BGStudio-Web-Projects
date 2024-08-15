@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>拦截日志</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+      
+
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      
+      <script src="mbrowser.js"></script>
+
+
+    <script>function loadAdbLogs(e,t,r){var o=document.querySelector(".content"),l=(0==r&&(o.innerHTML=""),JSON.parse(mbrowser.getAdbLogs(e,t,r)));if(0<l.length){var a=document.createElement("ul");a.setAttribute("id","log-list"),a.setAttribute("class","table-view my-list");for(var i=0;i<l.length;i++){item=document.createElement("li"),item.setAttribute("class","table-view-cell my-cell");var n=mbrowser.getStringResource("btn_text_allow"),s="word-wrap: break-word;",d="word-wrap: break-word; text-decoration: line-through",d=l[i].disabled?(n=mbrowser.getStringResource("btn_text_block"),s="word-wrap: break-word; text-decoration: line-through","word-wrap: break-word;"):(n=mbrowser.getStringResource("btn_text_allow"),s="word-wrap: break-word;","word-wrap: break-word; text-decoration: line-through"),s='<p class="rule-text" style="'+s+'">'+mbrowser.getStringResource("web_str_adb_rule")+l[i].rule+"</p>",b="<p>"+mbrowser.getStringResource("web_str_adb_hit_times")+l[i].hit_times+"</p>",d='<div><p class="block-url" style="'+d+'">'+l[i].block_url+"</p><div>",n='<button  rule-hash="'+l[i].rule_hash+'"  rule-disabled='+l[i].disabled+'  class="btn btn-positive pull-right">'+n+"</button>",n=(item.innerHTML='<div class="media-body">'+l[i].origin_host+"</div>"+n+(s+b+d),item.querySelector("button"));n&&n.addEventListener("click",function(e){var e=e.target,t=e.getAttribute("rule-hash"),r=e.getAttribute("rule-disabled"),o=e.parentElement,l=o.querySelector(".rule-text"),o=o.querySelector(".block-url");"true"==r?(mbrowser.disableRule(t,!1),e.setAttribute("rule-disabled","false"),e.innerHTML=mbrowser.getStringResource("btn_text_allow"),l.style="word-wrap: break-word;",o.style="word-wrap: break-word; text-decoration: line-through"):(mbrowser.disableRule(t,!0),e.innerHTML=mbrowser.getStringResource("btn_text_block"),l.style="word-wrap: break-word; text-decoration: line-through",o.style="word-wrap: break-word;",e.setAttribute("rule-disabled","true"))}),a.appendChild(item)}o.appendChild(a)}else{e=document.createElement("div");e.setAttribute("class","content-placeholder"),e.innerHTML="No Data",o.appendChild(e)}}function native_call_clear_adb_logs(){var e=document.querySelector(".content");e&&(e.innerHTML="")}</script>
+
+  </head>
+
+
+  <body>
+
+    
+     <header class="bar bar-nav">
+
+      <h1 id="element" class="title"><script>_str("web_str_adb_log")</script>拦截日志</h1>
+      
+         <a href="javascript:mbrowser.removeBlockLogs();" id="btn-clean-his" class="btn pull-right"><script>_str("web_str_clean_history")</script>清除</a>
+
+    </header>
+
+    
+
+    <div class="content">
+
+
+
+
+    </div>
+
+    <script type="text/javascript">var filter=(filter=getQueryString("filter"))||"all",count=(mbrowser.log("filter:"+filter),mbrowser.getCountAdbLogs()),offset=0,page_size=50,page_count=1,keyword="";page_size<count&&enable_listen_scroll(),window.addEventListener("scroll",function(){var e=window.scrollY,o=window.innerHeight;document.body.scrollHeight-2<=e+o&&(offset=page_size*page_count)<count&&(loadAdbLogs(filter,page_size,offset),page_count++)}),loadAdbLogs(filter,page_size,offset)</script>
+
+  </body>
+</html>

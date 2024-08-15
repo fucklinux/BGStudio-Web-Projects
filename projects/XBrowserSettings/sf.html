@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New script</title>
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+      
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+
+  </head>
+
+  <script>function nav_call_set_expoint(e){var t=document.querySelector("#extra");t&&(t.value=e)}function chooseExPoint(){var e=document.querySelector("#extra"),t="";e&&(t=e.value),mbrowser.chooseExpoint(t)}function show_form(){var e='            <form>\n                <input id="script_id" type="hidden" value="" />\n                <input id="title" type="text" placeholder="'+mbrowser.getStringResource("web_str_script_name")+'">\n                <textarea id="script_desc" rows="3" placeholder="'+mbrowser.getStringResource("web_str_script_desc")+'"></textarea>\n                <input id="create_by" type="text" placeholder="'+mbrowser.getStringResource("web_str_script_create_by")+'">\n                <input id="extra" type="hidden" value="" />\n                <textarea id="script_data" rows="7"  placeholder="'+mbrowser.getStringResource("web_str_script_code")+'"></textarea>\n            </form>\n            <button onclick="chooseExPoint()" class="btn btn-block">'+mbrowser.getStringResource("web_str_set_ex_point")+'</button>\n            <button onclick="submitScriptForm()" class="btn btn-positive btn-block">'+mbrowser.getStringResource("web_str_save")+"</button>";document.write(e)}function submitScriptForm(){var e,t=document.querySelector("#script_id"),r=document.querySelector("#title"),o=document.querySelector("#script_desc"),c=document.querySelector("#create_by"),n=document.querySelector("#script_data"),i=document.querySelector("#extra");""!=name.value&&""!=n.value?((e={}).resource_id=t.value,e.title=r.value,e.description=o.value,e.nick_name=c.value,e.content=n.value,i&&(e.extra=i.value),mbrowser.addNewScript(JSON.stringify(e))):mbrowser.showToast("form value not allow empty")}function bindScriptForm(e){var t=JSON.parse(mbrowser.getUserScriptByJson(e)),e=document.querySelector("#script_id"),r=document.querySelector("#title"),o=document.querySelector("#script_desc"),c=document.querySelector("#create_by"),n=document.querySelector("#script_data"),i=document.querySelector("#extra");e&&(e.value=t.script_id),r&&(r.value=t.title),o&&(o.value=t.script_desc),c&&(c.value=t.create_by),n&&(n.value=t.script_data),i&&(i.value=t.ex_point)}</script>
+  <body>
+    
+     <header class="bar bar-nav">
+
+      <h1 class="title"><script>_str("web_str_title_newscript")</script></h1>
+         
+         
+    </header>
+
+    
+    <div class="content">
+        <div class="edit-form control-content active">
+            <script>show_form()</script>
+        </div>
+    </div>
+    <script>var script_id=getQueryString("script_id");script_id&&bindScriptForm(script_id)</script>
+  </body>
+</html>

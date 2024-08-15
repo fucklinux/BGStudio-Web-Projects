@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Download List</title>
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+      
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      <link href="css/progress.css" rel="stylesheet">
+      
+      <script src="js/ratchet.js"></script>
+      <script src="js/progress.js"></script>
+      <script src="mbrowser.js"></script>
+      <script src="js/slip.js"></script>
+
+  </head>
+
+  <body>
+
+    
+     <header class="bar bar-nav">
+
+      <h1 class="title"><script>_str("web_str_title_download")</script></h1>
+         <a href="javascript:mbrowser.openDownloadDir()" id="btn-open-dir" class="btn pull-left"><script>_str("web_str_open_dl_dir")</script></a>
+         <a href="javascript:mbrowser.removeAllDownloads();" id="btn-clean-dl" class="btn pull-right"><script>_str("web_str_clean_download")</script></a>
+    </header>
+
+    
+    <div class="content">
+
+      <ul id="dl-list" class="table-view my-list">
+      </ul>
+        
+
+    </div>
+
+    <script type="text/javascript">loadDownloads(),updateProgress()</script>
+
+  </body>
+</html>

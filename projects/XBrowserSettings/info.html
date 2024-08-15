@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>appinfo</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+      <script src="js/info.js"></script>
+
+  </head>
+  <body>
+    
+    <header class="bar bar-nav">
+      <h1 class="title"><script>_str("web_str_browser_info")</script></h1>
+      
+    </header>
+    
+    <div class="content">
+
+
+      <ul id="rl-list" class="table-view">
+            <script>document.write(mbrowser.getBrowsreInfo())</script>
+          <li class="table-view-cell">Browser UserAgent:
+            <p><script>document.write(navigator.userAgent)</script></p>
+          </li>
+
+        <li class="table-view-cell">
+          Auto cut home bg image
+          <div id="auto-cut-home-bg-img" class="toggle">
+            <div class="toggle-handle"></div>
+          </div>
+        </li>
+
+        <li class="table-view-cell media">
+          Reset gesture unlock password<button id="reset-unlock-passwd" onclick="mbrowser.resetUnlockPasswd()" class="btn btn-positive pull-right">Reset</button>
+        </li>
+
+        <li class="table-view-cell media">
+          Revert closed tabs
+          <button id="revert-all-tables" onclick="mbrowser.revertAllTabs()" class="btn btn-positive pull-right">Revert</button>
+        </li>
+      </ul>
+
+
+
+    </div>
+
+
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>添加自定义UA字符串</title>
+
+      
+      <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+      
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      
+
+      <link href="css/ratchet.css" rel="stylesheet">
+      <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+
+  </head>
+
+  <script>var g_uaItems,g_action,g_current_item;function newItem(){g_action="add",update_form_text(),open_dialog("#new-ua-string")}function removeItem(e){var t=mbrowser.getStringResource("del_select_item_confrim");confirm(t)&&((t=document.querySelector("#"+e))&&t.parentNode.removeChild(t),mbrowser.removeCustomUA(e))}function getItemById(e){for(i=0;i<g_uaItems.length;i++){var t=g_uaItems[i];if(t.id==e)return t}return null}function editItem(e){g_action="edit",update_form_text(),g_current_item=getItemById(e),open_dialog("#new-ua-string"),document.querySelector("#ua-title").value=g_current_item.title,document.querySelector("#ua-string").value=g_current_item.ua_string}function update_form_text(){var e=document.querySelector("#form-title"),t=document.querySelector("#form-btn");"edit"==g_action?(e.innerHTML=mbrowser.getStringResource("web_str_edit_custom_ua"),t.innerHTML=mbrowser.getStringResource("web_str_btn_ok")):(e.innerHTML=mbrowser.getStringResource("web_str_add_custom_ua"),t.innerHTML=mbrowser.getStringResource("web_str_btn_text_add"))}function loadCustomUaString(){var e=document.querySelector("#main-content"),t=(e.innerHTML="",g_uaItems=JSON.parse(mbrowser.getCustomUAStrings()),document.createElement("ul"));for(t.setAttribute("class","table-view my-list"),e.appendChild(t),i=0;i<g_uaItems.length;i++){var r=document.createElement("li"),n=g_uaItems[i].id;r.setAttribute("class","table-view-cell my-cell"),r.setAttribute("style","padding: 11px 15px 11px 15px;"),r.setAttribute("id",n),n=g_uaItems[i].title+"\n<p>"+g_uaItems[i].ua_string+"</p>\n<div style= 'margin-top: 10px;'><button onclick=\"editItem('"+n+"')\" class='btn btn-positive pull-right' style='margin-left: 10px;'>"+mbrowser.getStringResource("web_str_btn_edit")+"</button><button onclick=\"removeItem('"+n+"')\" class='btn btn-positive pull-right' >"+mbrowser.getStringResource("web_str_btn_delete")+"</button><div>",r.innerHTML=n,t.appendChild(r)}}function updateOrNewCustomUAString(){var e,t,r=document.getElementById("ua-title").value;r?(e=document.getElementById("ua-string").value,(t=document.getElementById("new-ua-string"))&&(console.log("do close mode dialog"),t.classList.remove("active")),"add"==g_action?((t=new Object).title=r,t.ua_string=e,t.id=mbrowser.dataToItemId(e),g_uaItems.push(t)):"edit"==g_action&&(g_current_item.title=r,g_current_item.ua_string=e,g_current_item.id=mbrowser.dataToItemId(e)),mbrowser.addCustomUAString(JSON.stringify(g_uaItems)),document.getElementById("ua-title").value="",document.getElementById("ua-string").value="",loadCustomUaString()):mbrowser.showToast("Please input title")}</script>
+
+  <body>
+
+
+    <header class="bar bar-nav">
+
+        <h1 id="element" class="title"><script>_str("web_str_add_custom_ua")</script>添加自定义UA字符串</h1>
+        
+        <a href="javascript:newItem()" id="btn-clean-his" class="btn pull-right"><script>_str("web_str_btn_new")</script>新增</a>
+    </header>
+
+    
+    <div class="content" id="main-content">
+     <script>loadCustomUaString()</script>
+    </div>
+
+
+
+    <div id="new-ua-string" class="modal">
+        <header class="bar bar-nav">
+            <a id="close-btn" class="icon icon-close pull-right" href="#new-ua-string"></a>
+            <h1 id="form-title" class="title"><script>_str("web_str_add_custom_ua")</script></h1>
+        </header>
+
+        <div class="content">
+            <div class="edit-form">
+
+
+                <input id="ua-title" type="text" placeholder="Title">
+                <textarea id="ua-string" rows="5"></textarea>
+
+                <button id="form-btn" onclick="updateOrNewCustomUAString()" class="btn btn-positive btn-block"><script>_str("web_str_btn_text_add")</script></button>
+
+            </div>
+        </div>
+    </div>
+
+
+  </body>
+
+
+
+
+
+</html>

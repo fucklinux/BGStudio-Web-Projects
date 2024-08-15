@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bookmarks</title>
+
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+    <link href="css/ratchet.css" rel="stylesheet">
+
+
+    <link href="css/ratchet-theme-ios.min.css" rel="stylesheet">
+      <link href="mbrowser.css" rel="stylesheet">
+
+      
+      <script src="js/ratchet.js"></script>
+      <script src="mbrowser.js"></script>
+      <script src="js/slip.js"></script>
+      <script src="js/H5lock.js"></script>
+
+    <style>.bar .pop_menu{width:30px;height:100%;padding-top:8px;padding-bottom:5px;padding-right:0;padding-left:0}</style>
+  </head>
+  <script>var g_current_action,g_current_id,g_current_flag,g_current_dir_url;function add_new_bm_node(t,e,r,a,n){var i=document.createElement("li");i.setAttribute("id",e),i.setAttribute("data-title",r),i.setAttribute("data-url",a),i.setAttribute("data-type",n),i.setAttribute("class","table-view-cell-ex"),i.innerHTML=1==n?'<a href="x:bookmark?path='+a+'" class="navigate-right"> <span class="media-object pull-left x-icon iconfont icon-dir"></span><div class="x-icon">'+r+"</div></a>":'<a href="'+a+'"> <span class="item-icon pull-left x-icon icon icon-star"></span><div class="media-body">'+r+"<p>"+a+"</p></div></a>",t.appendChild(i)}function native_call_add_bm_node(t,e,r,a){var n,i=document.querySelector("#bm-list");i?add_new_bm_node(i,t,e,r,a):((n=document.querySelector("#list-container")).innerHTML="",(i=document.createElement("ul")).setAttribute("class","table-view"),i.setAttribute("id","bm-list"),add_new_bm_node(i,t,e,r,a),n.appendChild(i))}function open_bookmark_dir(t,e){var r=document.querySelector("#"+t);r&&(4==(4&(r=r.getAttribute("data-status")))?(g_current_action="open-priv-dir",g_current_id=t,g_current_flag=r,g_current_dir_url=e,(mbrowser.hasUnlocked()?do_action:open_lock_panel)()):window.location.href=e)}function do_action(){"set-priv-dir"==g_current_action?add_item_flag(g_current_id,g_current_flag):"cancel-priv-dir"==g_current_action?clean_item_flag(g_current_id,g_current_flag):"open-priv-dir"==g_current_action&&(window.location.href=g_current_dir_url)}function nav_call_add_item_flag(t,e){g_current_action="set-priv-dir",g_current_id=t,g_current_flag=e,(mbrowser.hasUnlocked()?do_action:open_lock_panel)()}function nav_call_clean_item_flag(t,e){g_current_action="cancel-priv-dir",g_current_id=t,g_current_flag=e,(mbrowser.hasUnlocked()?do_action:open_lock_panel)()}function add_item_flag(t,e){var r,a,t=document.querySelector("#"+t);t&&(a=t.getAttribute("data-status"),r=t.getAttribute("data-url"),t.setAttribute("data-status",a|e),(a=t.querySelector("a"))&&(4==(4&e)?(a.setAttribute("class","navigate-right-with-lock"),mbrowser.addBookmarkItemFlag(r,e)):a.setAttribute("class","navigate-right")))}function clean_item_flag(t,e){var r,a,t=document.querySelector("#"+t);t&&(a=t.getAttribute("data-status"),r=t.getAttribute("data-url"),t.setAttribute("data-status",a&~e),(a=t.querySelector("a"))&&4==(4&e)&&(a.setAttribute("class","navigate-right"),mbrowser.cleanBookmarkItemFlag(r,e)))}function writeCurrentTitle(){var t=getQueryString("sort");"date"==(t=t||mbrowser.getConfigValue("bm_order","default"))?_str("web_str_order_by_date"):"name"==t?_str("web_str_order_by_name"):"type"==t?_str("web_str_order_type"):_str("web_str_order_default")}function change_order(t,e){t="x:bm?path="+t+"&sort="+e;mbrowser.setConfigValue("bm_order",e),window.location=t}function on_search(t){keyword=t.target.value,console.log("do search with key:"+keyword),loadBookmarks(keyword,path,sort),bind_reorder_event()}function bind_reorder_event(){var t=document.querySelector("ul#bm-list");new Slip(t,{supportSwipe:!1}),t.addEventListener("slip:swipe",function(t){t.target.parentNode.removeChild(t.target),mbrowser.removeBookmark(t.target.getAttribute("bm-url"))}),t.addEventListener("slip:beforereorder",function(t){mbrowser.isInAdjustmentOderMode()||t.preventDefault()}),t.addEventListener("slip:reorder",function(t){var e,r,a,n,i,o;t.detail.direction&&(e=parseInt(t.target.getAttribute("item-order")),r=parseInt(t.detail.dragTarget.getAttribute("item-order")),a=parseInt(t.target.getAttribute("data-type")),n=parseInt(t.detail.dragTarget.getAttribute("data-type")),i=t.target.getAttribute("item-url"),o=t.detail.dragTarget.getAttribute("timestamp"),2!=t.detail.dragTarget.getAttribute("data-status")&&a==n&&(console.log("item-order: src:"+e+"dest:"+r+"timestamp:"+o),mbrowser.bookmarkNewOrder(i,e,r,o)?(t.detail.insertBefore?t.target.parentNode.insertBefore(t.target,t.detail.insertBefore):t.target.parentNode.appendChild(t.target),syncBookmarkDomNodeOrder(path)):t.preventDefault()))})}function fetchBookmarkItem(t){for(;t.parentNode&&"li"!=t.tagName.toLowerCase();)t=t.parentNode;return t}</script>
+  <body>
+
+
+
+    
+    <header class="bar bar-nav">
+      <a href="#popover">
+        <h1 class="title"><script>writeCurrentTitle()</script>
+          <span class="icon icon-caret"></span>
+        </h1>
+      </a>
+
+      
+      
+
+
+      <div class="bar bar-standard bar-header-secondary">
+        <input id="mysearch" type="search" placeholder="Search" oninput="on_search(event)" onporpertychange="on_search(event)">
+      </div>
+
+      <span onclick="mbrowser.showBookMarkToolMenu(currentPath)" class="pop_menu icon icon-more-vertical pull-right">
+
+
+    </header>
+
+
+    
+    <div class="content" style="margin-top:50px">
+      <script>checkTips(100)</script>
+      <div id="list-container">
+      </div>
+
+    <script type="text/javascript">var keyword="",path=getQueryString("path");null==path&&(path="/");var sort=(sort=getQueryString("sort"))||mbrowser.getConfigValue("bm_order","default"),total=(currentPath=path,loadBookmarks(keyword,path,sort)),status=(bind_reorder_event(),mbrowser.getBookmarkStatus(path));console.log(">>>> path status: "+path+">>>"+status),4==(4&status)&&window.addEventListener("load",function(){mbrowser.hasUnlocked()||(document.querySelector("#close-h5-lock-panel").style.display="none",open_lock_panel())})</script>
+        
+    </div>
+
+
+
+    <div id="popover" class="popover">
+
+      <ul class="table-view">
+        <li class="table-view-cell">
+          <script>document.write("<a href=\"javascript:change_order('"+path+"','default')\">"),_str("web_str_order_default"),"default"==sort&&document.write('<span class="icon icon-check"></span>'),document.write("</a>")</script>
+        </li>
+        <li class="table-view-cell">
+          <script>document.write("<a href=\"javascript:change_order('"+path+"','date')\">"),_str("web_str_order_by_date"),"date"==sort&&document.write('<span class="icon icon-check"></span>'),document.write("</a>")</script>
+        </li>
+        <li class="table-view-cell">
+          <script>document.write("<a href=\"javascript:change_order('"+path+"','name')\">"),_str("web_str_order_by_name"),"name"==sort&&document.write('<span class="icon icon-check"></span>'),document.write("</a>")</script>
+        </li>
+
+      </ul>
+    </div>
+  <script>10<total&&enable_listen_scroll()</script>
+    <div id="dlg-lock-panel" class="modal" style="background-color:#305066">
+      <header class="bar bar-nav">
+        <a id="updatePassword" class="btn pull-left"><script>_str("btn_text_reset")</script></a>
+        <a id="close-h5-lock-panel" class="icon icon-close pull-right" href="javascript:close_lock_panel()"></a>
+        <h1 id="title" class="title"><script>_str("web_str_pls_unlock")</script></h1>
+
+      </header>
+      <div id="lock-panel" class="content" style="background-color:#305066">
+        <script>var obj=new H5lock({chooseType:3,panelId:"lock-panel",_str_set_unlock_pattern_for_first:mbrowser.getStringResource("web_str_set_unlock_pattern_for_first"),_str_passwd_saved:mbrowser.getStringResource("web_str_passwd_saved"),_str_input_not_match:mbrowser.getStringResource("web_str_input_not_match"),_str_unlocked:mbrowser.getStringResource("web_str_unlocked"),_str_unlock_failed:mbrowser.getStringResource("web_str_unlock_failed"),_str_input_again:mbrowser.getStringResource("web_str_input_again"),_str_pls_unlock:mbrowser.getStringResource("web_str_pls_unlock"),_str_draw_unlock_pattern:mbrowser.getStringResource("web_str_draw_unlock_pattern")}),locker=(obj.init(),document.querySelector("#lock-panel"));locker.addEventListener("locker:unlocked",function(){close_lock_panel(),mbrowser.notifyUnlocked(),do_action()})</script>
+
+      </div>
+
+    </div>
+
+
+  </body>
+</html>
