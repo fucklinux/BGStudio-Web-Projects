@@ -27,7 +27,7 @@
         .card {
             width: 95%;
             margin-left: 2.5%;
-            margin-top: 16px;
+            margin-top: 24px;
         }
 
         a,
@@ -53,8 +53,8 @@
 
         @media(min-width:640px) {
             .card {
-                width: 50%;
-                margin-left: 25%;
+                width: 70%;
+                margin-left: 15%;
                 margin-top: 32px;
             }
 
@@ -64,6 +64,13 @@
                 --margin-3-auto: 8px;
                 --padding-auto: 64px 0;
                 --size-auto: 128px;
+            }
+        }
+
+        @media(min-width:960px) {
+            .card {
+                width: 50%;
+                margin-left: 25%;
             }
         }
     </style>
@@ -100,19 +107,20 @@
         <div class="card">
             <div class="mdui-prose">
                 <div style="text-align: center;">
-                    <img src="favicon.png" alt="Burger Studio"
+                    <img src="favicon.png" alt="Burger Studio logo"
                         style="width: var(--size-auto);height: var(--size-auto);margin-bottom: 0 !important;">
                 </div>
                 <div style="margin-top: var(--margin-2-auto);">我是 Burger Studio（BGStudio），一位 Web 前端爱好者，自 2021
                     年初开始做一些小作品。<br>这个站点收集了我的主要作品，留作纪念。<br>整理于 2024 年 8 月 14 日。
                 </div>
                 <br>
-                <mdui-button full-width icon="download" onclick="openPage('https://www.123pan.com/s/eSpzVv-TrBU3');">下载我的作品</mdui-button>
+                <mdui-button full-width icon="download"
+                    onclick="openPage('https://www.123pan.com/s/eSpzVv-TrBU3');">下载我的作品</mdui-button>
                 <br>
                 <mdui-card style="width: 100%;">
                     <mdui-list id="project_list">
                         <div style="text-align: center;margin: 16px 0;">
-                            <mdui-circular-progress></mdui-circular-progress>
+                            <mdui-circular-progress style="margin-top: 6px;"></mdui-circular-progress>
                             <div style="margin-top: 4px;">正在载入作品列表......</div>
                         </div>
                     </mdui-list>
@@ -227,7 +235,8 @@
                     }
                 }
             };
-            getJSON.open("GET", "projects.json", true);
+            // JSON 被修改过，加一个参数用来刷新缓存
+            getJSON.open("GET", "projects.json?c=1", true);
             getJSON.send();
         }
         // 将得到的 JSON 载入作品列表元素
